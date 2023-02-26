@@ -1,0 +1,24 @@
+@use 'public/styles/lib/functions' as *;
+
+.FieldSet {
+  display: flex;
+  flex-direction: column;
+
+  min-width: rem(1);
+  padding: 0;
+  margin: 0;
+
+  border: none;
+
+
+  & + & {
+    margin-top: rem(32);
+  }
+
+
+  &-Label {
+    display: block;
+
+    margin-bottom: rem(20);
+  }
+}

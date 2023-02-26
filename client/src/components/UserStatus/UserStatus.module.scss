@@ -1,0 +1,22 @@
+@use "public/styles/lib/functions" as *;
+@use "public/styles/lib/mixins" as *;
+@use "public/styles/lib/templates" as *;
+
+.UserStatus {
+  @include flex($align-items: center);
+  gap: rem(5);
+
+  &-Status {
+    @include wh(rem(5), rem(5));
+    border-radius: 50%;
+    &--status {
+      &_online {
+        background: var(--Color-Status-Online);
+      }
+
+      &_offline {
+        background: var(--Color-Status-Offline);
+      }
+    }
+  }
+}

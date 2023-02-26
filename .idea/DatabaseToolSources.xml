@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseToolSources">
+    <data-source name="localhost" uuid="e81c568f-8aae-4e68-a1b6-ac07c0157e24" type="MYSQL">
+      <base-info connect-type="DB_DEFAULT" />
+      <user-name>postgres</user-name>
+      <url>jdbc:postgresql://localhost:5433/social_network?serverTimezone=Asia/Aqtobe?serverTimezone=Asia/Aqtobe</url>
+      <remarks />
+      <driver-info id="mysql5" />
+      <ssh-properties enabled="false" />
+      <ssl-config enabled="false">
+        <uuid />
+        <caFile />
+        <clientCertificateFile />
+        <clientKeyFile />
+        <sslMode>REQUIRE</sslMode>
+      </ssl-config>
+    </data-source>
+  </component>
+</project>

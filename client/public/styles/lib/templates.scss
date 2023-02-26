@@ -1,0 +1,61 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "mediaQueries" as *;
+
+$borderRadiusButton: rem(5);
+$paddingComponent: wSize(10, 5, 25);
+$paddingElement: rem(10);
+$marginComponent: wSize(10, 5, 50);
+$border-radius-element: rem(30);
+$border-radius-small: rem(10);
+$border-radius-album: rem(50);
+
+%section {
+  margin: rem(30);
+  box-shadow: rem(1) rem(1) rem(30) rgb(46 51 72);
+  padding: rem(20);
+}
+
+%img-container{
+  @include wh(rem(70), rem(55));
+  border-radius: rem(17) rem(17) rem(17) rem(17) / rem(17);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+$buttons: (
+        red: (
+                color: var(--Color-Button-Background-Blue-textColor),
+                'background-color': var(--Color-Button-Background-Blue),
+                hover: (
+                        'background-color': var(--Color-Button-Background-Blue-hover),
+                ),
+                active: (
+                        'background-color': var(--Color-Button-Background-Blue-active)
+                ),
+                loading: (
+                        background: var(--Color-Button-Background-Blue-loading),
+                        process: var(--Color-Button-Background-Blue-loadingProgress)
+                ),
+                icon:(
+                        fill: var(--Color-Button-Background-Blue-Icon)
+                ),
+        ),
+        green: (
+                color: green,
+                'background-color': orange,
+                hover: (
+                        'background-color': red,
+                ),
+                active: (
+                        'background-color': var(--Color-Button-Background-Blue-active)
+                ),
+                loading: (
+                        background: green,
+                        process: green,
+                ),
+                icon:(
+                        fill: red,
+                ),
+        ),
+);

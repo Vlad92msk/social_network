@@ -1,0 +1,9 @@
+@use 'public/styles/lib/functions' as *;
+
+.ControlInput {
+
+  &-ErrorMessage {
+    margin-top: rem(8);
+    color: var(--Color-RedRose--50);
+  }
+}

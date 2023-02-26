@@ -1,0 +1,81 @@
+@import 'public/styles/lib/functions';
+@import 'public/styles/lib/mixins';
+@import 'public/styles/lib/templates';
+
+.Calendar {
+  @include wh(100%, 100%);
+  display: grid;
+  overflow: auto;
+  border-radius: $border-radius-small;
+  background: var(--Color-Light--100);
+
+  grid-template:
+    [start] 'controls' minmax(min-content, max-content) [row2]
+    [row2] 'week-days' minmax(min-content, max-content) [row3]
+    [row3] 'calendar-container' [row-end];
+
+  &-Container {
+    @include wh(100%, 100%);
+    display: grid;
+    grid-area: calendar-container;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &-Controls {
+    @include flex($justify: space-between, $align-items: center);
+    padding: clamp(4px, 2vh, 10px);
+    grid-area: controls;
+  }
+
+  &-WeekDays {
+    display: grid;
+
+    height: rem(40);
+
+    grid-area: week-days;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  &-WeekDay {
+    @include flex($justify: center, $align-items: center);
+    width: 100%;
+    text-transform: uppercase;
+
+    &--withBorder {
+      border: rem(1) solid var(--Color-LightGray--50);
+    }
+  }
+
+  &-DayCell {
+    @include flex($justify: center, $align-items: center);
+    overflow: hidden;
+    padding: rem(5);
+
+    &--withBorder {
+      border: rem(1) solid var(--Color-LightGray--50);
+    }
+
+    &--withinInterval {
+      background-color: var(--Color-BluePrimrose--20);
+    }
+  }
+
+  &-Day {
+    cursor: pointer;
+
+    &--currentMonth {
+      color: var(--Color-Text--body);
+    }
+
+    &--currentDay {
+      @include wh(rem(22), rem(22));
+      @include flex($align-items: center, $justify: center);
+      padding: rem(3);
+
+      color: var(--Color-Light--100);
+      border-radius: rem(8);
+      background: var(--Color-BluePrimrose--40);
+    }
+  }
+}

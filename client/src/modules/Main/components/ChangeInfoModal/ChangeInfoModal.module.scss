@@ -1,0 +1,74 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.ChangeInfoModal {
+  @include wh(70%, 70%);
+  display: grid;
+  grid-template: [start] "switcher form" 100% [end] / fit-content(rem(150)) auto;
+  background: var(--Color-Background-App);
+
+  &-Switcher {
+    grid-area: switcher;
+    height: 100%;
+    width: 100%;
+    margin-left: inherit;
+
+    & label {
+      flex: 1 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &-Form {
+    grid-area: form;
+    @include wh(100%, 100%);
+    @include flex($direction: column);
+    padding: rem(20);
+    color: var(--Color-Text-Main);
+
+  }
+
+  &-WithMe {
+    //color: var(--Color-Text-Main);
+  }
+
+  &-Experience {
+    @include wh(100%, calc(100% - 60px));
+    display: grid !important;
+    grid-template:
+            "form-container" auto
+            "button-add" fit-content(rem(40)) / 1fr;
+
+    &Container {
+      grid-area: form-container;
+      display: grid;
+      grid-template-columns: 1fr;
+      overflow-y: auto;
+      gap: rem(30);
+      align-content: start;
+      margin-bottom: rem(20);
+
+      &Item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: rem(10);
+        align-content: start;
+      }
+    }
+
+    &Add {
+      padding: rem(10);
+      border: rem(3) dashed var(--Color-border);
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &-Actions {
+    gap: rem(10);
+    margin-top: auto;
+  }
+}

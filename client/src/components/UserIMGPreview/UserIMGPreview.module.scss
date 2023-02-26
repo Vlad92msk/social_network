@@ -1,0 +1,10 @@
+@use "public/styles/lib/functions" as *;
+@use "public/styles/lib/mixins" as *;
+@use "public/styles/lib/templates" as *;
+
+.UserIMGPreview {
+  @include wh(rem(30), rem(30));
+  border: rem(3) solid var(--Color-Background-App);
+  border-radius: 50%;
+  overflow: hidden;
+}

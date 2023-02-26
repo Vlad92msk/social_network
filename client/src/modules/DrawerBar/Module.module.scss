@@ -1,0 +1,32 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.DrawerBar {
+  @include flex($direction: column);
+  width: clamp(rem(100), 30%, rem(350)) !important;
+  grid-area: drawer-bar;
+  position: fixed !important;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  border-bottom-left-radius: rem(55);
+  border-top-left-radius: rem(55);
+  overflow: hidden;
+  border: rem(7) solid var(--Color-border);
+  border-right: 0;
+  /*
+  * css проверяем на наличие родителя
+  * Т.е. есть ли у picture &-Img
+  * Статья про has - https://habr.com/ru/post/662355/
+  */
+  picture:has(&-Img) {
+    z-index: -1;
+  }
+
+  &-Img {
+    opacity: 0.4;
+    filter: blur(8px);
+  }
+}

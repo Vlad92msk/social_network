@@ -1,0 +1,9 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.NavBar {
+  @include flex($direction: column);
+  grid-area: nav;
+  position: relative;
+}

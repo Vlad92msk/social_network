@@ -1,0 +1,6 @@
+export * from './create-user.input'
+export * from './find-user-to-connect.input'
+export * from './find-user-to-personal.input'
+export * from './find-user-to-progress.input'
+export * from './find-user-to-social.input'
+export * from './update-userRoles.input'

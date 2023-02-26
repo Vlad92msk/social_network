@@ -1,0 +1,52 @@
+fragment userInfoConnect on Connect {
+    id
+    email
+    roles {
+        value
+        id
+    }
+}
+
+fragment userInfoSocial on RU_Social {
+    chats
+    friends
+    subscribers
+    subscription
+}
+
+fragment userInfoPersonal on RU_Personal {
+    city
+    country
+    dateOfBirth
+    gender
+    lastName
+    name
+    nationality
+    patronymicName
+}
+
+fragment userInfoProgress on RU_Progress {
+    employment
+    hobbies
+    placeOfStudy
+    workingLanguages
+}
+
+
+query GetUserInfo($id: Float) {
+    getOneUser(id: $id){
+        id
+        connect {
+            ...userInfoConnect
+        }
+        social {
+            ...userInfoSocial
+        }
+        personal {
+            ...userInfoPersonal
+        }
+        progress {
+            ...userInfoProgress
+        }
+    }
+}

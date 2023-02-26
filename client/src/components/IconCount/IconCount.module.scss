@@ -1,0 +1,36 @@
+@use '../../../public/styles/lib/functions' as *;
+@use '../../../public/styles/lib/mixins' as * ;
+@use '../../../public/styles/lib/templates' as * ;
+
+
+.IconCount {
+  position: relative;
+  opacity: 0;
+
+  &-Count {
+    @include flex($justify: center, $align-items: center);
+    position: absolute;
+    right: rem(-10);
+    top: rem(-7);
+    border-radius: $border-radius-small;
+    padding: 0 rem(5);
+    font-size: rem(10);
+    overflow: hidden;
+
+    &--bcg {
+      &_message {
+        background: var(--Color-Status-Offline);
+        color: var(--Color-Text-Main);
+      }
+
+      &_other {
+        background: var(--Color-Background-Sub);
+        color: var(--Color-Text-Sub-2);
+      }
+    }
+  }
+
+  &--visible {
+    opacity: 1;
+  }
+}

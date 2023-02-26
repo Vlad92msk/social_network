@@ -1,0 +1,15 @@
+{
+  "name": "Для локального тестирования запросов",
+  "schemaPath": "../server/schema.gql",
+  "extensions": {
+    "endpoints": {
+      "playground": {
+        "url": "http://localhost:3001/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

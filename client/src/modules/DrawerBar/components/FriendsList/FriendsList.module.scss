@@ -1,0 +1,12 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+
+.FriendsList {
+  @include flex($direction: column);
+  flex: 1 1;
+  padding: $paddingComponent;
+  overflow-y: auto;
+  padding-top: 0;
+}

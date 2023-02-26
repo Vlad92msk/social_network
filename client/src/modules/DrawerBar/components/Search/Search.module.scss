@@ -1,0 +1,21 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.Search {
+  padding: $paddingComponent;
+  overflow: hidden;
+  padding-top: 0;
+
+  &-Input {
+    background: var(--Color-Background-App);
+    width: 100%;
+    height: rem(50);
+    border-radius: $border-radius-element;
+    color: var(--Color-Text-Main);
+
+    input {
+      border: 0;
+    }
+  }
+}

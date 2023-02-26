@@ -1,0 +1,38 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.Footer {
+  $this: &;
+  @include flex($direction: column);
+  background: var(--Color-Background-App);
+  width: 100%;
+  padding: $paddingComponent;
+  height: fit-content;
+  max-height: rem(150);
+  transition: .5s;
+
+  &--open {
+    max-height: 70%;
+    transition: .5s;
+
+    & #{$this}-ChatsContainer {
+      scroll-snap-type: y mandatory;
+    }
+  }
+
+  &-Title {
+    @include flex($justify: space-between);
+    cursor: pointer;
+  }
+
+  &-ChatsContainer {
+    @include flex($direction: column);
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: .5s;
+    gap: rem(25);
+    margin-top: rem(15);
+  }
+}

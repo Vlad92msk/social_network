@@ -1,0 +1,52 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.Album {
+  @extend %img-container;
+  @include wh(clamp(rem(400), 45%, 100%), rem(400));
+  border-radius: $border-radius-album;
+  padding: rem(40);
+  position: relative;
+  z-index: 1;
+
+  &-Preview {
+    @include wh(clamp(rem(200), 60%, rem(400)), 100%);
+    @include flex($direction: column);
+    border-radius: $border-radius-album;
+    padding: rem(25);
+    backdrop-filter: blur(5px);
+  }
+
+  &-ButtonOpen {
+    z-index: 1;
+    @include flex($justify: space-between, $align-items: center);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    border-radius: $border-radius-album;
+    padding: rem(10);
+    margin-top: auto;
+
+    &Title {
+      transform: translateX(rem(20));
+    }
+  }
+
+  &:hover &-Hover{
+    opacity: 1;
+    transition: .5s;
+  }
+
+  &-Hover {
+    @include flex($justify: center, $align-items: center);
+    padding: rem(10);
+    width: rem(60);
+    height: rem(60);
+    border-radius: 50%;
+    opacity: 0;
+    transition: .3s;
+    position: absolute;
+    right: 10%;
+    bottom: 15%;
+  }
+}

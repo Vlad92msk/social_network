@@ -1,0 +1,7 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+
+.Footer {
+  @include flex($justify: center, $align-items: center);
+  width: 100%;
+}

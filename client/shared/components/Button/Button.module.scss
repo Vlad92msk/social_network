@@ -1,0 +1,144 @@
+@import 'public/styles/lib/functions';
+@import 'public/styles/lib/mixins';
+@import 'public/styles/lib/templates';
+
+.Button {
+  $this: &;
+
+  position: relative;
+
+  display: flex;
+
+  padding-right: rem(24);
+  padding-left: rem(24);
+
+  cursor: pointer;
+
+  border-radius: rem(8);
+  background: none;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  font-size: rem(16);
+  line-height: rem(24);
+
+  @each $button-type, $props in $buttons {
+   &--buttonName_#{$button-type}#{$this}--styleType_filled{
+      @include button($button-type, $buttons, 'filled');
+    }
+    #{$this}--buttonName_#{$button-type}#{$this}--styleType_rounded{
+      @include button($button-type, $buttons, 'rounded');
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @include focusVisible() {
+    box-shadow: var(--Shadow-Khalifa);
+  }
+
+  &:hover {
+    box-shadow: var(--Shadow-Khalifa);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+
+
+  &--size {
+
+    &_small {
+      height: rem(36);
+
+      #{$this}-Icon {
+        width: rem(16);
+        height: rem(16);
+      }
+    }
+
+    &_medium {
+      height: rem(40);
+    }
+
+    &_large {
+      height: rem(48);
+    }
+  }
+
+  &--icon {
+    padding-right: rem(21);
+    padding-left: rem(21);
+  }
+
+  &-Inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &-Icon {
+    width: rem(20);
+    height: rem(20);
+    margin-right: rem(6);
+
+    &--iconPosition {
+
+      &_left {
+        margin-right: rem(6);
+      }
+
+      &_right {
+        order: 2;
+        margin-left: rem(6);
+      }
+    }
+  }
+
+  /* Loadable */
+  &--loading {
+    #{$this}-LoadingBackground {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: rem(8);
+    }
+
+    #{$this}-LoadingProgress {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: rem(1);
+
+      height: 100%;
+
+      transition: width 0.3s ease;
+
+      border-top-left-radius: rem(8);
+      border-bottom-left-radius: rem(8);
+    }
+
+    #{$this}-LoadingContainer {
+      width: 100%;
+      height: 100%;
+      display: contents;
+    }
+  }
+}

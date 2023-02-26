@@ -1,0 +1,30 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.MediaItem {
+  height: rem(250);
+  width: rem(250);
+  position: relative;
+  z-index: 1;
+
+  &:hover &-Buttons {
+    opacity: 1;
+    transition: .5s;
+  }
+
+  &-Buttons {
+    @include flex($direction: column-reverse);
+    opacity: 0;
+    background: var(--Color-Background-App);
+    color: var(--Color-Text-Sub-2);
+    border-radius: $border-radius-small;
+    gap: rem(10);
+    padding: rem(15);
+    transition: .3s;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+  }
+
+}

@@ -1,0 +1,22 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.Header {
+  @include flex($align-items: center);
+  width: 100%;
+  padding: $paddingComponent;
+  border-radius: rem(10);
+  gap: rem(10);
+
+  &-PhotoBox {
+    @include wh(rem(50), rem(50));
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &-AlertIcon {
+    margin-left: auto;
+  }
+}

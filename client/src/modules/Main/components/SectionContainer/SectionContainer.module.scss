@@ -1,0 +1,39 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.SectionContainer {
+  @include flex($direction: column);
+  gap: rem(20);
+  padding-bottom: rem(20);
+  border-bottom: rem(1) solid var(--Color-Background-Sub);
+
+  &-Title {
+    @include flex($align-items: center);
+    gap: rem(20);
+    position: sticky;
+    top: rem(-30);
+    z-index: 2;
+    background: var(--Color-Background-App);
+  }
+
+  &-Calendar {
+    @include flex($align-items: center);
+    gap: rem(10);
+
+    &Icon {
+      @include flex($align-items: center, $justify: space-between);
+      @include wh(rem(30), rem(30));
+      padding: rem(3);
+      padding-left: rem(7);
+      border: rem(1) solid var(--Color-Background-Sub);
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &-Content {
+    @include flex($wrap: wrap);
+    align-content: start;
+    gap: rem(20);
+  }
+}

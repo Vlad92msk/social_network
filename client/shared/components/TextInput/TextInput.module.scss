@@ -1,0 +1,82 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as *;
+
+$sizes: (
+        small: rem(36),
+        medium: rem(40),
+        large: rem(48),
+        inherit: inherit
+);
+
+.TextInput {
+  @include flex($align-items: center);
+  border: rem(1) solid var(--Color-OldAsphalt--50);
+  border-radius: rem(8);
+  transition: .5s;
+
+  /* Если есть фокус на инпуте (вложенный элемент), то примени к TextInput */
+  &:has(&-Input:focus) {
+    border: rem(1) solid var(--Color-BluePrimrose--50);
+    transition: .3s;
+  }
+
+  &:has(&-Input:disabled) {
+    border-color: var(--Color-Button-Disabled);
+    background: var(--Color-Button-Disabled);
+    color: var(--Color-Text-Disabled);
+    pointer-events: none;
+  }
+
+  &:has(&-Input[value='']) {
+    background: transparent;
+  }
+
+  &-PrefixBox {
+    display: flex;
+    height: rem(20);
+    padding: inherit;
+    gap: rem(5);
+
+    &--iconPosition {
+
+      &_left {
+        margin-left: rem(16);
+      }
+
+      &_right {
+        margin-right: rem(16);
+      }
+    }
+  }
+
+  &-Icon {
+    @include wh(rem(20), rem(20));
+  }
+
+  &-Prefix {
+    @include flex($align-items: center);
+    height: 100%;
+    padding: inherit;
+  }
+
+  &-Input {
+    @include placeholderColor(var(--Color-Text--disabled));
+    width: 100%;
+    padding: 0 rem(16) rem(2) rem(16);
+
+    border-width: 0;
+    background: transparent;
+    outline: none;
+
+    &--error {
+      /* stylelint-disable-next-line declaration-no-important */
+      border-color: var(--Color-RedRose--50) !important;
+    }
+
+    @each $name, $size in $sizes {
+      &--size_#{$name} {
+        height: $size;
+      }
+    }
+  }
+}

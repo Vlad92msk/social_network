@@ -1,0 +1,139 @@
+@import 'public/styles/lib/functions';
+
+
+.FieldRow {
+  display: flex;
+
+  &--align {
+
+    &_top {
+      align-items: flex-start;
+    }
+
+    &_bottom {
+      align-items: flex-end;
+    }
+
+    &_center {
+      align-items: center;
+    }
+  }
+
+  &--content {
+
+    &_start {
+      align-content: flex-start;
+    }
+
+    &_end {
+      align-content: flex-end;
+    }
+
+    &_center {
+      align-content: center;
+    }
+
+    &_between {
+      align-content: space-between;
+    }
+
+    &_around {
+      align-content: space-around;
+    }
+  }
+
+  &--wrap {
+
+    &_wrap {
+      flex-wrap: wrap;
+    }
+
+    &_nowrap {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &--width {
+
+    &_100 {
+      width: 100%;
+    }
+
+    &_50 {
+      width: 50%;
+    }
+
+    &_25 {
+      width: 25%;
+    }
+  }
+
+  &--height {
+
+    &_100 {
+      height: 100%;
+    }
+
+    &_50 {
+      height: 50%;
+    }
+
+    &_25 {
+      height: 25%;
+    }
+  }
+
+  &--direction {
+
+    &_row {
+      flex-direction: row;
+    }
+
+    &_column {
+      flex-direction: column;
+    }
+
+    &_columnreverse {
+      flex-direction: column-reverse;
+    }
+
+    &_rowreverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--justify {
+
+    &_start {
+      justify-content: flex-start;
+    }
+
+    &_center {
+      justify-content: center;
+    }
+
+    &_between {
+      justify-content: space-between;
+    }
+
+    &_around {
+      justify-content: space-around;
+    }
+
+    &_end {
+      justify-content: flex-end;
+    }
+  }
+
+  //& + & {
+  //  margin-top: rem(20);
+  //}
+
+  //& > * {
+  //  flex-shrink: 1;
+  //
+  //  &:not(:last-child) {
+  //    margin-right: rem(24);
+  //  }
+  //}
+}

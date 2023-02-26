@@ -1,0 +1,39 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins';
+
+.CalendarInput {
+  $this: &;
+
+  &-Input {
+    width: rem(220);
+
+    &--interval {
+      width: rem(282);
+    }
+  }
+
+  &-Icon {
+    position: absolute;
+    right: rem(16);
+    top: 50%;
+    transform: translateY(-50%);
+    width: rem(20);
+    height: rem(20);
+    fill: var(--Color-BluePrimrose--50);
+  }
+
+  &-CalendarPopup {
+    display: flex;
+    background: var(--Color-Light--100);
+    border: rem(1) solid var(--Color-LightGray--50);
+    border-radius: rem(8);
+    box-shadow: var(--Shadow-Tokyo);
+    box-sizing: border-box;
+  }
+
+  &-Calendar {
+    &:nth-child(2), &:nth-child(3) {
+      border-left: rem(1) solid var(--Color-LightGray--50);
+    }
+  }
+}

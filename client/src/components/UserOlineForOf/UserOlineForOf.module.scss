@@ -1,0 +1,35 @@
+@use "public/styles/lib/functions" as *;
+@use "public/styles/lib/mixins" as *;
+@use "public/styles/lib/templates" as *;
+
+.UserOlineForOf {
+  @include flex();
+  gap: rem(5);
+  margin-left: auto;
+  height: fit-content;
+
+  &-IconBox {
+    @include flex();
+    position: relative;
+  }
+
+  &-Icon {
+
+  }
+
+  &-Status {
+    @include wh(rem(5), rem(5));
+    border-radius: 50%;
+    background: var(--Color-Status-Online);
+    position: absolute;
+    bottom: 0;
+    right: rem(-2);
+    z-index: 1;
+    border: rem(2) solid var(--Color-Background-App);
+    padding: rem(2);
+  }
+
+  &-Count {
+    color: var(--Color-Text-Sub-2)
+  }
+}

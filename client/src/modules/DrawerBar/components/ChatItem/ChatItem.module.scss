@@ -1,0 +1,59 @@
+@use 'public/styles/lib/functions' as *;
+@use 'public/styles/lib/mixins' as * ;
+@use 'public/styles/lib/templates' as * ;
+
+.ChatItem {
+  $this: &;
+  position: relative;
+  display: grid;
+  grid-template: [start] "img main menu" rem(75) [end] / 25% 65%;
+  gap: rem(10);
+  align-items: center;
+  transition: .5s;
+  scroll-snap-align: start;
+  scroll-snap-stop: always !important;
+
+  &-TextContainerMain {
+    grid-area: main;
+    width: 100%;
+    @include flex($justify: space-between);
+  }
+
+  &-TextContainer {
+    @include flex($direction: column);
+  }
+
+  &-FriendName {
+    margin-right: auto;
+  }
+
+  &-UsersForOf {
+    position: relative;
+    grid-area: img;
+
+    & > *:first-child {
+      width: 100%
+    }
+
+    & > *:last-child {
+      background: var(--Color-Background-App);
+      position: absolute;
+      right: rem(-10);
+      top: rem(-10);
+      border-radius: rem(10);
+      padding: rem(5);
+      overflow: hidden;
+      background: var(--Color-Background-Sub);
+    }
+  }
+
+  &-MenuButton {
+    grid-area: menu;
+    position: absolute;
+    right: rem(-20);
+    height: rem(10);
+    display: flex;
+    transform: rotate(90deg);
+    margin-left: auto;
+  }
+}
