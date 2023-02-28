@@ -2,8 +2,8 @@ import { classnames } from '@bem-react/classnames'
 import dynamic from 'next/dynamic'
 import React, { CSSProperties } from 'react'
 import { IconName } from '@public/models/icon.model'
-import { makeCn } from '../../utils'
 import styles from './Icon.module.scss'
+import { makeCn } from '../../utils'
 
 const cn = makeCn('Icon', styles)
 

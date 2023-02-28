@@ -13,6 +13,9 @@
       {
         "transform": "typescript-react-loadable-plugin",
         "moduleKind": "userRequest"
+      },
+      {
+        "name": "next"
       }
     ],
     "lib": [
@@ -22,7 +25,6 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    //    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -32,12 +34,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "strict": false
+    "strict": false,
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

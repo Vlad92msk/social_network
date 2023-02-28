@@ -7,13 +7,12 @@ import { useMemo } from 'react'
 import { CookieEnum } from '@public/models/cookie'
 import { LocalStorageEnum } from '@public/models/localStorage'
 import { getCookie, storageGet, storageRemove } from '@shared/utils'
-import { DEFAULT_LANGUAGE, Language } from 'src/services/language'
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
-const createApolloClient = (userLanguage: Language) => new ApolloClient({
+const createApolloClient = (userLanguage: any) => new ApolloClient({
   ssrMode: typeof window === 'undefined',
   link: new HttpLink({
     headers: { userLanguage },
@@ -30,7 +29,7 @@ const createApolloClient = (userLanguage: Language) => new ApolloClient({
   }),
 })
 
-export const initializeApollo = (lang: Language, initialState = null) => {
+export const initializeApollo = (lang: any, initialState = null) => {
   // @ts-ignore
   const prevStateLang = apolloClient && apolloClient.link.options?.headers.userLanguage
   /**
@@ -79,7 +78,8 @@ export const addApolloState = (client: ApolloClient<NormalizedCacheObject>, page
   return pageProps
 }
 
-export const useApollo = (lang: Language, pageProps: unknown): ApolloClient<NormalizedCacheObject> => {
+export const useApollo = (lang: any, pageProps: unknown): ApolloClient<NormalizedCacheObject> => {
+  // @ts-ignore
   const state = pageProps[APOLLO_STATE_PROP_NAME]
   return useMemo(() => initializeApollo(lang, state), [state, lang])
 }
@@ -90,7 +90,7 @@ export type ApolloStateType = ReturnType<typeof useApollo>
  * @param options
  */
 export const getCache = (options: DataProxy.ReadQueryOptions<NormalizedCacheObject, unknown>) => {
-  const language: Language = storageGet('userLanguage') || DEFAULT_LANGUAGE
+  const language: any = storageGet('userLanguage') || ''
   const client = initializeApollo(language)
   return <NormalizedCacheObject>client.cache.readQuery(options)
 }

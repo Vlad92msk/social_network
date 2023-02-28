@@ -1,2 +1,3 @@
-export * from './context'
-export * from 'src/services/theme/ServiceTheme'
+'use client'
+
+export { default as ThemeService } from './context/Component'

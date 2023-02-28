@@ -1,3 +1,5 @@
+'use client'
+
 import { classnames } from '@bem-react/classnames'
 import { motion } from 'framer-motion'
 import React, { forwardRef, useMemo } from 'react'

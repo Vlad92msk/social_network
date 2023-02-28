@@ -1,8 +1,5 @@
 import { classnames } from '@bem-react/classnames'
 import React, { CSSProperties, PropsWithChildren } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
-
-import { ErrorFallBack } from '@shared/components/ErrorFallBack'
 import { Image, ImageType } from '@shared/components/Image'
 import { makeCn } from '@shared/utils'
 import styles from './Section.module.scss'
@@ -49,9 +46,7 @@ export const Section: React.FC<SectionType> = React.memo((
           sizePriority={bcgImg.sizePriority}
         />
       )}
-      <ErrorBoundary FallbackComponent={ErrorFallBack} resetKeys={resetKeys}>
-        {children || null}
-      </ErrorBoundary>
+      {children}
     </section>
   )
 })
