@@ -1,52 +1,23 @@
-@import 'public/styles/lib/functions';
-@import 'public/styles/lib/mixins';
-@import 'public/styles/lib/templates';
+@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/lib/variables' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as *;
+
 
 .Button {
   $this: &;
-
-  position: relative;
-
-  display: flex;
-
-  padding-right: rem(24);
-  padding-left: rem(24);
-
-  cursor: pointer;
-
-  border-radius: rem(8);
-  background: none;
-
-  white-space: nowrap;
-
-  text-decoration: none;
-
-  font-size: rem(16);
-  line-height: rem(24);
-
-  @each $button-type, $props in $buttons {
-   &--buttonName_#{$button-type}#{$this}--styleType_filled{
-      @include button($button-type, $buttons, 'filled');
-    }
-    #{$this}--buttonName_#{$button-type}#{$this}--styleType_rounded{
-      @include button($button-type, $buttons, 'rounded');
-    }
-  }
+  @extend %button-base;
 
   &:focus {
     outline: none;
   }
 
   @include focusVisible() {
-    box-shadow: var(--Shadow-Khalifa);
+    //box-shadow: var(--Shadow-Khalifa);
   }
 
   &:hover {
-    box-shadow: var(--Shadow-Khalifa);
-  }
-
-  &:active {
-    box-shadow: none;
+    //box-shadow: var(--Shadow-Khalifa);
   }
 
   &:disabled {
@@ -54,31 +25,6 @@
     opacity: 0.4;
   }
 
-
-  &--size {
-
-    &_small {
-      height: rem(36);
-
-      #{$this}-Icon {
-        width: rem(16);
-        height: rem(16);
-      }
-    }
-
-    &_medium {
-      height: rem(40);
-    }
-
-    &_large {
-      height: rem(48);
-    }
-  }
-
-  &--icon {
-    padding-right: rem(21);
-    padding-left: rem(21);
-  }
 
   &-Inner {
     display: flex;

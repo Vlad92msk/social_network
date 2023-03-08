@@ -1,3 +1,9 @@
+@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/lib/variables' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as *;
+
+
 .ButtonBox {
   display: flex;
 

@@ -1,5 +1,8 @@
-@use 'public/styles/lib/functions' as *;
-@use 'public/styles/lib/mixins';
+@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/lib/variables' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as *;
+
 
 .CalendarInput {
   $this: &;

@@ -17,9 +17,9 @@ export const ArrayMap: React.FC<ArrayMapProps> = React.memo((props) => {
 
   return (
     <>
-      {arr.map((data, index) => (
-        <React.Fragment key={data[key] || index}>
-          {children(data, index)}
+      {arr.map((someData: any, index) => (
+        <React.Fragment key={someData[key] || index}>
+          {children(someData, index)}
         </React.Fragment>
       ))}
       <ShowMore

@@ -31,7 +31,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
   )
 
   const handleClick = useCallback(() => {
-    input.current.click()
+    input.current?.click()
   }, [])
 
   return (
@@ -40,8 +40,4 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
       <Icon icon="checkmark" className={cn('Check')} />
     </ButtonBox>
   )
-}
-
-Checkbox.defaultProps = {
-  className: null,
 }

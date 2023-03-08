@@ -4,17 +4,16 @@ import Module from '../Module'
 import { ContextProvider, StateModule, useContextDispatch } from '.'
 
 
-// @ts-ignore
-interface Props extends GetArgTypes<typeof Module> {
-  state?: StateModule
+interface Props extends GetArgTypes<typeof Module>{
+  state?: StateModule;
 }
 
-const StartWith = (props?: Props) => {
+const StartWith = (props: Props) => {
   const { state, ...rest } = props
   const dispatch = useContextDispatch()
 
   useEffect(() => {
-    if (Boolean(state)) {
+    if (state) {
       dispatch(() => state)
     }
   }, [dispatch, state])

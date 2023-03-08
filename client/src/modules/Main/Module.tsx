@@ -1,12 +1,12 @@
 import { makeCn } from '@shared/utils'
+import React from 'react'
 import styles from './Module.module.scss'
-import { Photo, Resume, Video } from './sections'
+import { Photo, Video } from './sections'
 
 const cn = makeCn('Main', styles)
 
-const Module = () => (
+const Module: React.FC = () => (
   <div className={cn()}>
-    <Resume />
     <Photo />
     <Video />
   </div>

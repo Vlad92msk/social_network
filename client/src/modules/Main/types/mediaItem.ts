@@ -12,7 +12,7 @@ export interface MediaItemType {
   commentsCount: number
   date: Date
   description: string
-  hash: string
+  hash?: string
   commentUsersIds: number[]
   albumId: number
   path: string

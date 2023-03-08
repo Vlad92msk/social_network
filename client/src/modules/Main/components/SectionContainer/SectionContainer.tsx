@@ -22,7 +22,7 @@ interface SectionContainerProps {
   withSwitcher?: boolean
   title: string
   lastAdded: Date
-  changeVisibleType?: (selectValue: string | number) => void
+  changeVisibleType?: (selectValue: any) => void
 }
 
 export const SectionContainer = (props: PropsWithChildren<SectionContainerProps>) => {

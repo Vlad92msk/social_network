@@ -1,10 +1,9 @@
-@use 'public/styles/lib/functions' as *;
-@use 'public/styles/lib/mixins' as * ;
-@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as * ;
 
 .DrawerBar {
   @include flex($direction: column);
-  width: clamp(rem(100), 30%, rem(350)) !important;
+  //width: clamp(rem(100), 30%, rem(350)) !important;
   grid-area: drawer-bar;
   position: fixed !important;
   right: 0;

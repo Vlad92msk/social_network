@@ -1,5 +1,5 @@
-@use "public/styles/lib/functions" as *;
-@use "public/styles/lib/mixins" as *;
+@use "public/styles/lib" as *;
+@use "../../../public/styles/mixins" as *;
 @import "../../modules/App/App.module";
 
 .Attachment {

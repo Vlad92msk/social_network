@@ -1,12 +1,12 @@
-@import 'public/styles/lib/functions';
-@import 'public/styles/lib/mixins';
-@import 'public/styles/lib/templates';
+@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/lib/variables' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as *;
 
 .Calendar {
   @include wh(100%, 100%);
   display: grid;
   overflow: auto;
-  border-radius: $border-radius-small;
   background: var(--Color-Light--100);
 
   grid-template:

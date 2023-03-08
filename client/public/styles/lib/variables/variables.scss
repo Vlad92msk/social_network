@@ -1,0 +1,20 @@
+
+/*
+  * Размеры шрифтов
+*/
+
+/* [min, coefficient, max, line-height-coefficient] */
+$text-adaptive--extraLarge: (20, 2, 45, 2);
+$text-adaptive--large: (17, 1.4, 36, 1.8);
+$text-adaptive--regular: (14, 0.8, 26, 1.5);
+$text-adaptive--small: (10, 0.55, 20, 1.2);
+$text-adaptive--extraSmall: (10, 0.48, 14, 1);
+
+$text-sizes-adaptive: (
+                (extraLarge, $text-adaptive--extraLarge),
+                (large, $text-adaptive--large),
+                (regular, $text-adaptive--regular),
+                (small, $text-adaptive--small),
+                ('extraSmall', $text-adaptive--extraSmall)
+);
+

@@ -1,0 +1,188 @@
+@use "sass:map";
+
+@use 'functions' as *;
+@use 'lib/variables/mediaQueries' as *;
+
+/* Миксин для работы с полифиллом селектора :focus-visible */
+@mixin focusVisible() {
+
+  &[data-focus-visible-added] {
+    @content;
+  }
+}
+
+
+@mixin clearListStyle() {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  list-style: none;
+}
+
+
+@mixin placeholderColor($color) {
+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin flex($wrap: false, $direction: false, $justify: false, $align-items: false, $align-content: false) {
+  display: flex;
+  @if $wrap {
+    flex-wrap: $wrap;
+  };
+  @if $justify {
+    justify-content: $justify;
+  };
+  @if $align-items {
+    align-items: $align-items;
+  };
+  @if $align-content {
+    align-content: $align-content;
+  };
+  @if $direction {
+    flex-direction: $direction;
+  };
+}
+
+
+@mixin wh($w: false, $h: false) {
+  @if $w {
+    width: $w
+  }
+  @if $h {
+    height: $h
+  }
+}
+
+@mixin placeholderColor($color) {
+  &::placeholder {
+    color: $color;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    width: rem(12);
+    height: rem(12);
+    border-radius: rem(20);
+    background: var(--Color-Primary--04);
+    border: rem(4) solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: rem(4);
+    height: rem(4);
+    background: var(--Color-Primary--20);
+    border-radius: rem(20);
+    border: rem(4) solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+@mixin scrollbarMini($offset: 4) {
+  &::-webkit-scrollbar {
+    width: rem($offset * 2 + 2);
+    height: rem($offset * 2 + 2);
+    border-radius: rem(10);
+    background: transparent;
+    border: rem($offset) solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: rem(2);
+    height: rem(2);
+    background: var(--Color-Primary--08);
+    border-radius: rem(10);
+    border: rem($offset) solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+@mixin hideScrollbar() {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+}
+
+@mixin fontSize-adaptive($coefficient: .8) {
+  font-size: calc(var(--index) * $coefficient);
+}
+
+/*
+    Инструмент создания адаптивного шрифта
+     минимально возможный размер,
+     коэффициент,
+     максимально возможный размер,
+     коэффициент для line-height
+*/
+@mixin create-fontsize($min-rem, $current, $max-rem, $lh) {
+  $size: rem_adaptive($current);
+  $min: rem($min-rem);
+  $max: rem($max-rem);
+  $return-font-size: clamp(#{$min}, #{$size}, #{$max});
+
+  font-size: $return-font-size;
+  line-height: calc(#{$return-font-size} * #{$lh});
+}
+
+// для всех экранов < 1920px
+@mixin media-1920 {
+  @media (max-width: $m1920) {
+    @content
+  }
+}
+
+// для всех экранов < 1366px
+@mixin media-1366 {
+  @media (max-width: $m1366) {
+    @content
+  }
+}
+
+// для всех экранов < 1024px
+@mixin media-1024 {
+  @media (max-width: $m1024) {
+    @content
+  }
+}
+
+// для всех экранов < 768px
+@mixin media-768 {
+  @media (max-width: $m768) {
+    @content
+  }
+}
+
+// для всех экранов < 360px
+@mixin media-360 {
+  @media (max-width: $m360) {
+    @content
+  }
+}

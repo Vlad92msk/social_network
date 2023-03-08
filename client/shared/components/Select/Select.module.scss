@@ -1,11 +1,14 @@
-@use 'public/styles/lib/functions' as *;
-@use 'public/styles/lib/mixins';
+@use 'public/styles/lib/templates' as * ;
+@use 'public/styles/lib/variables' as * ;
+@use 'public/styles/functions' as *;
+@use 'public/styles/mixins' as *;
+
 
 .Select {
   $this: &;
 
   &-SelectInput {
-    @include mixins.flex($direction: row, $align-items: center);
+    @include flex($direction: row, $align-items: center);
     position: relative;
     overflow: hidden;
 
@@ -104,7 +107,7 @@
   }
 
   &-ControlBlock {
-    @include mixins.flex($align-items: center);
+    @include flex($align-items: center);
     position: relative;
     overflow: hidden;
     width: calc(100% - #{rem(18)});
@@ -117,7 +120,7 @@
 
 
   &-SelectedValue {
-    @include mixins.flex($direction: row, $align-items: center);
+    @include flex($direction: row, $align-items: center);
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
@@ -141,7 +144,7 @@
   }
 
   &-SelectIconBlock {
-    @include mixins.flex($align-items: center);
+    @include flex($align-items: center);
     position: absolute;
     z-index: 7;
     top: 50%;
@@ -153,7 +156,7 @@
   }
 
   &-SelectIconClear {
-    @include mixins.flex();
+    @include flex();
     margin-right: rem(8);
 
     #{$this}-SelectIcon {
@@ -192,7 +195,7 @@
   }
 
   &-Token {
-    @include mixins.flex($align-items: center);
+    @include flex($align-items: center);
     box-sizing: border-box;
     width: auto;
     max-width: 42.5%;
@@ -210,7 +213,7 @@
     }
 
     &IconCloseBlock {
-      @include mixins.flex();
+      @include flex();
     }
 
     &IconClose {
@@ -223,7 +226,7 @@
   }
 
   &-CountSumTokenBlock {
-    @include mixins.flex($justify: space-between, $align-items: center);
+    @include flex($justify: space-between, $align-items: center);
     margin-left: auto;
   }
 

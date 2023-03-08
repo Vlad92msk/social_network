@@ -22,7 +22,7 @@ export function useSwitcher <T>(param: UseSwitcher<T>):[T, JSX.Element] {
       type={type}
       className={className}
     />
-  ), [groupName, initial, options, type])
+  ), [className, groupName, initial, options, type])
 
   return ([value, switcher])
 }

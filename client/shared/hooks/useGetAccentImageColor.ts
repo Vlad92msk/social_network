@@ -1,12 +1,20 @@
+import { Property } from 'csstype'
 import { FastAverageColor } from 'fast-average-color'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { invertColor } from '@shared/utils'
 
 const fac = new FastAverageColor()
 
-export const useGetAccentImageColor = (src: string, opacity?: number) => {
-  const [color, setBcg] = useState<string>(null)
-  const [hex, setHex] = useState<string>(null)
+type UseGetAccentImageColorResponse = [
+  Property.Background | undefined,
+  Property.Color | undefined,
+  Property.Color | undefined,
+]
+
+export const useGetAccentImageColor = (src: string, opacity?: number): UseGetAccentImageColorResponse => {
+  const [color, setBcg] = useState<Property.Background>()
+  const [hexColor, setHex] = useState<Property.Color>()
+
   useEffect(() => {
     fac.getColorAsync(src)
       .then(({ value, hex }) => {
@@ -18,7 +26,5 @@ export const useGetAccentImageColor = (src: string, opacity?: number) => {
       })
   }, [opacity, src])
 
-  return useMemo(() => (
-    [color, hex, invertColor(hex)]
-  ), [color, hex])
+  return [color, hexColor, invertColor(hexColor)]
 }

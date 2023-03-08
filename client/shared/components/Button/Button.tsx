@@ -5,23 +5,14 @@ import { IconName } from '@public/models/icon.model'
 import { ButtonContentLoader } from '@shared/components/ButtonContentLoader'
 import { Icon } from '@shared/components/Icon'
 
-import { makeCn } from '../../utils'
 import styles from './Button.module.scss'
+import { makeCn } from '../../utils'
 
 const cn = makeCn('Button', styles)
 
-export type ButtonStyleType = 'filled' | 'rounded';
-/**
- * Названия берем из templates.scss
- */
-export type ButtonNames = 'red' | 'green';
-
-export interface ButtonOwnProps<T extends ButtonStyleType> {
+export interface ButtonOwnProps {
   children: string | React.ReactNode
   className?: string
-  styleType: T
-  buttonName: ButtonNames
-  size?: 'small' | 'medium' | 'large'
   disabled?: boolean
   icon?: IconName
   iconPosition?: 'left' | 'right'
@@ -30,13 +21,11 @@ export interface ButtonOwnProps<T extends ButtonStyleType> {
   loaded?: number
 }
 
-export type ButtonProps<E extends React.ElementType,
-  T extends ButtonStyleType,
-  > = PolymorphicComponentProps<E, ButtonOwnProps<T>>;
+export type ButtonProps<E extends React.ElementType> = PolymorphicComponentProps<E, ButtonOwnProps>;
 
 const DEFAULT_ELEMENT = 'button'
 
-export const Button = <E extends React.ElementType = typeof DEFAULT_ELEMENT, T extends ButtonStyleType = 'filled'>(props: ButtonProps<E, T>) => {
+export const Button = <E extends React.ElementType = typeof DEFAULT_ELEMENT>(props: ButtonProps<E>) => {
   const {
     children,
     className,
@@ -80,7 +69,6 @@ export const Button = <E extends React.ElementType = typeof DEFAULT_ELEMENT, T e
 
 Button.defaultProps = {
   className: null,
-  size: 'medium',
   type: 'button',
   disabled: false,
   iconPosition: 'right',

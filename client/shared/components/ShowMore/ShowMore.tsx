@@ -3,8 +3,8 @@ import React, { useCallback, useMemo } from 'react'
 import { Button } from '@shared/components/Button'
 import { Text } from '@shared/components/Text'
 import { COUNT_VISIBLE } from '@shared/hooks'
-import { makeCn } from '../../utils'
 import styles from './ShowMore.module.scss'
+import { makeCn } from '../../utils'
 
 const cn = makeCn('ShowMore', styles)
 
@@ -12,10 +12,10 @@ type ShowMoreProps = {
   set: (args: any) => void
   totalArr: any[]
   showArr: any[]
-  addCount: number
-  onShowMore: (count?: number) => void
+  addCount?: number
+  onShowMore?: (count?: number) => void
 }
-export const ShowMore: React.FC<ShowMoreProps> = (props) => {
+export const ShowMore = (props: ShowMoreProps) => {
   const { set, showArr, totalArr, onShowMore, addCount } = props
   const totalArrLength = useMemo(() => size(totalArr), [totalArr])
   const showArrLength = useMemo(() => size(showArr), [showArr])

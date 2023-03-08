@@ -19,7 +19,7 @@ interface SwitchProps {
   options: SwitchOption[]
   type?: SwitchType
   startWith: SwitchOption['value']
-  onChange: (selectValue: any) => void
+  onChange?: (selectValue: any) => void
 }
 
 export const Switch: React.FC<SwitchProps> = (props) => {
@@ -29,7 +29,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     setResult(value)
-    onChange(value)
+    onChange?.(value)
   }, [onChange])
 
   const uuid = useId()

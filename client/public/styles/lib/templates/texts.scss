@@ -1,0 +1,26 @@
+@use 'sass:list' as list;
+@use "../../functions" as *;
+@use "../../mixins" as *;
+@use "../variables" as *;
+
+
+%textEllipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*
+ * Из списка размеров шрифтов создаются шаблоны для дальнейшего использования
+ * Формат text--regular, text--small, text--extraSmall и тд
+ */
+@each $name, $sizes in $text-sizes-adaptive {
+  $min: list.nth($sizes, 1);
+  $size: list.nth($sizes, 2);
+  $max: list.nth($sizes, 3);
+  $lh: list.nth($sizes, 4);
+
+  %text--#{$name} {
+    @include create-fontsize($min, $size, $max, $lh);
+  }
+}

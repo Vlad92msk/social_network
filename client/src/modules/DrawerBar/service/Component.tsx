@@ -9,7 +9,7 @@ interface Props extends GetArgTypes<typeof Module> {
   state?: StateModule
 }
 
-const StartWith = (props?: Props) => {
+const StartWith = (props: Props) => {
   const { state, ...rest } = props
   const dispatch = useContextDispatch()
 

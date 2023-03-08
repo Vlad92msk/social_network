@@ -20,7 +20,7 @@ interface SectionContainerProps {
   album: AlbumType
   className?: string
   elementsCount?: number
-  containerWidth?: number
+  containerWidth: number
 }
 
 export const Album = (props: PropsWithChildren<SectionContainerProps>) => {
@@ -64,7 +64,7 @@ export const Album = (props: PropsWithChildren<SectionContainerProps>) => {
       </div>
       <div className={cn('Hover')} style={{ background }}>
         <Text size="6" style={{ color }}>
-          {elementsCount > 99 ? '+99' : elementsCount}
+          {elementsCount && (elementsCount > 99 ? '+99' : elementsCount)}
         </Text>
       </div>
     </Section>
