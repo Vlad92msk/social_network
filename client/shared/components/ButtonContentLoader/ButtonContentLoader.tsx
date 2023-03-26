@@ -29,6 +29,5 @@ export const ButtonContentLoader: React.FC<ButtonContentLoaderProps> = (props) =
 }
 
 ButtonContentLoader.defaultProps = {
-  className: null,
   isLoading: true,
 }
