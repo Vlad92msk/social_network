@@ -1,8 +1,7 @@
-
 import { createStoreContext, makeCn } from '@shared/utils'
 import { ButtonsList, Footer, Header } from './components'
 import { initialState } from './context/initialState'
-import styles from './Module.module.scss'
+import styles from './NavBar.module.scss'
 
 const cn = makeCn('NavBar', styles)
 
@@ -17,13 +16,10 @@ export const {
 })
 
 
-export const NavBar = contextWrapper(() => {
-
-  return (
-    <div className={cn()}>
-      <Header />
-      <ButtonsList />
-      <Footer />
-    </div>
-  )
-})
+export const NavBar = contextWrapper(() => (
+  <div className={cn()}>
+    <Header />
+    <ButtonsList />
+    <Footer />
+  </div>
+))

@@ -1,19 +1,14 @@
-:root {
-  --Color--root: #151010;
-  --Color-Bckground--root: #151010;
-}
-
 [data-theme='default']{
-  --Color-Bckground--root: #151010;
-  --Color-Text--root: var(--Color--root)
+  --Color--Text--root: #615f5f;
+  --Color--Bckground--root: #151010;
 }
 
 [data-theme='red']{
-  --Color-Bckground--root: #151010;
-  --Color-Text--root: var(--Color--root)
+  --Color--Text--root: red;
+  --Color--Bckground--root: #151010;
 }
 
 [data-theme='orange']{
-  --Color-Bckground--root: #151010;
-  --Color-Text--root: var(--Color--root)
+  --Color--Text--root: orange;
+  --Color--Bckground--root: #151010;
 }

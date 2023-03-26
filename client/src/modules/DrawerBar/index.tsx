@@ -1,1 +1,1 @@
-export { DrawerBar } from './Module'
+export { DrawerBar } from './DrawerBar'

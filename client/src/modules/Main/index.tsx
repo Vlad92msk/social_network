@@ -1,1 +1,1 @@
-export { Main } from './Module'
+export { Main } from './Main'

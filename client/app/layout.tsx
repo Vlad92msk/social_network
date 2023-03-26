@@ -10,7 +10,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head />
       <body>
         <Apollo apolloState={JSON.stringify(getRequestStorage().apolloState ?? '{}')}>
-          <ThemeService state={{ theme: 'red' }}>
+          <ThemeService>
             {children}
           </ThemeService>
         </Apollo>

@@ -7,25 +7,20 @@ import styles from './App.module.scss'
 
 const cn = makeCn('Application', styles)
 
-export const App = () => {
-  console.log('App')
-
-  return (
-    <Section
-      className={cn()}
-      noPaddingRight
-      bcgImg={{
-        path: {
-          moduleName: 'app',
-          folder: 'bcg',
-          img: 'bcg1',
-        },
-      }}
-    >
-      app
-      <NavBar />
-      {/*<Main />*/}
-      {/*<DrawerBar />*/}
-    </Section>
-  )
-}
+export const App = () => (
+  <Section
+    className={cn()}
+    noPaddingRight
+    bcgImg={{
+      path: {
+        moduleName: 'app',
+        folder: 'bcg',
+        img: 'bcg1',
+      },
+    }}
+  >
+    <NavBar />
+    <Main />
+    <DrawerBar />
+  </Section>
+)

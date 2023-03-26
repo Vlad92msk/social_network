@@ -2,7 +2,7 @@ import { Section } from '@shared/components/Section'
 import { createStoreContext, makeCn } from '@shared/utils'
 import { Footer, FriendsList, Header, Search } from './components'
 import { initialState } from './context/initialState'
-import styles from './Module.module.scss'
+import styles from './DrawerBar.module.scss'
 
 const cn = makeCn('DrawerBar', styles)
 

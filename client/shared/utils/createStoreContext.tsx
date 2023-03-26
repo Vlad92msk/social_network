@@ -114,7 +114,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     state?: Partial<Store>
   }
 
-  const StartWith: React.FC<Props> = (props) => {
+  const StartWith = (props: Props) => {
     const { state, children } = props
     const updateContext = useStoreDispatch()
 

@@ -1,1 +1,1 @@
-export * from './Module'
+export * from './NavBar'

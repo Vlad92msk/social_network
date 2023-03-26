@@ -3,7 +3,7 @@
 
 .DrawerBar {
   @include flex($direction: column);
-  //width: clamp(rem(100), 30%, rem(350)) !important;
+  width: clamp(rem(100), 30%, rem(350))!important;
   grid-area: drawer-bar;
   position: fixed !important;
   right: 0;
@@ -15,6 +15,7 @@
   overflow: hidden;
   border: rem(7) solid var(--Color-border);
   border-right: 0;
+  padding: rem(20);
   /*
   * css проверяем на наличие родителя
   * Т.е. есть ли у picture &-Img

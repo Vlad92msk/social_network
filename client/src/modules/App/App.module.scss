@@ -9,10 +9,10 @@ $border-radius-small:rem(5);
 
 .Application {
   @include wh(100vw, 100vh);
-  //position: relative;
-  //background: var(--Color-Background-App);
-  //overflow: hidden;
-  //padding: wSize(10, 5, 50);
-  //display: grid;
-  //grid-template: [start] "nav main drawer-bar" 100% [end] / $nav calc(100% - ($nav + $drawer-bar)) $drawer-bar; //40vw - ширина первой строки auto - ширина второй строки
+  position: relative;
+  background: var(--Color-Background-App);
+  overflow: hidden;
+  padding: rem(10);
+  display: grid;
+  grid-template: [start] "nav main drawer-bar" 100% [end] / $nav calc(100% - ($nav + $drawer-bar)) $drawer-bar; //40vw - ширина первой строки auto - ширина второй строки
 }

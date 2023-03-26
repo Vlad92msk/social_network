@@ -1,4 +1,5 @@
 @import "public/styles";
+@import "public/styles/colors";
 @import "shared/styles/templates";
 @import "shared/styles/variables";
 
@@ -12,7 +13,6 @@
 html {
   @extend %text--16;
   box-sizing: border-box;
-  color: var(--Color-Text--root);
   font-family: var(--FontFamily);
 
   -webkit-font-smoothing: antialiased;
@@ -28,9 +28,11 @@ html {
 
 
 body {
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--Color-Bckground--root);
+  width: 100%;
+  height: 100%;
+  background-color: var(--Color--Bckground--root);
+  color: var(--Color--Text--root);
+
   position: relative;
   overflow: hidden;
   display: flex;

@@ -6,6 +6,14 @@
 .Text {
   margin: 0;
 
+  &--size {
+    @each $name, $sizes in $text-sizes-adaptive {
+      &_#{$name} {
+        @extend %text--#{$name};
+      }
+    }
+  }
+
   &--textTransform {
     &_uppercase {
       text-transform: uppercase;

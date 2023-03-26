@@ -1,5 +1,5 @@
 import { filter, orderBy } from 'lodash'
-import { useDrawerBarSelect } from '@modules/DrawerBar/Module'
+import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
 import { makeCn } from '@shared/utils'
 import { UserStatusEnum } from 'src/components'
 import styles from './FriendsList.module.scss'
