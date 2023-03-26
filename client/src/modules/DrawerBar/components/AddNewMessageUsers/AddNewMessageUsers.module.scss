@@ -1,6 +1,6 @@
-@use 'public/styles/functions' as *;
-@use 'public/styles/mixins' as * ;
-@use 'public/styles/lib/templates' as * ;
+@import "public/styles";
+@import "shared/styles";
+
 
 .AddNewMessageUsers {
   @include flex();

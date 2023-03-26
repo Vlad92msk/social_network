@@ -1,6 +1,7 @@
-@use 'public/styles/functions' as *;
-@use 'public/styles/mixins' as * ;
-@use 'public/styles/lib/templates' as * ;
+@import "public/styles";
+@import "shared/styles";
+@import "../../../App/App.module";
+
 
 .FriendItem {
   $this: &;
@@ -59,7 +60,7 @@
   }
 
   &-FriendName {
-    @include textEllipsis;
+    //@extend textEllipsis;
     width: 100%;
     max-width: 100%;
     text-align: left;

@@ -26,6 +26,7 @@ export const IconCount: React.FC<IconCountProps> = (props) => {
   const {
     value, isButton, onClick, icon, options, item, countBcg,
   } = props
+  // @ts-ignore
   const { icon: iconOptions, text: textOptions } = options
 
   const handleClick = useCallback((e) => {

@@ -6,7 +6,7 @@ export const useRect = <T extends Element>(param: (keyof DOMRect)[] = [], withSc
   MutableRefObject<T | null>
 ] => {
   const ref = useRef<T>(null)
-  const [rect, setRect] = useState<Partial<DOMRect>>(null)
+  const [rect, setRect] = useState<Partial<DOMRect>>({})
 
   const set = useCallback(() => setRect(() => pick(ref.current?.getBoundingClientRect(), param) as Partial<DOMRect>), [param])
 

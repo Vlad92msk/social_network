@@ -2,7 +2,7 @@ import React from 'react'
 import Apollo from '@services/apollo/Apollo'
 import { getRequestStorage } from '@services/apollo/localStorage'
 import { ThemeService } from '@services/theme'
-import '../public/styles/base.scss'
+import '@shared/styles/base.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode}) {
   return (
@@ -10,7 +10,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head />
       <body>
         <Apollo apolloState={JSON.stringify(getRequestStorage().apolloState ?? '{}')}>
-          <ThemeService state={{ theme: 'orange' }}>
+          <ThemeService state={{ theme: 'red' }}>
             {children}
           </ThemeService>
         </Apollo>

@@ -1,0 +1,28 @@
+
+/*
+* Размеры
+* [min, size, line-height]
+* min - это реальные rem
+* size и line-height - пиксели как в макете, которые будут переведены в адаптивный шрифт
+*/
+$text-adaptive--44: (20, 44, 35);
+$text-adaptive--25: (17, 25, 30);
+$text-adaptive--22: (17, 22, 30);
+$text-adaptive--18: (14, 18, 30);
+$text-adaptive--16: (14, 16, 20);
+$text-adaptive--12: (10, 12, 20);
+$text-adaptive--10: (10, 10, 15);
+$text-adaptive--8: (10, 8, 15);
+
+// [name, variables]
+// вариантов шрифтов много и мне кажется проще давать названия по их цифре, а не 'small', 'regular' и тд
+$text-sizes-adaptive: (
+                (44, $text-adaptive--44),
+                (25, $text-adaptive--25),
+                (18, $text-adaptive--18),
+                (16, $text-adaptive--16),
+                (12, $text-adaptive--12),
+                (10, $text-adaptive--10),
+                (8, $text-adaptive--8),
+);
+

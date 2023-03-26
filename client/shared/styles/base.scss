@@ -1,10 +1,6 @@
-@use 'sass:map' as map;
-@use 'sass:list' as list;
-@use 'lib/colors' as *;
-@use 'lib/variables' as *;
-@use 'lib/templates' as *;
-@use 'mixins' as *;
-@use 'functions' as *;
+@import "public/styles";
+@import "shared/styles/templates";
+@import "shared/styles/variables";
 
 :root {
   --index: calc(1vw + 1vh); // Используется для адаптивности шрифта (например) при изменении размеров экрана
@@ -14,7 +10,7 @@
 }
 
 html {
-  @extend %text--extraLarge;
+  @extend %text--16;
   box-sizing: border-box;
   color: var(--Color-Text--root);
   font-family: var(--FontFamily);

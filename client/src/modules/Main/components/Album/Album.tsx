@@ -1,5 +1,5 @@
 import { classnames } from '@bem-react/classnames'
-import { PropsWithChildren, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { MediaItem } from '@modules/Main/components'
 import { PHOTOS } from '@modules/Main/sections/photo/mock'
 import { AlbumType } from '@modules/Main/types/album'
@@ -20,10 +20,10 @@ interface SectionContainerProps {
   album: AlbumType
   className?: string
   elementsCount?: number
-  containerWidth: number
+  containerWidth?: number
 }
 
-export const Album = (props: PropsWithChildren<SectionContainerProps>) => {
+export const Album: React.FC<SectionContainerProps> = (props) => {
   const {
     elementsCount, containerWidth, className, album,
   } = props
@@ -40,7 +40,7 @@ export const Album = (props: PropsWithChildren<SectionContainerProps>) => {
   return isOpen ? (
     <Section
       className={classnames(cn(), className)}
-      style={{ height: `clamp(200px, calc(${containerWidth / 3 + 50}px), 380px)` }}
+      style={{ height: containerWidth && `clamp(200px, calc(${containerWidth / 3 + 50}px), 380px)` }}
       bcgImg={{
         path: {
           moduleName: 'users',
@@ -84,4 +84,8 @@ export const Album = (props: PropsWithChildren<SectionContainerProps>) => {
       </FieldRow>
     </FieldRow>
   )
+}
+
+Album.defaultProps = {
+  containerWidth: 400,
 }

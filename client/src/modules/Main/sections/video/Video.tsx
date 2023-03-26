@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react'
 import { makeCn } from '@shared/utils'
-import { Album, MediaItem, SectionContainer } from '../../components'
 import { ALBUMS, VIDEOS } from './mock'
 import styles from './Video.module.scss'
+import { Album, MediaItem, SectionContainer } from '../../components'
 
 const cn = makeCn('Video', styles)
 
 export const Video = () => {
-  const [visibleType, setVisibleType] = useState<string>(null)
+  const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {
     setVisibleType(String(value))

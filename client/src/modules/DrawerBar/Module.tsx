@@ -1,11 +1,21 @@
 import { Section } from '@shared/components/Section'
-import { makeCn } from '@shared/utils'
+import { createStoreContext, makeCn } from '@shared/utils'
 import { Footer, FriendsList, Header, Search } from './components'
+import { initialState } from './context/initialState'
 import styles from './Module.module.scss'
 
 const cn = makeCn('DrawerBar', styles)
 
-const Module = () => (
+export const {
+  contextWrapper,
+  useContextSelector: useDrawerBarSelect,
+  useContextDispatch: useDrawerBarUpdate,
+} = createStoreContext({
+  name: 'DrawerBar',
+  initialState,
+})
+
+export const DrawerBar = contextWrapper(() => (
   <Section
     className={cn()}
     imgClassName={cn('Img')}
@@ -22,6 +32,4 @@ const Module = () => (
     <FriendsList />
     <Footer />
   </Section>
-)
-
-export default Module
+))

@@ -1,9 +1,9 @@
 import { filter, orderBy } from 'lodash'
-import { useContextSelector } from '@modules/DrawerBar/service'
+import { useDrawerBarSelect } from '@modules/DrawerBar/Module'
 import { makeCn } from '@shared/utils'
 import { UserStatusEnum } from 'src/components'
-import { FriendItem } from '..'
 import styles from './FriendsList.module.scss'
+import { FriendItem } from '..'
 
 const cn = makeCn('FriendsList', styles)
 
@@ -12,7 +12,7 @@ export interface FriendsListItem{
   name: string
   img: string
   status: UserStatusEnum
-  messageCount: number
+  messageCount: number | null
 }
 
 const friendsListItems: FriendsListItem[] = [
@@ -34,7 +34,7 @@ const friendsListItems: FriendsListItem[] = [
 ]
 
 export const FriendsList = () => {
-  const search = useContextSelector((state) => state.search)
+  const search = useDrawerBarSelect((state) => state.search)
   return (
     <div className={cn()}>
       {orderBy(

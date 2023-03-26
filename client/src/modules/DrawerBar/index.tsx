@@ -1,1 +1,1 @@
-export { default as DrawerBar } from './service/Component'
+export { DrawerBar } from './Module'

@@ -53,7 +53,7 @@ export const FriendItem = (props: FriendItem) => {
                 size="small_1"
               />
               <Text className={cn('MessageCount', { visible: Boolean(messageCount) })} size="1" color="body">
-                {messageCount > 9 ? '+9' : messageCount}
+                {(messageCount || 0) > 9 ? '+9' : messageCount}
               </Text>
             </ButtonBox>
             <Text

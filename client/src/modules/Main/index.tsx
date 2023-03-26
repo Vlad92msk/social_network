@@ -1,1 +1,1 @@
-export { default as Main } from './service/Component'
+export { Main } from './Module'

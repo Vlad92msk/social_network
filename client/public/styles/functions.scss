@@ -1,22 +1,43 @@
-@use "sass:math" as *;
+@use 'sass:math';
 
-@function rem($size) {
+@function rem-base($size) {
   @if unitless($size) {
-    $remSize: div($size, 16);
+    $remSize: math.div($size, 16);
+
     @return #{$remSize}rem;
-  } @else {
+  }
+
+  @else {
     @error 'Size must be a unitless number.';
   }
 }
 
-@function wSize($min, $optimal, $max) {
-  $a: rem($min);
-  $b: #{$optimal}vw;
-  $c: rem($max);
-  @return clamp(#{$a}, #{$b}, #{$c});
+@mixin not-last() {
+  &:not(:last-child) {
+    @content;
+  }
 }
 
-/* Адаптивный шрифт */
-@function rem_adaptive($coefficient: 0.8) {
+@mixin not-first() {
+  &:not(:first-child) {
+    @content;
+  }
+}
+
+/*
+ *  $base - это примерное кол-во пикселей которому равен var(--index)
+ *  но в зависимости от разрешения экрана - это соотношение будет плавать
+ *  возможно в будущем можно будет добавить медиа-запрос в котором будем передавать это значение, но пока для начала так
+ */
+@function rem($size, $base: 24) {
+  $coefficient-to-one-pixel: calc(1 / #{$base});
+  $coefficient: calc($coefficient-to-one-pixel * $size);
+
   @return calc(var(--index) * #{$coefficient});
+}
+
+@function calc_minus($number) {
+  $n: rem($number);
+
+  @return calc(100% - #{$n});
 }

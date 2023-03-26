@@ -1,7 +1,7 @@
 export interface StateModule {
-  params?: any
+  param?: any
 }
 
 export const initialState: StateModule = {
-  params: null
+  param: null,
 }

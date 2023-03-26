@@ -1,61 +1,41 @@
-@use 'public/styles/lib/templates' as * ;
-@use 'public/styles/lib/variables' as * ;
-@use 'public/styles/functions' as *;
-@use 'public/styles/mixins' as *;
+@import "public/styles";
+@import "shared/styles";
 
 
 
 .Icon {
   flex-shrink: 0;
-  //width: rem(24);
-  //height: rem(24);
 
   &--fill {
 
-    &_oldAsphalt50 {
-      fill: var(--Color-OldAsphalt--50);
-    }
-
     &_oldAsphalt40 {
-      fill: var(--Color-OldAsphalt--40);
-    }
-
-    &_bluePrimrose50 {
-      fill: var(--Color-BluePrimrose--50);
-    }
-
-    &_light100 {
-      fill: var(--Color-Light--100);
-    }
-
-    &_redRose40 {
-      fill: var(--Color-RedRose--40);
+      fill: var(--Color-Bckground--root);
     }
   }
 
   &--size {
 
     &_small {
-      width: wSize(5, 5, 14);
-      height: wSize(5, 5, 14);
+      width: rem(5);
+      height: rem(5);
     }
     &_small_1 {
-      width: wSize(5, 5, 20);
-      height: wSize(5, 5, 20);
+      width: rem(10);
+      height: rem(10);
     }
     &_ordinary {
-      width: wSize(10, 5, 30);
-      height: wSize(10, 5, 30);
+      width: rem(16);
+      height: rem(16);
     }
 
     &_medium {
-      width: wSize(24, 5, 70);
-      height: wSize(24, 5, 70);
+      width: rem(25);
+      height: rem(25);
     }
 
     &_large {
-      width: wSize(30, 10, 100);
-      height: wSize(30, 10, 100);
+      width: rem(30);
+      height: rem(30);
     }
   }
 }

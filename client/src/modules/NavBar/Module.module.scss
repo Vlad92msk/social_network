@@ -1,7 +1,7 @@
-@use 'public/styles/lib/functions' as *;
-@use '../../../public/styles/mixins' as * ;
-@use 'public/styles/lib/templates' as * ;
+@import "public/styles";
+@import "shared/styles";
 
+$border-radius-element: rem(15);
 .NavBar {
   @include flex($direction: column);
   grid-area: nav;

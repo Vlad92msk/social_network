@@ -1,9 +1,9 @@
-@use 'public/styles/lib/functions' as *;
-@use '../../../../../public/styles/mixins' as * ;
-@use 'public/styles/lib/templates' as * ;
+@import "public/styles";
+@import "shared/styles";
+@import "../../../App/App.module";
 
 .Album {
-  @extend %img-container;
+  //@extend %img-container;
   @include wh(clamp(rem(400), 45%, 100%), rem(400));
   border-radius: $border-radius-album;
   padding: rem(40);

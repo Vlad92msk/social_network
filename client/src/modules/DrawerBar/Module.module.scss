@@ -1,5 +1,5 @@
-@use 'public/styles/functions' as *;
-@use 'public/styles/mixins' as * ;
+@import "public/styles";
+@import "shared/styles";
 
 .DrawerBar {
   @include flex($direction: column);

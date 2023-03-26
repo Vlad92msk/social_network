@@ -1,7 +1,5 @@
-@use "../../functions" as *;
-@use "../../mixins" as *;
-@use "../variables/mediaQueries" as *;
-
+@import "public/styles";
+@import "../variables";
 
 %area-input {
   width: 100%;

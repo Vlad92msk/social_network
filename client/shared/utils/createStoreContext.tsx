@@ -1,18 +1,25 @@
 'use client'
 
+import { isEqual, merge } from 'lodash'
 import React, {
   createContext,
+  PropsWithChildren,
   useCallback,
   useContext,
   useRef,
   useSyncExternalStore,
 } from 'react'
+
 import { DeepPartial } from '@public/models/deepPartial'
 import { compose } from '@shared/utils/compose'
 import { log, LogColors } from '@shared/utils/logColors'
 
+interface Options<Store> {
+  initialState: Store
+  name?: string
+}
 
-export function createStoreContext<Store>(initialState: Store, name?: string) {
+export function createStoreContext<Store>({ name, initialState }: Options<Store>) {
   function useStoreData(): {
     get: () => Store;
     set: (v: (s: Store) => DeepPartial<Store>) => Store
@@ -23,16 +30,23 @@ export function createStoreContext<Store>(initialState: Store, name?: string) {
     const subscribers = useRef(new Set<() => void>())
 
     const set = useCallback((value: Partial<Store>): Store => {
-      const assigned = { ...store.current, ...value }
+      if (isEqual(store.current, value)) return store.current
+
+      if (name) {
+        console.group(name)
+        log(LogColors.fg.magenta, ['prev state', store.current])
+        log(LogColors.fg.blue, ['payload', value])
+      }
+
+      const assigned = merge(store.current, value)
       store.current = assigned
       subscribers.current.forEach((callback) => callback())
 
-      console.group(name)
-      // log(LogColors.fg.magenta, ['prev state', store.current])
-      log(LogColors.fg.blue, ['payload', value])
-      log(LogColors.fg.red, ['result', assigned])
-      console.groupEnd()
-
+      if (name) {
+        log(LogColors.fg.red, ['result', assigned])
+        console.groupEnd()
+      }
+      store.current = assigned
       return assigned
     }, [])
 
@@ -96,10 +110,38 @@ export function createStoreContext<Store>(initialState: Store, name?: string) {
     return store.set
   }
 
+  interface Props extends PropsWithChildren {
+    state?: Partial<Store>
+  }
+
+  const StartWith: React.FC<Props> = (props) => {
+    const { state, children } = props
+    const updateContext = useStoreDispatch()
+
+
+    if (Boolean(state)) {
+      updateContext((initial) => merge(initial, state))
+    }
+
+    return <>{children}</>
+  }
+
+  const contextWrapper = (Module: React.FC<PropsWithChildren>): React.FC<Props> => (
+    ({ state, children }) => (
+      <ContextProvider>
+        <StartWith state={state}>
+          <Module>
+            {children}
+          </Module>
+        </StartWith>
+      </ContextProvider>
+    )
+  )
+
   return ({
-    ContextProvider,
     useStore,
     useContextSelector: useStoreSelector,
     useContextDispatch: useStoreDispatch,
+    contextWrapper,
   })
 }

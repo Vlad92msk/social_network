@@ -1,7 +1,6 @@
 @use "sass:map";
-
-@use 'functions' as *;
-@use 'lib/variables/mediaQueries' as *;
+@import "functions";
+@import "media";
 
 /* Миксин для работы с полифиллом селектора :focus-visible */
 @mixin focusVisible() {
@@ -105,8 +104,8 @@
 
 @mixin scrollbarMini($offset: 4) {
   &::-webkit-scrollbar {
-    width: rem($offset * 2 + 2);
-    height: rem($offset * 2 + 2);
+    width: rem(2);
+    height: rem(2);
     border-radius: rem(10);
     background: transparent;
     border: rem($offset) solid transparent;
@@ -131,25 +130,13 @@
   }
 }
 
-@mixin fontSize-adaptive($coefficient: .8) {
-  font-size: calc(var(--index) * $coefficient);
-}
+@mixin create-fontsize($min-rem, $current, $line-height) {
+  $size: rem($current);
+  $min: rem-base($min-rem);
+  $lh: rem($line-height);
 
-/*
-    Инструмент создания адаптивного шрифта
-     минимально возможный размер,
-     коэффициент,
-     максимально возможный размер,
-     коэффициент для line-height
-*/
-@mixin create-fontsize($min-rem, $current, $max-rem, $lh) {
-  $size: rem_adaptive($current);
-  $min: rem($min-rem);
-  $max: rem($max-rem);
-  $return-font-size: clamp(#{$min}, #{$size}, #{$max});
-
-  font-size: $return-font-size;
-  line-height: calc(#{$return-font-size} * #{$lh});
+  font-size: max(#{$min}, #{$size});
+  line-height: #{$lh};
 }
 
 // для всех экранов < 1920px

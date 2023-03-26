@@ -1,6 +1,7 @@
+'use client'
 import { classnames } from '@bem-react/classnames'
 import dynamic from 'next/dynamic'
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useLayoutEffect, useMemo } from 'react'
 import { IconName } from '@public/models/icon.model'
 import styles from './Icon.module.scss'
 import { makeCn } from '../../utils'
@@ -25,17 +26,18 @@ export interface IconProps {
 export const Icon: React.FunctionComponent<IconProps> = ({
   className, icon, fill, size, onClick, onMouseEnter, onMouseLeave, style, basePath,
 }) => {
-  const DynamicComponent = dynamic(() => import(`../../../public/resources/icons/${basePath || 'share/'}${icon}.svg`), {
-    ssr: false,
-  })
+  // const DynamicComponent = dynamic(() => import(`../../../public/resources/icons/${basePath || 'share/'}${icon}.svg`), {
+  //   ssr: false,
+  // })
 
-  DynamicComponent.defaultProps = {
-    className: classnames(cn({ fill, size }), className),
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-    style,
-  }
+  // DynamicComponent.defaultProps = {
+  //   className: classnames(cn({ fill, size }), className),
+  //   onClick,
+  //   onMouseEnter,
+  //   onMouseLeave,
+  //   style,
+  // }
 
-  return <DynamicComponent />
+  // return <DynamicComponent />
+  return <div>icon</div>
 }

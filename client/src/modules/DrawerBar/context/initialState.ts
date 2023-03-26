@@ -1,8 +1,8 @@
 export interface StateModule {
-  search: string
+  search?: string
 }
 
 
 export const initialState: StateModule = {
-  search: null,
+  search: '',
 }

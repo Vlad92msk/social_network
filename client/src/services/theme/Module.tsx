@@ -1,16 +1,23 @@
-import { useEffect } from 'react'
-import { useThemeServiceCtxSelector } from './context'
+import React, { useLayoutEffect} from 'react'
+import { createStoreContext } from '@shared/utils'
+import { initialState } from './context/initialState'
 
+export const {
+  contextWrapper,
+  useContextSelector: useThemeServiceSelect,
+  useContextDispatch: useThemeServiceUpdate,
+} = createStoreContext({
+  name: 'Theme',
+  initialState,
+})
 
-const Module = (props) => {
+export const ThemeService = contextWrapper((props) => {
   const { children } = props
-  const theme = useThemeServiceCtxSelector((contextStore) => contextStore.theme)
+  const theme = useThemeServiceSelect((contextStore) => contextStore.theme)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.setAttribute('data-theme', theme)
   }, [theme])
 
-  return children
-}
-
-export default Module
+  return <>{children}</>
+})

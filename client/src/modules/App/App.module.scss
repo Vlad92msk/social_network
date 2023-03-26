@@ -1,8 +1,11 @@
-@use 'public/styles/functions' as *;
-@use 'public/styles/mixins' as * ;
+@import "public/styles";
+@import "shared/styles";
 
 $nav: clamp(rem(100), 20%, rem(250));
 $drawer-bar: clamp(rem(100), 30%, rem(350));
+$paddingComponent: rem(10);
+$border-radius-album: rem(15);
+$border-radius-small:rem(5);
 
 .Application {
   @include wh(100vw, 100vh);

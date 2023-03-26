@@ -1,15 +1,24 @@
-import { makeCn } from '@shared/utils'
 import React from 'react'
+import { createStoreContext, makeCn } from '@shared/utils'
+import { initialState } from './context/initialState'
 import styles from './Module.module.scss'
 import { Photo, Video } from './sections'
 
 const cn = makeCn('Main', styles)
 
-const Module: React.FC = () => (
+export const {
+  contextWrapper,
+  useContextSelector: useMainSelect,
+  useContextDispatch: useMainUpdate,
+} = createStoreContext({
+  name: 'Main',
+  initialState,
+})
+
+
+export const Main = contextWrapper(() => (
   <div className={cn()}>
     <Photo />
     <Video />
   </div>
-)
-
-export default Module
+))

@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react'
 import { makeCn } from '@shared/utils'
-import { Album, MediaItem, SectionContainer } from '../../components'
 import { ALBUMS, PHOTOS } from './mock'
 import styles from './Photo.module.scss'
+import { Album, MediaItem, SectionContainer } from '../../components'
 
 const cn = makeCn('Photo', styles)
 
 export const Photo = () => {
-  const [visibleType, setVisibleType] = useState<string>(null)
+  const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {
     setVisibleType(String(value))

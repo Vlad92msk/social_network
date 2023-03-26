@@ -34,7 +34,7 @@ fragment userInfoProgress on RU_Progress {
 
 
 query GetUserInfo($id: Float) {
-    getOneUser(id: $id){
+ getOneUser(id: $id){
         id
         connect {
             ...userInfoConnect

@@ -1,7 +1,6 @@
 @use 'sass:list' as list;
-@use "../../functions" as *;
-@use "../../mixins" as *;
-@use "../variables" as *;
+@import "public/styles";
+@import "../variables";
 
 
 %textEllipsis {
@@ -12,15 +11,15 @@
 
 /*
  * Из списка размеров шрифтов создаются шаблоны для дальнейшего использования
- * Формат text--regular, text--small, text--extraSmall и тд
+ * Формат text--14, text--24, text--36 и тд
  */
 @each $name, $sizes in $text-sizes-adaptive {
   $min: list.nth($sizes, 1);
   $size: list.nth($sizes, 2);
-  $max: list.nth($sizes, 3);
-  $lh: list.nth($sizes, 4);
+  $lh: list.nth($sizes, 3);
 
   %text--#{$name} {
-    @include create-fontsize($min, $size, $max, $lh);
+    @include create-fontsize($min, $size, $lh);
   }
 }
+

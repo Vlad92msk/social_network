@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Text } from '@shared/components/Text'
 import { makeCn } from '@shared/utils'
-import { AddNewMessageUsers, ChatItem } from '..'
 import styles from './Footer.module.scss'
+import { AddNewMessageUsers, ChatItem } from '..'
 
 const cn = makeCn('Footer', styles)
 

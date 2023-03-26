@@ -1,5 +1,5 @@
-@use "public/styles/lib" as *;
-@use "../../../public/styles/mixins" as *;
+@import "public/styles";
+@import "shared/styles";
 @import "../../modules/App/App.module";
 
 .Attachment {
@@ -10,7 +10,7 @@
   }
 
   &-Name {
-    @include textEllipsis;
+    //@extend textEllipsis;
     color: var(--SOCIAL--Color-Text-System);
     margin-left: rem(5);
   }
