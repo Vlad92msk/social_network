@@ -14,7 +14,7 @@ export const Header = () => (
       }}
       />
     </div>
-    <Text color="title" size="5">Firsov Vlad</Text>
-    <Icon className={cn('AlertIcon')} icon="bell" size="small_1" fill="oldAsphalt40" />
+    <Text color="title">Firsov Vlad</Text>
+    <Icon className={cn('AlertIcon')} icon="bell" fill="oldAsphalt40" />
   </div>
 )

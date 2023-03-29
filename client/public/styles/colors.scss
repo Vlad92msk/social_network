@@ -1,6 +1,15 @@
 [data-theme='default']{
-  --Color--Text--root: #615f5f;
+  --Color--Text--root: #bca9a9;
+
+  --Color-Text-Main: #685959;
+
   --Color--Bckground--root: #151010;
+  --Color-Background-App: rgba(255 255 255 / 12%);
+  --Color-border: var(--Color-Background-App);
+  --Color-Background-Sub: orange;
+  --Color-Status-Offline: red;
+  --Color-Status-Online: green;
+  --Color-Background-icon: grey;
 }
 
 [data-theme='red']{

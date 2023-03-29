@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@function rem-base($size) {
+@function rem($size) {
   @if unitless($size) {
     $remSize: math.div($size, 16);
 
@@ -22,18 +22,6 @@
   &:not(:first-child) {
     @content;
   }
-}
-
-/*
- *  $base - это примерное кол-во пикселей которому равен var(--index)
- *  но в зависимости от разрешения экрана - это соотношение будет плавать
- *  возможно в будущем можно будет добавить медиа-запрос в котором будем передавать это значение, но пока для начала так
- */
-@function rem($size, $base: 24) {
-  $coefficient-to-one-pixel: calc(1 / #{$base});
-  $coefficient: calc($coefficient-to-one-pixel * $size);
-
-  @return calc(var(--index) * #{$coefficient});
 }
 
 @function calc_minus($number) {

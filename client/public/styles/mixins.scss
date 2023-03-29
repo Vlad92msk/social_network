@@ -132,11 +132,11 @@
 
 @mixin create-fontsize($min-rem, $current, $line-height) {
   $size: rem($current);
-  $min: rem-base($min-rem);
+  $min: #{$min-rem}px;
   $lh: rem($line-height);
 
   font-size: max(#{$min}, #{$size});
-  line-height: #{$lh};
+  line-height: max(#{$min}, #{$lh});
 }
 
 // для всех экранов < 1920px

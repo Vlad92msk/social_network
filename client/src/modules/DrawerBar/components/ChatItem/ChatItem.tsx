@@ -31,8 +31,8 @@ export const ChatItem = (props: ChatItem) => {
       </div>
       <div className={cn('TextContainerMain')}>
         <div className={cn('TextContainer')}>
-          <Text className={cn('FriendName')} size="2" weight="bold" color="title">{name}</Text>
-          <Text className={cn('FriendName')} size="1" color="body">{lastMessage}</Text>
+          <Text className={cn('FriendName')}>{name}</Text>
+          <Text className={cn('FriendName')}>{lastMessage}</Text>
         </div>
         <AddNewMessageUsers lastUser="d" prevUser="d" addCount={60} />
       </div>

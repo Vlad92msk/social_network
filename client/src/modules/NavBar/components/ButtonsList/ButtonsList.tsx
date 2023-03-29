@@ -54,7 +54,7 @@ export const ButtonsList = () => {
     <div className={cn()}>
       {buttons.map(({ id, title, icon }) => (
         <ButtonBox key={id} className={cn('Button', { active: id === active })} onClick={() => setActive(id)}>
-          <Icon className={cn('ButtonIcon')} icon={icon} size="small_1" />
+          <Icon className={cn('ButtonIcon')} icon={icon} size="small" />
           <Text className={cn('ButtonText')}>{title}</Text>
         </ButtonBox>
       ))}

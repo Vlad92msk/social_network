@@ -50,7 +50,7 @@ export const Album: React.FC<SectionContainerProps> = (props) => {
       }}
     >
       <div className={cn('Preview')} style={{ background }}>
-        <Text weight="bold" size="6" style={{ color }}>{title}</Text>
+        <Text style={{ color }}>{title}</Text>
         <Text style={{ color }}>{description}</Text>
         <ButtonBox
           className={cn('ButtonOpen')}
@@ -63,7 +63,7 @@ export const Album: React.FC<SectionContainerProps> = (props) => {
         </ButtonBox>
       </div>
       <div className={cn('Hover')} style={{ background }}>
-        <Text size="6" style={{ color }}>
+        <Text style={{ color }}>
           {elementsCount && (elementsCount > 99 ? '+99' : elementsCount)}
         </Text>
       </div>
@@ -72,8 +72,8 @@ export const Album: React.FC<SectionContainerProps> = (props) => {
     <FieldRow direction="column" width="100" gap="20px">
       <FieldRow width="100" justify="between">
         <FieldRow direction="column">
-          <Text weight="bold" size="6" color="title">{title}</Text>
-          <Text size="2" color="title">{description}</Text>
+          <Text color="title">{title}</Text>
+          <Text color="title">{description}</Text>
         </FieldRow>
         <IconButton icon="arrow-left" onClick={openAlbum} fill="oldAsphalt40" />
       </FieldRow>

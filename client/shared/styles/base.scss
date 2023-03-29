@@ -4,19 +4,22 @@
 @import "shared/styles/variables";
 
 :root {
-  --index: calc(1vw + 1vh); // Используется для адаптивности шрифта (например) при изменении размеров экрана
+  --BaseFontSize: 16;
   --FontFamily: 'Lato', Helvetica, Arial, -apple-system,
   system-ui, BlinkMacSystemFont, 'Segoe UI',
   'Helvetica Neue', sans-serif;
+
+  --Adaptive-Size--Index: calc(1vw + 1vh);
+  --Adaptive-Size--Base-Coefficient: 20;
 }
 
 html {
-  @extend %text--16;
   box-sizing: border-box;
   font-family: var(--FontFamily);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: calc(var(--Adaptive-Size--Index) * ((1 / var(--Adaptive-Size--Base-Coefficient)) * var(--BaseFontSize)));
 }
 
 

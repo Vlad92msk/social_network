@@ -1,18 +1,22 @@
-'use client'
 import { classnames } from '@bem-react/classnames'
-import dynamic from 'next/dynamic'
-import React, { CSSProperties, useLayoutEffect, useMemo } from 'react'
+import { motion } from 'framer-motion'
+import React, { CSSProperties } from 'react'
 import { IconName } from '@public/models/icon.model'
 import styles from './Icon.module.scss'
+import { createIconPath, getIcon } from './utils/loadIcon'
 import { makeCn } from '../../utils'
 
 const cn = makeCn('Icon', styles)
 
 export type IconFill = 'oldAsphalt50' | 'oldAsphalt40' | 'bluePrimrose50' | 'light100' | 'redRose40'
-export type IconSize = 'small' | 'ordinary' | 'medium' | 'large' | 'small_1'
+export type IconSize = 'small' | 'ordinary' | 'medium' | 'large'
+export interface IconBasePath {
+  directory: 'users'
+  folder: 'hobbies' | 'skills'
+}
 
 export interface IconProps {
-  basePath?: 'users/hobbies/' | 'users/skills/'
+  basePath?: IconBasePath
   className?: string
   icon: IconName
   fill?: IconFill
@@ -21,23 +25,18 @@ export interface IconProps {
   onClick?: () => void
   onMouseEnter?: (e: React.MouseEvent) => void
   onMouseLeave?: (e: React.MouseEvent) => void
+  ref?: React.LegacyRef<HTMLOrSVGElement>
 }
 
-export const Icon: React.FunctionComponent<IconProps> = ({
-  className, icon, fill, size, onClick, onMouseEnter, onMouseLeave, style, basePath,
-}) => {
-  // const DynamicComponent = dynamic(() => import(`../../../public/resources/icons/${basePath || 'share/'}${icon}.svg`), {
-  //   ssr: false,
-  // })
+export const Icon: React.FC<IconProps> = React.forwardRef((props, ref: React.LegacyRef<HTMLOrSVGElement>) => {
+  const { icon, className, size, fill, basePath, ...rest } = props
 
-  // DynamicComponent.defaultProps = {
-  //   className: classnames(cn({ fill, size }), className),
-  //   onClick,
-  //   onMouseEnter,
-  //   onMouseLeave,
-  //   style,
-  // }
+  const DynamicIcon = getIcon(createIconPath(icon, basePath))
+  return <DynamicIcon ref={ref} icon={icon} className={classnames(cn({ fill, size }), className)} {...rest} />
+})
 
-  // return <DynamicComponent />
-  return <div>icon</div>
+Icon.defaultProps = {
+  size: 'ordinary',
 }
+
+export const IconMotion = motion(Icon)

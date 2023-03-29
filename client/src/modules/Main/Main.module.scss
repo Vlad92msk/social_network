@@ -1,8 +1,8 @@
 @import "public/styles";
 @import "shared/styles";
-@import "../App/App.module";
 
 .Main {
+  @include hideScrollbar();
   padding: $paddingComponent;
   position: relative;
   overflow-y: auto;

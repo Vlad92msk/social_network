@@ -1,9 +1,9 @@
 @import "public/styles";
 @import "shared/styles";
 
-$border-radius-element: rem(15);
 .NavBar {
   @include flex($direction: column);
+  padding: $paddingComponent;
   grid-area: nav;
   position: relative;
 }

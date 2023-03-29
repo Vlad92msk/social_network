@@ -50,15 +50,15 @@ export const FriendItem = (props: FriendItem) => {
               <Icon
                 icon="message-square"
                 fill="bluePrimrose50"
-                size="small_1"
+                size="small"
               />
-              <Text className={cn('MessageCount', { visible: Boolean(messageCount) })} size="1" color="body">
+              <Text className={cn('MessageCount', { visible: Boolean(messageCount) })} size="8">
                 {(messageCount || 0) > 9 ? '+9' : messageCount}
               </Text>
             </ButtonBox>
             <Text
               className={cn('LastTime', { visible: status === UserStatusEnum.OFFLINE })}
-              size="1"
+              size="8"
             >
               13:42
             </Text>

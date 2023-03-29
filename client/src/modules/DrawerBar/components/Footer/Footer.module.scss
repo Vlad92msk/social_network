@@ -5,13 +5,15 @@
 
 .Footer {
   $this: &;
-  @include flex($direction: column);
+  display: flex;
+  flex-direction: column;
   background: var(--Color-Background-App);
   width: 100%;
   padding: $paddingComponent;
-  height: fit-content;
   max-height: rem(150);
   transition: .5s;
+  border-bottom-left-radius: rem(55);
+  margin-top: auto;
 
   &--open {
     max-height: 70%;
@@ -28,7 +30,9 @@
   }
 
   &-ChatsContainer {
-    @include flex($direction: column);
+    @include hideScrollbar();
+    display: flex;
+    flex-direction: column;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
     overflow-x: hidden;

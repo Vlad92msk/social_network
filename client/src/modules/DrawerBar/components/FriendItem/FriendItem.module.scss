@@ -1,12 +1,14 @@
 @import "public/styles";
 @import "shared/styles";
-@import "../../../App/App.module";
 
 
 .FriendItem {
   $this: &;
-  @include flex($align-items: center, $justify: space-between);
-  @include wh(100%, rem(70));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: rem(70);
   padding: rem(10);
   gap: rem(10);
   color: var(--Color-Text-Main);
@@ -102,7 +104,7 @@
       position: absolute;
       right: rem(-5);
       top: rem(-5);
-      background: var(--Color-Status-Offline);
+      background: var(--Color-Background-icon);
       text-shadow: 0 0 white;
       border-radius: 50%;
       padding: rem(5);

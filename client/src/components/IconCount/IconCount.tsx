@@ -65,11 +65,11 @@ IconCount.defaultProps = {
   countBcg: 'message',
   options: {
     icon: {
-      size: 'small_1',
+      size: 'small',
       fill: 'oldAsphalt40',
     },
     text: {
-      size: '1',
+      size: '12',
     },
   },
 }

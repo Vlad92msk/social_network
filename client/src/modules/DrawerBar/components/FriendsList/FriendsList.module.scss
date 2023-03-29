@@ -4,6 +4,9 @@
 
 
 .FriendsList {
+  @include hideScrollbar();
+  display: flex;
+  flex-direction: column;
   @include flex($direction: column);
   flex: 1 1;
   //padding: $paddingComponent;
