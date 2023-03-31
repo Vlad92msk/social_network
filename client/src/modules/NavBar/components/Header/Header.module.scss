@@ -4,7 +4,7 @@
 .Header {
   @include flex($align-items: center);
   width: 100%;
-  background: var(--Color-Background-Sub);
+  background: var(--Color-Background--light);
   padding: rem(10);
   border-radius: rem(10);
   gap: rem(10);
@@ -26,15 +26,15 @@
 
     &--status {
       &_online {
-        background: var(--Color-Status-Online);
+        background: var(--Color-Status--Online);
       }
 
       &_offline {
-        background: var(--Color-Status-Offline);
+        background: var(--Color-Status--Offline);
       }
 
       &_incognito {
-        background: var(--Color-Text-Sub-2);
+        background: var(--Color-Status--Incognito);
       }
     }
   }

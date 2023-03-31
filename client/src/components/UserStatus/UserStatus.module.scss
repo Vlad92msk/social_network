@@ -10,11 +10,11 @@
     border-radius: 50%;
     &--status {
       &_online {
-        background: var(--Color-Status-Online);
+        background: var(--Color-Status--Online);
       }
 
       &_offline {
-        background: var(--Color-Status-Offline);
+        background: var(--Color-Status--Offline);
       }
     }
   }

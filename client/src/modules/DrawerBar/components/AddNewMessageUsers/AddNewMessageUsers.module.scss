@@ -27,10 +27,10 @@
   &-UsersPlus {
     @include flex($align-items: center, $justify: center);
     @include wh(rem(30), rem(30));
-    border: rem(3) solid var(--Color-Background-App);
+    border: rem(3) solid var(--Color-Border--grey);
     border-radius: 50%;
     overflow: hidden;
-    background: var(--Color-Background-Sub);
-    color: var(--Color-Text-Sub-2);
+    background: var(--Color-Background--light);
+    color: var(--Color-Text--primary);
   }
 }

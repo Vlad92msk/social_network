@@ -16,7 +16,7 @@ export const AddNewMessageUsers = (props: AddNewMessageUsersProps) => {
   return (
     <div className={cn()}>
       <span className={cn('UsersPlus')}>
-        <Text size="1" color="note">{`${addCount > 99 ? '+99' : `+${addCount}`}`}</Text>
+        <Text size="10">{`${addCount > 99 ? '+99' : `+${addCount}`}`}</Text>
       </span>
       <UserIMGPreview moduleName="users" folder="photo" img="1" />
       <UserIMGPreview moduleName="users" folder="photo" img="1" />

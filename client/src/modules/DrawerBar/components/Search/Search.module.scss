@@ -7,10 +7,10 @@
   padding-top: 0;
 
   &-Input {
-    background: var(--Color-Background-App);
+    background: var(--Color-Bckground--dark);
     width: 100%;
     height: rem(50);
-    color: var(--Color-Text-Main);
+    color: var(--Color-Text--primary);
 
     input {
       border: 0;

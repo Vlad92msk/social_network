@@ -5,7 +5,6 @@
 .ButtonsList {
   @include flex($direction: column);
   flex: 1 1;
-  gap: rem(10);
   margin-top: rem(50);
 
   &-Button {
@@ -13,19 +12,19 @@
     width: 100%;
     padding: rem(20);
     gap: rem(20);
-    color: var(--Color-Text-Main);
-    fill: var(--Color-Background-icon);
+    color: var(--Color-Text--primary);
+    fill: var(--Color-Icon--light);
     border-radius: $border-radius-element;
     transition: .5s;
 
     &--active {
-      background: var(--Color-Text-Sub-1);
-      color: var(--Color-Status-Offline);
-      fill: var(--Color-Status-Offline);
+      background: var(--Color-Bckground--dark);
+      color: var(--Color-Text--red);
+      fill: var(--Color-Icon--red);
     }
 
     &:not(&--active):hover {
-      background: var(--Color-Background-Sub1);
+      background: var(--Color-Background--light);
       transition: .3s;
     }
   }

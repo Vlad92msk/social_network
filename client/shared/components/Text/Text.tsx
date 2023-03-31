@@ -17,15 +17,14 @@ export interface TextOwnProps {
 
 export type TextProps<E extends React.ElementType> = PolymorphicComponentProps<E, TextOwnProps>
 
-export const DEFAULT_TEXT_ELEMENT = 'span'
 
-export const Text = React.forwardRef((props: TextProps<typeof DEFAULT_TEXT_ELEMENT>, ref?: React.LegacyRef<HTMLSpanElement>) => {
+export const Text: React.FC<TextProps<React.ElementType>> = React.forwardRef((props, ref?: React.LegacyRef<HTMLSpanElement>) => {
   const { className, size, textTransform, ...rest } = props
 
   return (
     <Box
       ref={ref}
-      as={DEFAULT_TEXT_ELEMENT}
+      as="span"
       className={classnames(cn({ size, textTransform }), className)}
       {...rest}
     />

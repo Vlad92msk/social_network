@@ -13,7 +13,7 @@ export const Header = () => (
       }}
       />
     </div>
-    <Text color="title" size="5">Firsov Vlad</Text>
+    <Text color="title" size="16">Firsov Vlad</Text>
     <span className={cn('Status', { status: 'online' })} />
   </div>
 )

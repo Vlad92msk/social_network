@@ -1,4 +1,6 @@
-import { Section } from '@shared/components/Section'
+import { useCallback } from 'react'
+import { ButtonBox } from '@shared/components/ButtonBox'
+import { Icon } from '@shared/components/Icon'
 import { createStoreContext, makeCn } from '@shared/utils'
 import { Footer, FriendsList, Header, Search } from './components'
 import { initialState } from './context/initialState'
@@ -15,21 +17,23 @@ export const {
   initialState,
 })
 
-export const DrawerBar = contextWrapper(() => (
-  <Section
-    className={cn()}
-    imgClassName={cn('Img')}
-    bcgImg={{
-      path: {
-        moduleName: 'app',
-        folder: 'bcg',
-        img: 'drawBar1',
-      },
-    }}
-  >
-    <Header />
-    <Search />
-    <FriendsList />
-    <Footer />
-  </Section>
-))
+export const DrawerBar = contextWrapper(() => {
+  const active = useDrawerBarSelect((ctx) => ctx.isOpen)
+  const updateCtx = useDrawerBarUpdate()
+
+  const changeToggle = useCallback(() => {
+    updateCtx((ctx) => ({ isOpen: !ctx.isOpen }))
+  }, [updateCtx])
+
+  return (
+    <div className={cn({ active })}>
+      <ButtonBox className={cn('Change')} onClick={changeToggle}>
+        <Icon icon="arrow-left-sharp" />
+      </ButtonBox>
+      <Header />
+      <Search />
+      <FriendsList />
+      <Footer />
+    </div>
+  )
+})

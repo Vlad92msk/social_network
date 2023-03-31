@@ -2,6 +2,8 @@
 @import "shared/styles";
 
 .Main {
+  width: 100%;
+  max-width: calc(100% - ($nav-bar--width + $drawer-bar--min-width));
   @include hideScrollbar();
   padding: $paddingComponent;
   position: relative;

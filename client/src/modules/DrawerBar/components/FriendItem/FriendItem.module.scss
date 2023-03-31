@@ -11,17 +11,19 @@
   height: rem(70);
   padding: rem(10);
   gap: rem(10);
-  color: var(--Color-Text-Main);
-  fill: var(--Color-Background-icon);
+  color: var(--Color-Text--primary);
+  fill: var(--Color-Icon--light);
   transition: .5s;
 
   & > *:first-child {
-    @include wh(rem(50), rem(50))
+    @include wh(rem(50), rem(50));
+    border-radius: rem(10);
+    overflow: hidden;
   }
 
   &:hover {
     transition: .3s;
-    background: var(--Color-Background-Sub);
+    background: var(--Color-Background--light);
     border-radius: $border-radius-small;
 
     #{$this}-FriendFastActions {
@@ -62,7 +64,7 @@
   }
 
   &-FriendName {
-    //@extend textEllipsis;
+    @extend %textEllipsis;
     width: 100%;
     max-width: 100%;
     text-align: left;
@@ -104,7 +106,9 @@
       position: absolute;
       right: rem(-5);
       top: rem(-5);
-      background: var(--Color-Background-icon);
+      background: var(--Color-Icon--grey);
+      fill: var(--Color-Icon--grey);
+      color: var(--Color-Text--primary);
       text-shadow: 0 0 white;
       border-radius: 50%;
       padding: rem(5);

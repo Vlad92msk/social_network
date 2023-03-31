@@ -132,7 +132,6 @@ export const TextInput: React.FunctionComponent<TextInputProps> = (props) => {
 
 
 TextInput.defaultProps = {
-  className: null,
   placeholder: 'Введите значение...',
   type: 'text',
   size: 'medium',

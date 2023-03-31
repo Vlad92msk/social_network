@@ -1,23 +1,24 @@
 [data-theme='default']{
-  --Color--Text--root: #bca9a9;
+  --Color-Text--root: #bca9a9;
+  --Color-Bckground--root: #1f2440;
 
-  --Color-Text-Main: #685959;
+  --Color-Text--primary: #d3d3e2;
+  --Color-Text--secondary: #616789;
+  --Color-Text--placeholder: #484e70;
+  --Color-Text--red: #b64a50;
 
-  --Color--Bckground--root: #151010;
-  --Color-Background-App: rgba(255 255 255 / 12%);
-  --Color-border: var(--Color-Background-App);
-  --Color-Background-Sub: orange;
-  --Color-Status-Offline: red;
-  --Color-Status-Online: green;
-  --Color-Background-icon: grey;
-}
+  --Color-Bckground--app: #1f2440;
+  --Color-Bckground--dark: #1a1e38;
+  --Color-Background--light: #313458;
+  --Color-Background--red: #eb595a;
 
-[data-theme='red']{
-  --Color--Text--root: red;
-  --Color--Bckground--root: #151010;
-}
+  --Color-Border--grey: #2c3156;
 
-[data-theme='orange']{
-  --Color--Text--root: orange;
-  --Color--Bckground--root: #151010;
+  --Color-Status--Offline: #eb595a;
+  --Color-Status--Online: #1ae243;
+  --Color-Status--Incognito: rgba(97, 97, 97, 0.56);
+
+  --Color-Icon--light: #d3d3e2;
+  --Color-Icon--grey: #616789;
+  --Color-Icon--red: #b64a50;
 }
