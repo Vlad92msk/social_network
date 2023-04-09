@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { FriendsListItem } from '@modules/DrawerBar/components'
+import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
 import { ButtonBox } from '@shared/components/ButtonBox'
 import { Icon } from '@shared/components/Icon'
 import { MenuListItem, MenuListWithButton } from '@shared/components/MenuList'
@@ -24,6 +25,7 @@ export const FriendItem = (props: FriendItem) => {
       messageCount,
     },
   } = props
+  const isBarOpen = useDrawerBarSelect((state) => state.isOpen)
 
   const handleClickFriend = useCallback((friendId: number) => {
     console.log(`Кликнул по пользователю ${friendId}`)
@@ -35,6 +37,7 @@ export const FriendItem = (props: FriendItem) => {
       onClick={() => handleClickFriend(id)}
     >
       <IMGPreview moduleName="users" folder="photo" img={img} />
+      { isBarOpen && (
       <div className={cn('TextContainer')}>
         <Text className={cn('FriendName')}>{name}</Text>
         <div className={cn('Main')}>
@@ -65,6 +68,7 @@ export const FriendItem = (props: FriendItem) => {
           </div>
         </div>
       </div>
+      ) }
       <MenuListWithButton classNameButton={cn('MenuButton')}>
         <MenuListItem
           className={cn('ListItem')}

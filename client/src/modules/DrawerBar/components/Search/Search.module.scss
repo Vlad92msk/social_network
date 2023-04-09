@@ -4,16 +4,18 @@
 
 .Search {
   overflow: hidden;
-  padding-top: 0;
+  margin: 0 $paddingComponent;
+  border-radius: rem(55);
+  background: var(--Color-Bckground--dark);
 
   &-Input {
-    background: var(--Color-Bckground--dark);
     width: 100%;
     height: rem(50);
-    color: var(--Color-Text--primary);
+    fill: var(--Color-Icon--light);
 
     input {
       border: 0;
+      color: var(--Color-Text--primary);
     }
   }
 }

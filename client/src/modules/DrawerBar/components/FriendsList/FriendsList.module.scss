@@ -9,8 +9,7 @@
   flex-direction: column;
   @include flex($direction: column);
   flex: 1 1;
-  //padding: $paddingComponent;
+  margin: $paddingComponent;
   overflow-y: auto;
-  padding-top: 0;
 
 }

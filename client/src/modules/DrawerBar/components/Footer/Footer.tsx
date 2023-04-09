@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
+import { Icon } from '@shared/components/Icon'
 import { Text } from '@shared/components/Text'
+import { useToggle } from '@shared/hooks/useToggle'
 import { makeCn } from '@shared/utils'
 import styles from './Footer.module.scss'
 import { AddNewMessageUsers, ChatItem } from '..'
@@ -30,12 +33,13 @@ const chats: ChatsItem[] = [
 
 
 export const Footer = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useToggle(false)
 
   return (
     <div className={cn({ open })}>
-      <div className={cn('Title')} onClick={() => setOpen((prev) => !prev)}>
+      <div className={cn('Title')}>
         <Text color="title">Чаты</Text>
+        <Icon className={cn('ToggleOpenChats', { open })} icon="chevron-up" onClick={setOpen} />
       </div>
       <div className={cn('ChatsContainer')}>
         {chats?.map((chat) => (

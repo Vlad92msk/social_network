@@ -1,9 +1,11 @@
 import { AddNewMessageUsers, ChatsItem } from '@modules/DrawerBar/components'
+import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
 import { ButtonBox } from '@shared/components/ButtonBox'
+import { Image } from '@shared/components/Image'
 import { MenuListItem, MenuListWithButton } from '@shared/components/MenuList'
 import { Text } from '@shared/components/Text'
 import { makeCn } from '@shared/utils'
-import { IMGPreview, UserOlineForOf } from 'src/components'
+import { UserOlineForOf } from 'src/components'
 import styles from './ChatItem.module.scss'
 
 const cn = makeCn('ChatItem', styles)
@@ -16,19 +18,25 @@ interface ChatItem {
 export const ChatItem = (props: ChatItem) => {
   const {
     chats: {
-      id, name, img, lastMessage, activeCount,
+      id, name, img, lastMessage,
     },
     onClickFriendItem,
   } = props
+  const active = useDrawerBarSelect((ctx) => ctx.isOpen)
+
   return (
     <ButtonBox
-      className={cn()}
+      className={cn({ active })}
       onClick={() => onClickFriendItem(id)}
     >
       <div className={cn('UsersForOf')}>
-        <IMGPreview moduleName="users" folder="photo" img={img} />
-        <UserOlineForOf activeCount={1} totalCount={500} />
+        <Image
+          withContainer
+          path={{ moduleName: 'users', folder: 'photo', img }}
+        />
+        <UserOlineForOf totalCount={500} />
       </div>
+      {active && (
       <div className={cn('TextContainerMain')}>
         <div className={cn('TextContainer')}>
           <Text className={cn('FriendName')}>{name}</Text>
@@ -36,6 +44,7 @@ export const ChatItem = (props: ChatItem) => {
         </div>
         <AddNewMessageUsers lastUser="d" prevUser="d" addCount={60} />
       </div>
+      )}
 
       <MenuListWithButton classNameButton={cn('MenuButton')}>
         <MenuListItem

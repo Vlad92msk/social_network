@@ -5,18 +5,23 @@
   $this: &;
   position: relative;
   display: grid;
-  grid-template: [start] "img main menu" rem(75) [end] / 25% 65%;
+  grid-template: [start] "img" rem(75) [end];
   gap: rem(10);
   align-items: center;
   transition: .5s;
   scroll-snap-align: start;
   scroll-snap-stop: always !important;
-  padding: rem(15) rem(5);
+
+  &--active {
+    grid-template: [start] "img main menu" rem(75) [end] / 25% 65%;
+  }
 
   &-TextContainerMain {
     grid-area: main;
     width: 100%;
-    @include flex($justify: space-between);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
 
   &-TextContainer {
@@ -54,6 +59,7 @@
   }
 
   &-MenuButton {
+    fill: var(--Color-Icon--light);
     grid-area: menu;
     position: absolute;
     right: rem(-20);

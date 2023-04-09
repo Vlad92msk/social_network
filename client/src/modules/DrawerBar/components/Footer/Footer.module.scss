@@ -5,15 +5,17 @@
 
 .Footer {
   $this: &;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: var(--Color-Bckground--dark);
-  width: 100%;
-  padding: $paddingComponent;
+  margin: $paddingComponent;
+  margin-right: 0;
   max-height: rem(150);
   transition: .5s;
   border-bottom-left-radius: rem(55);
   margin-top: auto;
+  overflow: hidden;
 
   &--open {
     max-height: 70%;
@@ -25,8 +27,9 @@
   }
 
   &-Title {
-    @include flex($justify: space-between);
-    cursor: pointer;
+    display: flex;
+    justify-self: start;
+    padding: $paddingComponent;
   }
 
   &-ChatsContainer {
@@ -39,5 +42,19 @@
     transition: .5s;
     gap: rem(25);
     margin-top: rem(15);
+    padding-left: $paddingComponent;
+  }
+
+  &-ToggleOpenChats {
+    fill: var(--Color-Icon--light);
+    justify-self: center;
+    cursor: pointer;
+    transition: .5s;
+    margin: auto;
+
+    &--open {
+      transform: rotate(180deg);
+      transition: .5s;
+    }
   }
 }
