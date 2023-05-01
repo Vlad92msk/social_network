@@ -1,6 +1,6 @@
 'use client'
 
-import { isEqual, merge } from 'lodash'
+import { merge } from 'lodash'
 import React, {
   createContext,
   PropsWithChildren,
@@ -30,7 +30,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     const subscribers = useRef(new Set<() => void>())
 
     const set = useCallback((value: Partial<Store>): Store => {
-      if (isEqual(store.current, value)) return store.current
+      if (Object.is(store.current, value)) return store.current
 
       if (name) {
         console.group(name)
@@ -103,7 +103,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     )
   }
 
-  function useStoreDispatch<SelectorOutput>() {
+  function useStoreDispatch() {
     const store = useContext(StoreContext)
     if (!store) throw new Error('Store not found')
 
@@ -118,8 +118,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     const { state, children } = props
     const updateContext = useStoreDispatch()
 
-
-    if (Boolean(state)) {
+    if (state !== undefined) {
       updateContext((initial) => merge(initial, state))
     }
 
@@ -127,10 +126,10 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
   }
 
   const contextWrapper = (Module: React.FC<PropsWithChildren>): React.FC<Props> => (
-    ({ state, children }) => (
+    ({ state, children, ...restProps }) => (
       <ContextProvider>
         <StartWith state={state}>
-          <Module>
+          <Module {...restProps}>
             {children}
           </Module>
         </StartWith>

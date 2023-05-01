@@ -56,7 +56,3 @@ export const MenuListItem = <E extends React.ElementType = typeof DEFAULT_ELEMEN
     </Box>
   )
 }
-
-MenuListItem.defaultProps = {
-  className: null,
-}

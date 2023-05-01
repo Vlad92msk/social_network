@@ -1,7 +1,8 @@
 import { classnames } from '@bem-react/classnames'
 import { motion } from 'framer-motion'
-import React from 'react'
-import { Box, PolymorphicComponentProps } from 'react-polymorphic-box'
+import React, { forwardRef } from 'react'
+import { Box } from 'react-polymorphic-box'
+import { AS, BoxProps } from '@public/models/boxType'
 import { makeCn } from '@shared/utils'
 import styles from './Text.module.scss'
 
@@ -15,16 +16,16 @@ export interface TextOwnProps {
   className?: string
 }
 
-export type TextProps<E extends React.ElementType> = PolymorphicComponentProps<E, TextOwnProps>
 
-
-export const Text: React.FC<TextProps<React.ElementType>> = React.forwardRef((props, ref?: React.LegacyRef<HTMLSpanElement>) => {
+export const Text = forwardRef(<E extends AS>(
+  props: BoxProps<E, TextOwnProps>,
+  ref?: React.Ref<E>,
+) => {
   const { className, size, textTransform, ...rest } = props
 
   return (
     <Box
       ref={ref}
-      as="span"
       className={classnames(cn({ size, textTransform }), className)}
       {...rest}
     />
@@ -37,4 +38,5 @@ export const TextMotion = motion(Text)
 Text.defaultProps = {
   size: '16',
   color: 'inherit',
+  as: 'span',
 } as Partial<TextOwnProps>

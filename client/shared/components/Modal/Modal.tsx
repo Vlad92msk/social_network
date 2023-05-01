@@ -1,8 +1,9 @@
 import { classnames } from '@bem-react/classnames'
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { Button } from '@shared/components/Button'
 import { Icon } from '@shared/components/Icon'
 import { Image } from '@shared/components/Image'
-import { Popper } from '@shared/components/Popper'
+import { Portal } from 'shared/components/Portal'
 import { cn } from './cn'
 
 export interface ModalProps {
@@ -17,7 +18,8 @@ export interface ModalProps {
   backgroundImg?: string
 }
 
-export const Modal: React.FC<ModalProps> = (props) => {
+
+export const Modal = (props: ModalProps) => {
   const {
     children,
     className,
@@ -30,9 +32,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
     backgroundImg,
   } = props
 
-  if (typeof window === 'undefined') {
-    return <></>
-  }
 
   const handleBckClose = useCallback(() => {
     if (isBckOnClose && onClose) {
@@ -41,7 +40,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }, [isBckOnClose, onClose])
 
   return (
-    <Popper open={open} anchorEl={document.body} className={cn()}>
+    <Portal open={open} className={cn()} >
       <span className={cn('Bck')} onClick={handleBckClose} />
       <section className={classnames(cn('Inner', { autoHeight }), className)}>
         {backgroundImg && (
@@ -50,13 +49,19 @@ export const Modal: React.FC<ModalProps> = (props) => {
           />
         )}
         {(onClose && isOnCloseIcon) && (
-          <span onClick={onClose} className={cn('BlockIconClose')}>
+          <Button
+            onClick={(e) => {
+              e.stopPropagation()
+              onClose()
+            }}
+            className={cn('BlockIconClose')}
+          >
             <Icon icon="close" className={cn('IconClose')} />
-          </span>
+          </Button>
         )}
         {children}
       </section>
-    </Popper>
+    </Portal>
   )
 }
 

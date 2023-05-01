@@ -1,0 +1,21 @@
+{
+  "name": "social_network",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "client:install": "cd client && npm install",
+    "client:dev": "cd client && npm run next:start:dev",
+    "client:build": "cd client && npm run build",
+    "client:start": "cd client && npm run start",
+    "server:install": "cd server && npm install",
+    "server:build": "cd server && npm run build",
+    "server:start": "cd server && npm run start",
+    "install:both": "npm run client:install && npm run server:install",
+    "build:both": "npm run client:build && npm run server:build",
+    "start:both": "concurrently \"npm run server:start\" \"npm run client:start\"",
+    "dev:both": "concurrently \"npm run server:start\" \"npm run client:dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

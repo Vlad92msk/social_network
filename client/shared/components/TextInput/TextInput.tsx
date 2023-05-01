@@ -94,7 +94,7 @@ export const TextInput: React.FunctionComponent<TextInputProps> = (props) => {
     placeholder,
     error,
   } = props
-  const [refWidth, ref] = useRect<HTMLDivElement>(['width'], false)
+  // const [refWidth, ref] = useRect<HTMLDivElement>(['width'])
 
 
   const handleChange = useCallback(({ target: { value: nextValue } }) => {
@@ -106,7 +106,7 @@ export const TextInput: React.FunctionComponent<TextInputProps> = (props) => {
     <div ref={innerRef} className={classnames(cn({ error }), className)} style={style} onClick={onClick}>
       {
         (icon || prefix) && (
-          <div ref={ref} className={cn('PrefixBox', { iconPosition })}>
+          <div  className={cn('PrefixBox', { iconPosition })}>
             {icon && <IconButton className={cn('Icon')} icon={icon} fill={iconFill} onClick={iconClick} />}
             {prefix && <Text className={cn('Prefix')} color="note" weight="medium">{prefix}</Text>}
           </div>
@@ -115,7 +115,7 @@ export const TextInput: React.FunctionComponent<TextInputProps> = (props) => {
       <Text
         as="input"
         style={(icon || prefix) && ({
-          [iconPosition === 'left' ? 'paddingLeft' : 'paddingRight']: (refWidth.width || 0) + 10,
+          [iconPosition === 'left' ? 'paddingLeft' : 'paddingRight']: (200 || 0) + 10,
         })}
         className={cn('Input', { size, error })}
         type={type}

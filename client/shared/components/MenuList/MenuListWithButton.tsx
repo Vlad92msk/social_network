@@ -23,9 +23,9 @@ export const MenuListWithButton: React.FC<MenuListWithButtonProps> = (props) => 
     children, button, classNameButton, ...rest
   } = props
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLDivElement>(null)
 
-  const handleClick = useCallback(({ currentTarget }: React.MouseEvent<HTMLElement>) => {
+  const handleClick = useCallback(({ currentTarget }: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(currentTarget)
   }, [])
 

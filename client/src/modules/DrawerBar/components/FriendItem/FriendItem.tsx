@@ -1,10 +1,13 @@
-import { useCallback } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { FriendsListItem } from '@modules/DrawerBar/components'
 import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
 import { ButtonBox } from '@shared/components/ButtonBox'
 import { Icon } from '@shared/components/Icon'
 import { MenuListItem, MenuListWithButton } from '@shared/components/MenuList'
+import { Popup } from '@shared/components/Popup'
 import { Text } from '@shared/components/Text'
+import { useRect } from '@shared/hooks'
+import { useToggle } from '@shared/hooks/useToggle'
 import { makeCn } from '@shared/utils'
 import { IMGPreview, UserStatus, UserStatusEnum } from 'src/components'
 import styles from './FriendItem.module.scss'
@@ -27,14 +30,16 @@ export const FriendItem = (props: FriendItem) => {
   } = props
   const isBarOpen = useDrawerBarSelect((state) => state.isOpen)
 
-  const handleClickFriend = useCallback((friendId: number) => {
-    console.log(`Кликнул по пользователю ${friendId}`)
-  }, [])
+
+  const handleClickFriend = useCallback(() => {
+    console.log(`Кликнул по пользователю ${id}`)
+  }, [id])
+
 
   return (
     <ButtonBox
       className={cn()}
-      onClick={() => handleClickFriend(id)}
+      onClick={handleClickFriend}
     >
       <IMGPreview moduleName="users" folder="photo" img={img} />
       { isBarOpen && (
@@ -69,23 +74,37 @@ export const FriendItem = (props: FriendItem) => {
         </div>
       </div>
       ) }
-      <MenuListWithButton classNameButton={cn('MenuButton')}>
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Удалить"
-          onClick={() => console.log('Удалить')}
-        />
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Заблокировать"
-          onClick={() => console.log('Заблокировать')}
-        />
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Скрыться"
-          onClick={() => console.log('Скрыться')}
-        />
-      </MenuListWithButton>
+      <Popup state={{
+        // arrow: <Icon icon="arrow-left-sharp" />,
+        withDefaultArrow: true
+      }}
+      >
+        <Popup.Button>Button</Popup.Button>
+        <Popup.Content>
+          <Text>
+            Lorem kjwnelfn erkjvf erjhfn erwfner vjnferonf
+            weflwef jwebf flkwneof wejf wef
+          </Text>
+        </Popup.Content>
+      </Popup>
+      {/* <MenuListWithButton classNameButton={cn('MenuButton')}> */}
+      {/*  <MenuListItem */}
+      {/*    className={cn('ListItem')} */}
+      {/*    text="Удалить" */}
+      {/*    onClick={() => console.log('Удалить')} */}
+      {/*  /> */}
+      {/*  <MenuListItem */}
+      {/*    className={cn('ListItem')} */}
+      {/*    text="Заблокировать" */}
+      {/*    onClick={() => console.log('Заблокировать')} */}
+      {/*  /> */}
+      {/*  <MenuListItem */}
+      {/*    className={cn('ListItem')} */}
+      {/*    text="Скрыться" */}
+      {/*    onClick={() => console.log('Скрыться')} */}
+      {/*  /> */}
+      {/* </MenuListWithButton> */}
+
     </ButtonBox>
   )
 }

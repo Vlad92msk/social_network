@@ -15,7 +15,7 @@ export interface MenuListProps {
   open: boolean;
   onClose: () => void;
 
-  anchorEl: HTMLElement;
+  anchorEl: HTMLDivElement;
   position?: PopperPlacementType;
   offset?: string;
   arrow?: boolean;
@@ -32,12 +32,12 @@ export const MenuList: React.FC<MenuListProps> = (props) => {
       arrow={arrow}
       open={!!(open && anchorEl)}
       onClose={onClose}
-      anchorEl={anchorEl}
-      placement={position}
-      modifiers={{
-        preventOverflow: { boundariesElement: 'scrollParent' },
-        offset: { offset },
-      }}
+      targetEl={anchorEl}
+      // placement={position}
+      // modifiers={{
+      //   preventOverflow: { boundariesElement: 'scrollParent' },
+      //   offset: { offset },
+      // }}
     >
       <Context.Provider value={{ onCloseMenu: onClose }}>
         {children}
@@ -47,7 +47,6 @@ export const MenuList: React.FC<MenuListProps> = (props) => {
 }
 
 MenuList.defaultProps = {
-  className: null,
   position: 'bottom-end',
   offset: '0, 10px',
   arrow: false,

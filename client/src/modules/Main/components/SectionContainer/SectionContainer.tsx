@@ -27,16 +27,16 @@ interface SectionContainerProps {
 
 export const SectionContainer = (props: PropsWithChildren<SectionContainerProps>) => {
   const { title, lastAdded, className, changeVisibleType, withSwitcher, children } = props
-  const [rect, contentEl] = useRect<HTMLDivElement>(['width'])
+  // const [rect, contentEl] = useRect<HTMLDivElement>(['width'])
 
   return (
     <div className={classnames(cn(), className)}>
       <div className={cn('Title')}>
-        <Text color="title" size="7" weight="bold" textTransform="uppercase">{title}</Text>
+        <Text color="title" textTransform="uppercase">{title}</Text>
         {useMemo(() => (
           <div className={cn('Calendar')}>
             <Icon className={cn('CalendarIcon')} icon="calendar-not-filled" fill="redRose40" />
-            <Text color="title" size="2">{createDateFormat(lastAdded, DateFormats.FORMAT_3)}</Text>
+            <Text color="title">{createDateFormat(lastAdded, DateFormats.FORMAT_3)}</Text>
           </div>
         ), [lastAdded])}
         {useMemo(() => (withSwitcher
@@ -49,10 +49,10 @@ export const SectionContainer = (props: PropsWithChildren<SectionContainerProps>
           )
         ), [changeVisibleType, withSwitcher])}
       </div>
-      <div className={cn('Content')} ref={contentEl}>
+      <div className={cn('Content')}>
         {useMemo(() => React.Children.map(children, (child: ReactElement<any, string>) => React.cloneElement(child, {
-          containerWidth: rect.width,
-        })), [children, rect.width])}
+          containerWidth: 200,
+        })), [children])}
       </div>
     </div>
   )
