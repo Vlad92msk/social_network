@@ -1,0 +1,25 @@
+@import "public/styles";
+@import "shared/styles";
+
+
+.MenuList {
+  &-Content {
+    max-width: rem(300);
+    padding: rem(15);
+    display: flex;
+    flex-direction: column;
+    border-radius: rem(5);
+    box-shadow: rem(0) rem(0) rem(3) var(--Color-Border--light-30);
+    background: var(--Color-Background--light);
+    gap: rem(15);
+    align-items: start;
+  }
+
+  &-Button {
+    & > *[data-x-placement]{
+      -webkit-clip-path: polygon(0 0, 0% 100%, 36% 49%);
+      clip-path: polygon(0 0, 0% 100%, 36% 49%);
+      background: var(--Color-Border--light-30);
+    }
+  }
+}

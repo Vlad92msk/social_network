@@ -27,19 +27,23 @@ export interface StateModule {
   arrowHeight?: number
   popupStyle?: CSSProperties
   arrowStyle?: CSSProperties
+  whileAction?: 'click' | 'hover'
+  isClickOutside?: boolean
 }
 
 
 export const initialState: StateModule = {
   open: false,
   target: undefined,
-  xPlacement: 'left',
+  xPlacement: undefined,
   arrow: undefined,
   withDefaultArrow: false,
   defaultArrow: <Icon icon="arrow-right-sharp" />,
   popupStyle: undefined,
   arrowHeight: 10,
-  margin: 20,
-  position: 'left',
+  margin: 0,
+  position: 'top',
   arrowStyle: undefined,
+  whileAction: 'click',
+  isClickOutside: false,
 }

@@ -11,12 +11,21 @@ import React, {
 } from 'react'
 
 import { DeepPartial } from '@public/models/deepPartial'
-import { compose } from '@shared/utils/compose'
 import { log, LogColors } from '@shared/utils/logColors'
 
 interface Options<Store> {
   initialState: Store
   name?: string
+}
+function logStoreData(name, store, value) {
+  console.group(name)
+  log(LogColors.fg.magenta, ['prev state', store.current])
+  log(LogColors.fg.blue, ['payload', value])
+
+  const assigned = merge(store.current, value)
+  log(LogColors.fg.red, ['result', assigned])
+  console.groupEnd()
+  return assigned
 }
 
 export function createStoreContext<Store>({ name, initialState }: Options<Store>) {
@@ -25,37 +34,48 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     set: (v: (s: Store) => DeepPartial<Store>) => Store
     subscribe: (callback: () => void) => () => void;
     } {
+    // Создаем ссылку на наше хранилище состояния с исходным состоянием
     const store = useRef(initialState)
+
+    // Функция get позволяет нам получить текущее состояние хранилища
     const get = useCallback(() => store.current, [])
+
+    // Мы создаем ссылку на множество подписчиков, которые будут уведомлены при изменении состояния
     const subscribers = useRef(new Set<() => void>())
 
+    // Функция set позволяет нам изменить текущее состояние хранилища
     const set = useCallback((value: Partial<Store>): Store => {
+      // Если текущее состояние и новое значение совпадают, ничего не делаем
       if (Object.is(store.current, value)) return store.current
 
+      // Если задано имя, логируем данные о состоянии
       if (name) {
-        console.group(name)
-        log(LogColors.fg.magenta, ['prev state', store.current])
-        log(LogColors.fg.blue, ['payload', value])
+        store.current = logStoreData(name, store, value)
       }
 
+      // Объединяем текущее состояние с новым значением
       const assigned = merge(store.current, value)
+
+      // Обновляем текущее состояние
       store.current = assigned
+
+      // Уведомляем всех подписчиков об изменении состояния
       subscribers.current.forEach((callback) => callback())
 
-      if (name) {
-        log(LogColors.fg.red, ['result', assigned])
-        console.groupEnd()
-      }
-      store.current = assigned
+      // Возвращаем новое состояние
       return assigned
     }, [])
 
-    const apply = useCallback((dispatch: (s: Store) => Partial<Store>): Store => (
-      compose(set, dispatch)(get())
-    ), [get, set])
+    // Функция apply принимает функцию dispatch, применяет ее к текущему состоянию и затем обновляет состояние
+    const apply = useCallback((dispatch: (s: Store) => Partial<Store>): Store => {
+      const dispatched = dispatch(get())
+      return set(dispatched)
+    }, [get, set])
 
+    // Функция subscribe позволяет подписаться на изменения состояния хранилища
     const subscribe = useCallback((callback: () => void) => {
       subscribers.current.add(callback)
+      // Возвращаем функцию, которая при вызове отменяет подписку
       return () => subscribers.current.delete(callback)
     }, [])
 
@@ -66,6 +86,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
       subscribe,
     }
   }
+
 
   type UseStoreDataReturnType = ReturnType<typeof useStoreData>;
 

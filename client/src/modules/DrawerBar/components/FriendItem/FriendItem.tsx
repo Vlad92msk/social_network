@@ -11,6 +11,7 @@ import { useToggle } from '@shared/hooks/useToggle'
 import { makeCn } from '@shared/utils'
 import { IMGPreview, UserStatus, UserStatusEnum } from 'src/components'
 import styles from './FriendItem.module.scss'
+import { MenuList } from '../../../../components/MenuList/MenuList'
 
 const cn = makeCn('FriendItem', styles)
 
@@ -74,37 +75,26 @@ export const FriendItem = (props: FriendItem) => {
         </div>
       </div>
       ) }
-      <Popup state={{
-        // arrow: <Icon icon="arrow-left-sharp" />,
-        withDefaultArrow: true
-      }}
-      >
-        <Popup.Button>Button</Popup.Button>
-        <Popup.Content>
-          <Text>
-            Lorem kjwnelfn erkjvf erjhfn erwfner vjnferonf
-            weflwef jwebf flkwneof wejf wef
-          </Text>
-        </Popup.Content>
-      </Popup>
-      {/* <MenuListWithButton classNameButton={cn('MenuButton')}> */}
-      {/*  <MenuListItem */}
-      {/*    className={cn('ListItem')} */}
-      {/*    text="Удалить" */}
-      {/*    onClick={() => console.log('Удалить')} */}
-      {/*  /> */}
-      {/*  <MenuListItem */}
-      {/*    className={cn('ListItem')} */}
-      {/*    text="Заблокировать" */}
-      {/*    onClick={() => console.log('Заблокировать')} */}
-      {/*  /> */}
-      {/*  <MenuListItem */}
-      {/*    className={cn('ListItem')} */}
-      {/*    text="Скрыться" */}
-      {/*    onClick={() => console.log('Скрыться')} */}
-      {/*  /> */}
-      {/* </MenuListWithButton> */}
-
+      <MenuList position="left">
+        <Text
+          className={cn('ListItem')}
+          onClick={() => console.log('Удалить')}
+        >
+          Удалить
+        </Text>
+        <Text
+          className={cn('ListItem')}
+          onClick={() => console.log('Заблокировать')}
+        >
+          Заблокировать
+        </Text>
+        <Text
+          className={cn('ListItem')}
+          onClick={() => console.log('Скрыться')}
+        >
+          Скрыться
+        </Text>
+      </MenuList>
     </ButtonBox>
   )
 }

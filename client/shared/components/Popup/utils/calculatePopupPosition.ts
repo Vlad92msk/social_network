@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react'
+import { rem } from '@shared/utils'
 import { PopupPosition } from '../context/initialState'
 
 
@@ -20,25 +21,25 @@ export function calculatePopupPosition(
 
   switch (direction) {
     case 'left':
-      style.right = width + margin + arrowHeight
+      style.right = rem(width + margin + arrowHeight)
       style.top = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.bottom = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(0, -50%)' : undefined
       break
     case 'right':
-      style.left = width + margin + arrowHeight
+      style.left = rem(width + margin + arrowHeight)
       style.top = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.bottom = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(0, -50%)' : undefined
       break
     case 'top':
-      style.bottom = `calc(100% + ${margin + arrowHeight}px)`
+      style.bottom = `calc(100% + ${rem(margin + arrowHeight)})`
       style.left = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.right = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(-50%, 0)' : undefined
       break
     case 'bottom':
-      style.top = height + margin + arrowHeight
+      style.top = rem(height + margin + arrowHeight)
       style.left = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.right = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(-50%, 0)' : undefined

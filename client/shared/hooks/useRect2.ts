@@ -1,6 +1,5 @@
-import { assign, isEqual, pick } from 'lodash'
-import { MutableRefObject, useCallback, useLayoutEffect, useMemo, useRef, useState, } from 'react'
-
+import { isEqual, pick } from 'lodash'
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
 
 export const useRect = <T extends HTMLElement>(
   ref: MutableRefObject<HTMLElement | null | undefined> | undefined,
@@ -14,29 +13,26 @@ export const useRect = <T extends HTMLElement>(
   // Создаем useRef, чтобы хранить предыдущее состояние rect и избежать избыточных обновлений
   const prevRectRef = useRef<Partial<DOMRect>>({})
 
-  // Мемоизируем pickProps, чтобы избежать создания нового объекта pickRect при каждом вызове handleResize
-  const pickedProps = useMemo(() => watchProps, [watchProps])
-
   // Функция обратного вызова для ResizeObserver, которая обновляет состояние rect при изменении размера элемента
   const handleResize = useCallback(
     (entries: ResizeObserverEntry[]) => {
       const newRect = entries[0].contentRect
       // Используем функцию pick для выбора только отслеживаемых свойств DOMRect
-      const pickRect = pick(newRect, ...pickedProps) as Partial<DOMRect>
+      const pickRect = pick(newRect, ...watchProps) as Partial<DOMRect>
 
       // Проверяем, изменились ли отслеживаемые свойства DOMRect, и обновляем состояние rect, если это так
       if (!isEqual(prevRectRef.current, pickRect)) {
         setRect((prevRect) => {
           prevRectRef.current = pickRect
-          return assign(prevRect, pickRect)
+          return { ...prevRect, ...pickRect }
         })
       }
     },
-    [prevRectRef, pickedProps],
+    [prevRectRef, watchProps],
   )
 
   // Используем useEffect, чтобы начать отслеживание размера элемента при монтировании компонента
-  useLayoutEffect(() => {
+  useEffect(() => {
     // Создаем новый ResizeObserver и передаем функцию обратного вызова handleResize
     observer.current = new ResizeObserver(handleResize)
     // Если ref элемента существует, начинаем отслеживать его размер
@@ -45,7 +41,7 @@ export const useRect = <T extends HTMLElement>(
     }
 
     return () => observer.current?.disconnect()
-  }, [handleResize, ref])
+  }, [observer, handleResize, ref])
 
   return rect ?? {}
 }

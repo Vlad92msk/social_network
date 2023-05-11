@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react'
+import { rem } from '@shared/utils'
 import { PopupPosition } from '../context/initialState'
 
 
@@ -10,8 +11,8 @@ export function calculateArrowPosition(
 ): CSSProperties {
   const style: CSSProperties = {
     position: 'absolute',
-    height: `${arrowHeight}px`,
-    width: `${arrowHeight}px`,
+    height: rem(arrowHeight),
+    width: rem(arrowHeight),
   }
 
   if (!position) return style
@@ -22,25 +23,25 @@ export function calculateArrowPosition(
 
   switch (direction) {
     case 'left':
-      style.right = width + margin
+      style.right = rem(width + margin)
       style.top = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.bottom = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(0, -50%) rotate(0deg)' : 'rotate(0deg)'
       break
     case 'right':
-      style.left = width + margin
+      style.left = rem(width + margin)
       style.top = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.bottom = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(0, -50%) rotate(180deg)' : 'rotate(180deg)'
       break
     case 'top':
-      style.bottom = `calc(100% + ${margin}px)`
+      style.bottom = `calc(100% + ${rem(String(margin))})`
       style.left = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.right = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(-50%, 0) rotate(90deg)' : 'rotate(90deg)'
       break
     case 'bottom':
-      style.top = height + margin
+      style.top = rem(height + margin)
       style.left = isCenterPosition ? '50%' : isStartPosition ? '0' : undefined
       style.right = isEndPosition ? 0 : undefined
       style.transform = isCenterPosition ? 'translate(-50%, 0) rotate(-90deg)' : 'rotate(-90deg)'
