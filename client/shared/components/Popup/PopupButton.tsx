@@ -2,7 +2,7 @@ import { classnames } from '@bem-react/classnames'
 import React, { PropsWithChildren, useCallback, useRef } from 'react'
 import { Box } from 'react-polymorphic-box'
 import { BoxProps } from '@public/models/boxType'
-import { StateModule } from './context/initialState'
+import { initialState, StateModule } from './context/initialState'
 import { usePopupSelect, usePopupUpdate } from './Popup'
 import { PopupArrow } from './PopupArrow'
 import { cn } from './PopupComponent'
@@ -16,6 +16,7 @@ export const resetValue: Partial<StateModule> = {
   popupStyle: undefined,
   arrowStyle: undefined,
   open: false,
+  xPlacement: initialState.xPlacement,
 }
 
 export type PopupButtonProps = PropsWithChildren
@@ -37,7 +38,6 @@ export const PopupButton = (props: BoxProps<'div', PopupButtonProps>) => {
 
       const { height, width } = current.getBoundingClientRect()
       update((context) => ({
-        ...context,
         target,
         open: !context.open,
         xPlacement: getXPlacement(context.position),
@@ -46,23 +46,29 @@ export const PopupButton = (props: BoxProps<'div', PopupButtonProps>) => {
               { height, width },
               context.margin,
               context.arrowHeight,
+              context.behavior,
+              e.clientX,
+              e.clientY,
         ),
         arrowStyle: calculateArrowPosition(
               context.position!,
               { height, width },
               context.margin,
               context.arrowHeight,
+              context.behavior,
+              e.clientX,
+              e.clientY,
         ),
       }))
     } else {
-      update((context) => ({ ...context, ...resetValue }))
+      update(() => resetValue)
     }
     onClick?.(e)
   }, [onClick, open, update])
 
   const handleLeave = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
-    update((context) => ({ ...context, ...resetValue }))
+    update(() => resetValue)
   }, [update])
 
   return (

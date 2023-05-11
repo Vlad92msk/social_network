@@ -1,14 +1,6 @@
 'use client'
 
-import { merge } from 'lodash'
-import React, {
-  createContext,
-  PropsWithChildren,
-  useCallback,
-  useContext,
-  useRef,
-  useSyncExternalStore,
-} from 'react'
+import React, { createContext, PropsWithChildren, useCallback, useContext, useRef, useSyncExternalStore } from 'react'
 
 import { DeepPartial } from '@public/models/deepPartial'
 import { log, LogColors } from '@shared/utils/logColors'
@@ -22,7 +14,7 @@ function logStoreData(name, store, value) {
   log(LogColors.fg.magenta, ['prev state', store.current])
   log(LogColors.fg.blue, ['payload', value])
 
-  const assigned = merge(store.current, value)
+  const assigned = ({ ...store.current, ...value })
   log(LogColors.fg.red, ['result', assigned])
   console.groupEnd()
   return assigned
@@ -54,7 +46,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
       }
 
       // Объединяем текущее состояние с новым значением
-      const assigned = merge(store.current, value)
+      const assigned = ({ ...store.current, ...value })
 
       // Обновляем текущее состояние
       store.current = assigned
@@ -68,9 +60,9 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
 
     // Функция apply принимает функцию dispatch, применяет ее к текущему состоянию и затем обновляет состояние
     const apply = useCallback((dispatch: (s: Store) => Partial<Store>): Store => {
-      const dispatched = dispatch(get())
+      const dispatched = dispatch(store.current)
       return set(dispatched)
-    }, [get, set])
+    }, [set])
 
     // Функция subscribe позволяет подписаться на изменения состояния хранилища
     const subscribe = useCallback((callback: () => void) => {
@@ -140,7 +132,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     const updateContext = useStoreDispatch()
 
     if (state !== undefined) {
-      updateContext((initial) => merge(initial, state))
+      updateContext((initial) => ({ ...initial, ...state }))
     }
 
     return <>{children}</>

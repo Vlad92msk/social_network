@@ -31,7 +31,7 @@ export const PopupWrapper = React.memo(contextWrapper(({ children }) => {
         if (!targetEl?.current || targetEl.current.contains(event.target)) {
           return
         }
-        update((context) => ({ ...context, ...resetValue }))
+        update(() => resetValue)
       }
 
       document.addEventListener('mousedown', listener)

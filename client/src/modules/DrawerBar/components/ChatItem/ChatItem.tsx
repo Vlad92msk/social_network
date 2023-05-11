@@ -2,11 +2,11 @@ import { AddNewMessageUsers, ChatsItem } from '@modules/DrawerBar/components'
 import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
 import { ButtonBox } from '@shared/components/ButtonBox'
 import { Image } from '@shared/components/Image'
-import { MenuListItem, MenuListWithButton } from '@shared/components/MenuList'
 import { Text } from '@shared/components/Text'
 import { makeCn } from '@shared/utils'
 import { UserOlineForOf } from 'src/components'
 import styles from './ChatItem.module.scss'
+import { MenuList } from '../../../../components/MenuList/MenuList'
 
 const cn = makeCn('ChatItem', styles)
 
@@ -46,28 +46,20 @@ export const ChatItem = (props: ChatItem) => {
       </div>
       )}
 
-      <MenuListWithButton classNameButton={cn('MenuButton')}>
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Удалить"
-          onClick={() => console.log('Написать')}
-        />
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Заблокировать"
-          onClick={() => console.log('Скрыть')}
-        />
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Скрыться"
-          onClick={() => console.log('Заблокировать на 30 мин')}
-        />
-        <MenuListItem
-          className={cn('ListItem')}
-          text="Скрыться"
-          onClick={() => console.log('Выйти')}
-        />
-      </MenuListWithButton>
+      <MenuList position="bottom" classNameButton={cn('MenuButton')}>
+        <Text className={cn('ListItem')} onClick={() => console.log('Удалить')}>
+          Удалить
+        </Text>
+        <Text className={cn('ListItem')} onClick={() => console.log('Заблокировать')}>
+          Заблокировать
+        </Text>
+        <Text className={cn('ListItem')} onClick={() => console.log('Скрыться')}>
+          Скрыться
+        </Text>
+        <Text className={cn('ListItem')} onClick={() => console.log('Скрыться')}>
+          Скрыться
+        </Text>
+      </MenuList>
     </ButtonBox>
   )
 }

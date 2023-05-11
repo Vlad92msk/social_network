@@ -28,6 +28,7 @@ export interface StateModule {
   popupStyle?: CSSProperties
   arrowStyle?: CSSProperties
   whileAction?: 'click' | 'hover'
+  behavior?: 'fixed' | 'absolute'
   isClickOutside?: boolean
 }
 
@@ -46,4 +47,5 @@ export const initialState: StateModule = {
   arrowStyle: undefined,
   whileAction: 'click',
   isClickOutside: false,
+  behavior: 'absolute',
 }

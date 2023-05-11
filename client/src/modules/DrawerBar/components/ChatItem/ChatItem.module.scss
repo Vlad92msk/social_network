@@ -1,11 +1,14 @@
 @import "public/styles";
 @import "shared/styles";
 
+$img-height: 75;
+$img-width: $img-height + $img-height * 0.2;
+
 .ChatItem {
   $this: &;
   position: relative;
   display: grid;
-  grid-template: [start] "img" rem(75) [end];
+  grid-template: [start] "img" rem($img-height) [end];
   gap: rem(10);
   align-items: center;
   transition: .5s;
@@ -13,7 +16,7 @@
   scroll-snap-stop: always !important;
 
   &--active {
-    grid-template: [start] "img main menu" rem(75) [end] / 25% 65%;
+    grid-template: [start] "img main menu" rem($img-height) [end] / rem($img-width) calc(100% - rem($img-width + 20)) rem(20);
   }
 
   &-TextContainerMain {
@@ -67,5 +70,7 @@
     display: flex;
     transform: rotate(90deg);
     margin-left: auto;
+
+    background: #1ae243;
   }
 }
