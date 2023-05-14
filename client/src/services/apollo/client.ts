@@ -4,9 +4,9 @@ import {
 import { concatPagination } from '@apollo/client/utilities'
 import { isEqual, merge } from 'lodash'
 import { useMemo } from 'react'
-import { CookieEnum } from '@public/models/cookie'
-import { LocalStorageEnum } from '@public/models/localStorage'
-import { getCookie, storageGet, storageRemove } from '@shared/utils'
+import { CookieEnum } from '@public/types/cookie'
+import { LocalStorageEnum } from '@public/types/localStorage'
+import { getCookie, storageGet, storageRemove } from 'public/utils'
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 

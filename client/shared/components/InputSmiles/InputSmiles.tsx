@@ -1,12 +1,12 @@
 import { classnames } from '@bem-react/classnames'
-import { Popup } from '@shared/components/Popup'
 import { Picker } from 'emoji-mart'
 import { PickerProps } from 'emoji-mart/dist-es'
 import React, { useCallback, useRef, useState } from 'react'
 
-import { IconName } from '@public/models/icon.model'
-import { IconButton } from '@shared/components/IconButton'
-import { makeCn } from '@shared/utils'
+import { IconButton } from '@public/components/IconButton'
+import { Popup } from '@public/components/Popup'
+import { IconName } from '@public/types/icon.model'
+import { makeCn } from 'public/utils'
 import styles from './InputSmiles.module.scss'
 
 
@@ -31,35 +31,35 @@ export const InputSmiles: React.FC<InputSmilesProps> = React.memo((props) => {
    * Добавить смайлик в текст
    */
   const handleAddEmoji = useCallback((emoji) => {
-    setText((prev) => {
-      /**
-       * Позиция курсора в инпуте
-       */
-      const cursorPosition = textAreaRef?.current?.selectionStart
+    if (textAreaRef?.current?.selectionStart) {
+      setText((prev) => {
+        /**
+         * Позиция курсора в инпуте
+         */
+        const cursorPosition = textAreaRef?.current?.selectionStart
 
-      const start = prev.substring(0, cursorPosition)
-      const end = prev.substring(cursorPosition, prev.length)
-      return start + emoji.native + end
-    })
+        const start = prev.substring(0, cursorPosition)
+        const end = prev.substring(cursorPosition, prev.length)
+        return start + emoji.native + end
+      })
+    }
   }, [textAreaRef, setText])
 
   return (
     <>
       <div className={classnames(cn(), className)} ref={smilesRef}>
         <IconButton
-          icon={icon}
-          size="small"
-          fill="oldAsphalt50"
+          icon={icon!}
           onClick={() => setOpenSmiles((prev) => !prev)}
         />
       </div>
       <Popup
-        innerRef={smilesRef}
-        // @ts-ignore
-        open={isOpenSmiles}
-        onClose={() => setOpenSmiles(false)}
+        state={{
+          open: isOpenSmiles,
+          onClose: () => setOpenSmiles(false),
+        }}
       >
-        <Picker {...smilePickerProps} onClick={handleAddEmoji} />
+        {/* <Picker {...smilePickerProps} onClick={handleAddEmoji} /> */}
       </Popup>
 
     </>

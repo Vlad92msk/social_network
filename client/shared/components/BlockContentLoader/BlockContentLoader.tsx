@@ -1,6 +1,6 @@
 import { classnames } from '@bem-react/classnames'
 import React from 'react'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './BlockContentLoader.module.scss'
 
 const cn = makeCn('BlockContentLoader', styles)

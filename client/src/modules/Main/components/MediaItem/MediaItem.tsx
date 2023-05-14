@@ -1,8 +1,8 @@
 import { classnames } from '@bem-react/classnames'
 import { PropsWithChildren, useCallback } from 'react'
 import { MediaItemType } from '@modules/Main/types/mediaItem'
-import { Section } from '@shared/components/Section'
-import { makeCn } from '@shared/utils'
+import { Section } from 'src/components/Section'
+import { makeCn } from 'public/utils'
 import { IconCount } from 'src/components'
 import styles from './MediaItem.module.scss'
 

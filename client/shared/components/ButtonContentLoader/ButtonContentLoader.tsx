@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import React from 'react'
 
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './ButtonContentLoader.module.scss'
 
 const cn = makeCn('ButtonContentLoader', styles)

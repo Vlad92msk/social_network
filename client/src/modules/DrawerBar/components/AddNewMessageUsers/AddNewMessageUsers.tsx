@@ -1,5 +1,5 @@
-import { Text } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Text } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import { UserIMGPreview } from 'src/components'
 import styles from './AddNewMessageUsers.module.scss'
 

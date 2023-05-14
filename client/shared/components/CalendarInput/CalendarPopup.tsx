@@ -2,9 +2,9 @@ import { classnames } from '@bem-react/classnames'
 import { max, min } from 'date-fns'
 import React, { useCallback, useState } from 'react'
 import { Calendar } from '@shared/components/Calendar'
-import { Popup } from '@shared/components/Popup'
+import { Popup } from '@public/components/Popup'
 import { TextInput } from '@shared/components/TextInput'
-import { createDateFormat, DateFormats } from '@shared/utils'
+import { createDateFormat, DateFormats } from 'public/utils'
 
 import { cn } from './cn'
 

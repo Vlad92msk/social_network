@@ -1,7 +1,7 @@
-import { Icon } from '@shared/components/Icon'
+import { Icon } from 'public/components/Icon'
 import React from 'react'
-import { Text } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Text } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import styles from './UserOlineForOf.module.scss'
 
 const cn = makeCn('UserOlineForOf', styles)

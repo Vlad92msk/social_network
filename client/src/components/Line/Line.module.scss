@@ -1,0 +1,9 @@
+@import "@public/styles";
+@import "@shared/styles";
+
+
+.Line {
+  height: rem(1);
+  background: var(--Color-Portfolio-Line);
+  width: 100%;
+}

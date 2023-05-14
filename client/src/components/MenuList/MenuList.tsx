@@ -1,9 +1,8 @@
 import { classnames } from '@bem-react/classnames'
 import { PropsWithChildren } from 'react'
-import { Icon } from '@shared/components/Icon'
-import { Popup } from '@shared/components/Popup'
-import { PopupPosition } from '@shared/components/Popup/context/initialState'
-import { makeCn } from '@shared/utils'
+import { Popup, PopupPosition } from '@public/components/Popup'
+import { Icon } from 'public/components/Icon'
+import { makeCn } from 'public/utils'
 import styles from './MenuList.module.scss'
 
 const cn = makeCn('MenuList', styles)

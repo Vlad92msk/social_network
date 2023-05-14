@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { distinctUntilChanged, map } from 'rxjs'
 import { useDrawerBarUpdate } from '@modules/DrawerBar/DrawerBar'
 import { TextInput } from '@shared/components/TextInput'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './Search.module.scss'
 
 const cn = makeCn('Search', styles)

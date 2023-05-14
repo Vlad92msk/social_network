@@ -1,0 +1,14 @@
+@import "@public/styles";
+
+.Popup {
+  z-index: 99;
+  display: flex;
+
+  &-Button {
+    position: relative;
+    //& > *[data-x-placement]{
+    //  -webkit-clip-path: polygon(0 0, 0% 100%, 36% 49%);
+    //  clip-path: polygon(0 0, 0% 100%, 36% 49%);
+    //}
+  }
+}

@@ -1,7 +1,7 @@
 import { closestTo } from 'date-fns'
 import React, { useState } from 'react'
 import { DisplayControls } from '@shared/components/Calendar/types/display'
-import { TextSize } from '@shared/components/Text'
+import { TextSize } from 'src/components/Text'
 
 import { CellDay } from './CellDay'
 import { cn } from './cn'
@@ -34,9 +34,10 @@ export const Calendar: React.FC<CalendarProps> = React.memo((props) => {
     children,
   } = props
 
+  // @ts-ignore
   const controls = useControlCalendar({ date: currentDate, externalControls, display })
   const calendarDays = useCreateCalendarDays(controls.current)
-
+  // @ts-ignore
   const clickedDay = useState<Date[]>([closestTo(new Date(), calendarDays)])
 
   return (

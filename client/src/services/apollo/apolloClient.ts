@@ -11,7 +11,7 @@ import { concatPagination, relayStylePagination } from '@apollo/client/utilities
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
 import { useMemo } from 'react'
-import { getCookies } from '@shared/utils'
+import { getCookies } from 'public/utils'
 import { getRequestStorage } from './localStorage'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined

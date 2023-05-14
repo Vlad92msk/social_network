@@ -1,4 +1,4 @@
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './Calendar.module.scss'
 
 

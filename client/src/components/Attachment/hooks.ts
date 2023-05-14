@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { AddedFile } from '@shared/hooks/useMaterialsAttach'
+import { AddedFile } from '@public/hooks/useMaterialsAttach'
 import { attachmentsForPlay, attachmentsForSave, attachmentsForViewing } from 'src/components/Attachment/constants'
 
 /**

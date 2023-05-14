@@ -1,9 +1,9 @@
 import React from 'react'
-import { ButtonBox } from '@shared/components/ButtonBox'
-import { Icon } from '@shared/components/Icon'
-import { Text } from '@shared/components/Text'
-import { AddedFile } from '@shared/hooks/useMaterialsAttach'
-import { makeCn } from '@shared/utils'
+import { AddedFile } from '@public/hooks/useMaterialsAttach'
+import { Text } from 'src/components/Text'
+import { ButtonBox } from 'public/components/ButtonBox'
+import { Icon } from 'public/components/Icon'
+import { makeCn } from 'public/utils'
 import styles from 'src/components/Attachment/Attachment.module.scss'
 
 
@@ -26,12 +26,12 @@ export const Attachment: React.FC<AttachmentProps> = React.memo((props) => {
     <ButtonBox
       className={cn()}
       as="a"
+        // @ts-ignore
       href={src}
-      icon="file-outlined"
       download={action === ATTACHMENT_ACTION.SAVE}
     >
-      <Icon className={cn('Icon')} icon="file-outlined" size="small" />
-      <Text className={cn('Name')} size="2">{name}</Text>
+      <Icon className={cn('Icon')} icon="file-outlined" />
+      <Text className={cn('Name')}>{name}</Text>
     </ButtonBox>
   )
 })

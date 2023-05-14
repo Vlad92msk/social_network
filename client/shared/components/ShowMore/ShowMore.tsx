@@ -1,10 +1,9 @@
 import { size } from 'lodash'
 import React, { useCallback, useMemo } from 'react'
-import { Button } from '@shared/components/Button'
-import { Text } from '@shared/components/Text'
-import { COUNT_VISIBLE } from '@shared/hooks'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { makeCn } from '@public/utils'
+import { Text } from 'src/components/Text'
 import styles from './ShowMore.module.scss'
-import { makeCn } from '../../utils'
 
 const cn = makeCn('ShowMore', styles)
 
@@ -26,17 +25,15 @@ export const ShowMore = (props: ShowMoreProps) => {
   }, [addCount, onShowMore, set])
 
   return (
-    <Button
+    <ButtonBox
       className={cn()}
-      size="small"
       onClick={handleClick}
       color="grey"
-      buttonName="rounded"
       disabled={totalArrLength === showArrLength}
     >
-      <Text size="1">
-        {`Показать ${totalArrLength ? 'еще' : `первые ${COUNT_VISIBLE}`} (${showArrLength}/${totalArrLength})`}
+      <Text>
+        {`Показать ${totalArrLength ? 'еще' : `первые ${5}`} (${showArrLength}/${totalArrLength})`}
       </Text>
-    </Button>
+    </ButtonBox>
   )
 }

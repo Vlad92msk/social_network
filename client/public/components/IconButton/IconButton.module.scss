@@ -1,0 +1,33 @@
+@import "@public/styles";
+
+.IconButton {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  &-Inner {
+    margin: auto;
+    overflow: hidden;
+  }
+
+  &-Icon {
+    position: absolute;
+
+    &--iconPosition {
+      &_left {
+        left: 0;
+      }
+      &_right {
+        right: 0;
+      }
+      &_top {
+        top: 0;
+      }
+      &_bottom {
+        bottom: 0;
+      }
+    }
+  }
+}

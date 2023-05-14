@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import React, { useCallback } from 'react'
-import { Text, TextSize } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Text, TextSize } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 
 import styles from 'src/components/AreaInput/AreaInput.module.scss'
 

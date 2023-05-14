@@ -1,11 +1,10 @@
 import { classnames } from '@bem-react/classnames'
 import React, { useCallback } from 'react'
-import { IconName } from '@public/models/icon.model'
-import { IconFill } from '@shared/components/Icon'
-import { IconButton } from '@shared/components/IconButton'
-import { Text } from '@shared/components/Text'
-import { useRect } from '@shared/hooks'
-import { makeCn } from '@shared/utils'
+import { IconButton } from '@public/components/IconButton'
+import { IconName } from '@public/types/icon.model'
+import { Text } from 'src/components/Text'
+import { IconFill } from 'public/components/Icon'
+import { makeCn } from 'public/utils'
 
 import styles from './TextInput.module.scss'
 
@@ -106,17 +105,17 @@ export const TextInput: React.FunctionComponent<TextInputProps> = (props) => {
     <div ref={innerRef} className={classnames(cn({ error }), className)} style={style} onClick={onClick}>
       {
         (icon || prefix) && (
-          <div  className={cn('PrefixBox', { iconPosition })}>
-            {icon && <IconButton className={cn('Icon')} icon={icon} fill={iconFill} onClick={iconClick} />}
-            {prefix && <Text className={cn('Prefix')} color="note" weight="medium">{prefix}</Text>}
+          <div className={cn('PrefixBox', { iconPosition })}>
+            {icon && <IconButton className={cn('Icon')} icon={icon} onClick={iconClick} />}
+            {prefix && <Text className={cn('Prefix')}>{prefix}</Text>}
           </div>
         )
       }
       <Text
         as="input"
-        style={(icon || prefix) && ({
+        style={(icon || prefix) ? ({
           [iconPosition === 'left' ? 'paddingLeft' : 'paddingRight']: (200 || 0) + 10,
-        })}
+        }) : undefined}
         className={cn('Input', { size, error })}
         type={type}
         maxLength={maxLength}

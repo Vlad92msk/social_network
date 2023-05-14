@@ -1,5 +1,5 @@
 import { values } from 'lodash'
-import { toObjectData } from '@shared/utils'
+import { toObjectData } from 'public/utils'
 import { ProjectNormalizeObject, RouteParam, RouteParamWithoutSubRoutes } from './types'
 
 

@@ -3,7 +3,7 @@ import React from 'react'
 import SwiperCore, { Pagination } from 'swiper/core'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Image } from '@shared/components/Image'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 
 import styles from 'src/components/SliderMedia/SliderMedia.module.scss'
 

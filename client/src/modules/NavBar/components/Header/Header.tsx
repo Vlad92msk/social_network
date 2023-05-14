@@ -1,6 +1,6 @@
 import { Image } from '@shared/components/Image'
-import { Text } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Text } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import styles from './Header.module.scss'
 
 const cn = makeCn('Header', styles)
@@ -13,7 +13,7 @@ export const Header = () => (
       }}
       />
     </div>
-    <Text color="title" size="16">Firsov Vlad</Text>
+    <Text size="16">Firsov Vlad</Text>
     <span className={cn('Status', { status: 'online' })} />
   </div>
 )

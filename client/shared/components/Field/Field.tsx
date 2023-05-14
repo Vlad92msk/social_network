@@ -1,9 +1,9 @@
 import { classnames } from '@bem-react/classnames'
 import React from 'react'
 import { Box, PolymorphicComponentProps } from 'react-polymorphic-box'
-import { Icon } from '@shared/components/Icon'
-import { Text, TextSize } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Icon } from 'public/components/Icon'
+import { Text, TextSize } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 
 import styles from './Field.module.scss'
 

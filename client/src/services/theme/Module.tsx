@@ -1,5 +1,5 @@
 import React, { useLayoutEffect} from 'react'
-import { createStoreContext } from '@shared/utils'
+import { createStoreContext } from 'public/utils'
 import { initialState } from './context/initialState'
 
 export const {

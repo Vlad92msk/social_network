@@ -3,9 +3,9 @@
 import { classnames } from '@bem-react/classnames'
 import { motion } from 'framer-motion'
 import React, { forwardRef, useMemo } from 'react'
-import { Modal } from '@shared/components/Modal'
-import { useToggle } from '@shared/hooks/useToggle'
-import { createString, makeCn } from '@shared/utils'
+import { useToggle } from 'public/hooks'
+import { ModalOld } from 'public/components/Modal'
+import { createString, makeCn } from 'public/utils'
 import styles from './Image.module.scss'
 
 const cn = makeCn('Image', styles)
@@ -83,11 +83,11 @@ export const Image: React.FC<ImageType> = forwardRef((props, ref: any) => {
       ) : picture}
       {
         isOpenFullScreen && (
-          <Modal className={cn('Modal')} open={isOpen} onClose={setOpen}>
+          <ModalOld className={cn('Modal')} open={isOpen} onClose={setOpen}>
             <div className={cn('ModalImgContainer')}>
               {picture}
             </div>
-          </Modal>
+          </ModalOld>
         )
       }
     </>

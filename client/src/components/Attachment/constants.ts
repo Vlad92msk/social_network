@@ -3,7 +3,7 @@ import {
   FILE_FORMAT_AUDIO, FILE_FORMAT_IMAGE,
   FILE_FORMAT_TEXT,
   FILE_FORMAT_VIDEO
-} from '@public/models/fileFormats'
+} from '@public/types/fileFormats'
 
 /**
  * Вложения которые можно скачать

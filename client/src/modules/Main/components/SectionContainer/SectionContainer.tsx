@@ -1,9 +1,8 @@
 import { classnames } from '@bem-react/classnames'
 import React, { PropsWithChildren, ReactElement, useMemo } from 'react'
-import { Icon } from '@shared/components/Icon'
-import { Text } from '@shared/components/Text'
-import { useRect } from '@shared/hooks'
-import { createDateFormat, DateFormats, makeCn } from '@shared/utils'
+import { Icon } from '@public/components/Icon'
+import { Text } from 'src/components/Text'
+import { createDateFormat, DateFormats, makeCn } from 'public/utils'
 import { Switch, SwitchOption } from 'src/components'
 import styles from './SectionContainer.module.scss'
 
@@ -32,11 +31,11 @@ export const SectionContainer = (props: PropsWithChildren<SectionContainerProps>
   return (
     <div className={classnames(cn(), className)}>
       <div className={cn('Title')}>
-        <Text color="title" textTransform="uppercase">{title}</Text>
+        <Text uppercase>{title}</Text>
         {useMemo(() => (
           <div className={cn('Calendar')}>
-            <Icon className={cn('CalendarIcon')} icon="calendar-not-filled" fill="redRose40" />
-            <Text color="title">{createDateFormat(lastAdded, DateFormats.FORMAT_3)}</Text>
+            <Icon className={cn('CalendarIcon')} icon="calendar-not-filled" />
+            <Text>{createDateFormat(lastAdded, DateFormats.FORMAT_3)}</Text>
           </div>
         ), [lastAdded])}
         {useMemo(() => (withSwitcher

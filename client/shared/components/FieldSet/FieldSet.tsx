@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import React from 'react'
-import { Text, TextSize } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { Text, TextSize } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 
 import styles from './FieldSet.module.scss'
 
@@ -17,7 +17,7 @@ export interface FieldSetProps {
 }
 
 
-export const FieldSet: React.FunctionComponent<FieldSetProps> = (props) => {
+export const FieldSet = (props: FieldSetProps) => {
   const { children, className, label, size } = props
 
   return (
@@ -26,10 +26,4 @@ export const FieldSet: React.FunctionComponent<FieldSetProps> = (props) => {
       {children}
     </fieldset>
   )
-}
-
-
-FieldSet.defaultProps = {
-  className: null,
-  size: '4',
 }

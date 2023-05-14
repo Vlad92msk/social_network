@@ -1,4 +1,4 @@
-import { createStoreContext, makeCn } from '@shared/utils'
+import { createStoreContext, makeCn } from 'public/utils'
 import { ButtonsList, Footer, Header } from './components'
 import { initialState } from './context/initialState'
 import styles from './NavBar.module.scss'

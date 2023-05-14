@@ -3,14 +3,14 @@ import React, { useMemo } from 'react'
 import { MediaItem } from '@modules/Main/components'
 import { PHOTOS } from '@modules/Main/sections/photo/mock'
 import { AlbumType } from '@modules/Main/types/album'
-import { ButtonBox } from '@shared/components/ButtonBox'
-import { FieldRow } from '@shared/components/FieldRow'
-import { Icon } from '@shared/components/Icon'
-import { IconButton } from '@shared/components/IconButton'
-import { Section } from '@shared/components/Section'
-import { Text } from '@shared/components/Text'
-import { useBooleanState, useGetAccentImageColor } from '@shared/hooks'
-import { createString, makeCn } from '@shared/utils'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { Icon } from '@public/components/Icon'
+import { IconButton } from '@public/components/IconButton'
+import { useBooleanState, useGetAccentImageColor } from '@public/hooks'
+import { createString, makeCn } from '@public/utils'
+import { Flex } from 'public/components/Flex'
+import { Section } from 'src/components/Section'
+import { Text } from 'src/components/Text'
 import styles from './Album.module.scss'
 
 
@@ -59,7 +59,7 @@ export const Album: React.FC<SectionContainerProps> = (props) => {
           disabled={!Boolean(elementsCount)}
         >
           <Text className={cn('ButtonOpenTitle')} style={{ color }}>Открыть</Text>
-          <Icon className={cn('ButtonOpenIcon')} icon="play" size="ordinary" style={{ fill: color }} />
+          <Icon className={cn('ButtonOpenIcon')} icon="play" style={{ fill: color }} />
         </ButtonBox>
       </div>
       <div className={cn('Hover')} style={{ background }}>
@@ -69,20 +69,20 @@ export const Album: React.FC<SectionContainerProps> = (props) => {
       </div>
     </Section>
   ) : (
-    <FieldRow direction="column" width="100" gap="20px">
-      <FieldRow width="100" justify="between">
-        <FieldRow direction="column">
-          <Text color="title">{title}</Text>
-          <Text color="title">{description}</Text>
-        </FieldRow>
-        <IconButton icon="arrow-left" onClick={openAlbum} fill="oldAsphalt40" />
-      </FieldRow>
-      <FieldRow wrap="wrap" width="100" gap="5px">
+    <Flex direction="column" width={100} gap={20}>
+      <Flex width={100} justify="space-between">
+        <Flex direction="column">
+          <Text>{title}</Text>
+          <Text>{description}</Text>
+        </Flex>
+        <IconButton icon="arrow-left" onClick={openAlbum} />
+      </Flex>
+      <Flex wrap="wrap" width={100} gap={5}>
         {currentMedia.length ? currentMedia.map((photo) => (
           <MediaItem key={photo.id} item={photo} />
         )) : 'Альбом пуст'}
-      </FieldRow>
-    </FieldRow>
+      </Flex>
+    </Flex>
   )
 }
 

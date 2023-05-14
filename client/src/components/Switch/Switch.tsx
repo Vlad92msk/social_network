@@ -1,6 +1,6 @@
 import { classnames } from '@bem-react/classnames'
 import React, { useCallback, useId, useState } from 'react'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './Switch.module.scss'
 
 const cn = makeCn('Switch', styles)

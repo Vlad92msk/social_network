@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from 'react'
-import { IconName } from '@public/models/icon.model'
-import { ButtonBox } from '@shared/components/ButtonBox'
-import { Icon, IconProps } from '@shared/components/Icon'
-import { Text, TextProps } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { IconName } from '@public/types/icon.model'
+import { ButtonBox } from 'public/components/ButtonBox'
+import { Icon, IconProps } from 'public/components/Icon'
+import { Text, TextProps } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import styles from './IconCount.module.scss'
 
 

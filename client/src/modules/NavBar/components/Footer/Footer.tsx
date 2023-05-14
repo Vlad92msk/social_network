@@ -1,13 +1,13 @@
-import { Button } from '@shared/components/Button'
-import { makeCn } from '@shared/utils'
+import { ButtonBox } from 'public/components/ButtonBox'
+import { makeCn } from 'public/utils'
 import styles from './Footer.module.scss'
 
 const cn = makeCn('Footer', styles)
 
 export const Footer = () => (
   <div className={cn()}>
-    <Button styleType="rounded" buttonName="red" icon="exit" iconPosition="left">
+    <ButtonBox>
       Выйти
-    </Button>
+    </ButtonBox>
   </div>
 )

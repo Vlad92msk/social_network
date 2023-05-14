@@ -1,9 +1,9 @@
 import { classnames } from '@bem-react/classnames'
 import React, { ElementType, useCallback } from 'react'
-import { Icon, IconProps } from '@shared/components/Icon'
+import { Icon, IconProps } from 'public/components/Icon'
 
-import { Text } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
+import { Text } from 'src/components/Text'
 import styles from './AreaInput.module.scss'
 
 
@@ -23,7 +23,6 @@ export interface AreaInputProps {
   anchorEl?: React.Ref<any>
   icon?: IconProps
   iconClear?: IconProps
-  as?: ElementType
   inputClassName?: string
   onIconClear?: () => void
 }
@@ -41,7 +40,6 @@ export const AreaInput: React.FC = React.memo((props: AreaInputProps) => {
     maxWidth,
     anchorEl,
     icon,
-    as,
     inputClassName,
     iconClear,
     onIconClear,
@@ -56,9 +54,9 @@ export const AreaInput: React.FC = React.memo((props: AreaInputProps) => {
       {icon && (<Icon {...icon} />)}
       {(iconClear && value?.length) ? (
         <Icon className={cn('IconClear')} {...iconClear} onClick={onIconClear} />) : null}
-      <Text
-        as={as}
-        anchorEl={anchorEl}
+      <Text<'textarea'>
+        as="textarea"
+        ref={anchorEl}
         className={classnames(cn('Input'), inputClassName)}
         style={{
           maxWidth,
@@ -76,5 +74,4 @@ export const AreaInput: React.FC = React.memo((props: AreaInputProps) => {
 
 AreaInput.defaultProps = {
   placeholder: 'Введите значение...',
-  as: 'textarea',
 }

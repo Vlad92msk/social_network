@@ -1,5 +1,5 @@
 import { Image } from '@shared/components/Image'
-import { makeCn } from '@shared/utils'
+import { makeCn } from 'public/utils'
 import styles from './UserIMGPreview.module.scss'
 
 const cn = makeCn('UserIMGPreview', styles)

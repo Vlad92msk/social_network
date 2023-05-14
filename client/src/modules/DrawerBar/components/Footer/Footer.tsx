@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
-import { Icon } from '@shared/components/Icon'
-import { Text } from '@shared/components/Text'
-import { useToggle } from '@shared/hooks/useToggle'
-import { makeCn } from '@shared/utils'
+import { useToggle } from 'public/hooks'
+import { Icon } from 'public/components/Icon'
+import { Text } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import styles from './Footer.module.scss'
-import { AddNewMessageUsers, ChatItem } from '..'
+import { ChatItem } from '..'
 
 const cn = makeCn('Footer', styles)
 

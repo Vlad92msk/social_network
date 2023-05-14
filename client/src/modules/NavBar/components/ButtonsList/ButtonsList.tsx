@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
-import { IconName } from '@public/models/icon.model'
-import { ButtonBox } from '@shared/components/ButtonBox'
-import { Icon } from '@shared/components/Icon'
-import { Text } from '@shared/components/Text'
-import { makeCn } from '@shared/utils'
+import { IconName } from '@public/types/icon.model'
+import { ButtonBox } from 'public/components/ButtonBox'
+import { Icon } from 'public/components/Icon'
+import { Text } from 'src/components/Text'
+import { makeCn } from 'public/utils'
 import styles from './ButtonsList.module.scss'
 
 const cn = makeCn('ButtonsList', styles)
