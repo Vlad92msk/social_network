@@ -1,4 +1,4 @@
-@import "public/styles";
+@import "src/styles";
 
 .SectionContainer {
   @include flex($direction: column);
