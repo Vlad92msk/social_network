@@ -9,7 +9,7 @@
     position: absolute;
     right: rem(-10);
     top: rem(-7);
-    border-radius: var(--border-radius-small);
+    border-radius: $border-radius-small;
     padding: 0 rem(5);
     font-size: rem(10);
     overflow: hidden;

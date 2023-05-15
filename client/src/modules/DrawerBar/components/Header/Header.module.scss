@@ -4,7 +4,7 @@
 .Header {
   @include flex($align-items: center);
   width: 100%;
-  padding: var(--paddingComponent);
+  padding: $padding-component;
 
   border-radius: rem(10);
   gap: rem(10);

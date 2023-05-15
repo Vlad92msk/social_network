@@ -3,7 +3,7 @@
 
 .NavBar {
   @include flex($direction: column);
-  width: var(--nav-bar--width);
-  padding: var(--paddingComponent);
+  width: $nav-bar--width;
+  padding: $padding-component;
   position: relative;
 }

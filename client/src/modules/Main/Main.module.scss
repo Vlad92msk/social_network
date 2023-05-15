@@ -2,9 +2,9 @@
 
 .Main {
   width: 100%;
-  max-width: calc(100% - (var(--nav-bar--width) + var(--drawer-bar--min-width)));
+  max-width: calc(100% - ($nav-bar--width + $drawer-bar--min-width));
   @include hideScrollbar();
-  padding: var(--paddingComponent);
+  padding: $padding-component;
   position: relative;
   overflow-y: auto;
 }

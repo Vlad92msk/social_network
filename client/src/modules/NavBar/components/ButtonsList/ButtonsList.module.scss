@@ -12,7 +12,7 @@
     gap: rem(20);
     color: var(--Color-Text--primary);
     fill: var(--Color-Icon--light);
-    border-radius: var(--border-radius-element);
+    border-radius: $border-radius-element;
     transition: .5s;
 
     &--active {

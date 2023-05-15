@@ -22,7 +22,7 @@
   &:hover {
     transition: .3s;
     background: var(--Color-Background--light);
-    border-radius: var(--border-radius-small);
+    border-radius: $border-radius-small;
 
     #{$this}-FriendFastActions {
       opacity: 1;

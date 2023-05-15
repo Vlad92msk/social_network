@@ -7,7 +7,7 @@
   flex-direction: column;
   @include flex($direction: column);
   flex: 1 1;
-  margin: var(--paddingComponent);
+  margin: $padding-component;
   overflow-y: auto;
 
 }
