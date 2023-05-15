@@ -1,11 +1,9 @@
 @import "public/styles";
-@import "shared/styles";
-@import "../../../App/App.module";
 
 .Album {
   //@extend %img-container;
   @include wh(clamp(rem(400), 45%, 100%), rem(400));
-  border-radius: $border-radius-album;
+  border-radius: var(--border-radius-album);
   padding: rem(40);
   position: relative;
   z-index: 1;
@@ -13,7 +11,7 @@
   &-Preview {
     @include wh(clamp(rem(200), 60%, rem(400)), 100%);
     @include flex($direction: column);
-    border-radius: $border-radius-album;
+    border-radius: var(--border-radius-album);
     padding: rem(25);
     backdrop-filter: blur(5px);
   }
@@ -23,7 +21,7 @@
     @include flex($justify: space-between, $align-items: center);
     backdrop-filter: blur(5px);
     width: 100%;
-    border-radius: $border-radius-album;
+    border-radius: var(--border-radius-album);
     padding: rem(10);
     margin-top: auto;
 

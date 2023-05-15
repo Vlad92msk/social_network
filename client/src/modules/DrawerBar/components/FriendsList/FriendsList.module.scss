@@ -1,6 +1,4 @@
 @import "public/styles";
-@import "shared/styles";
-
 
 
 .FriendsList {
@@ -9,7 +7,7 @@
   flex-direction: column;
   @include flex($direction: column);
   flex: 1 1;
-  margin: $paddingComponent;
+  margin: var(--paddingComponent);
   overflow-y: auto;
 
 }

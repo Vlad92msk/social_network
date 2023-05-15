@@ -1,6 +1,4 @@
 @import "public/styles";
-@import "shared/styles";
-@import "../../../App/App.module";
 
 
 .Footer {
@@ -9,7 +7,7 @@
   display: flex;
   flex-direction: column;
   background: var(--Color-Bckground--dark);
-  margin: $paddingComponent;
+  margin: var(--paddingComponent);
   margin-right: 0;
   max-height: rem(150);
   transition: .5s;
@@ -29,7 +27,7 @@
   &-Title {
     display: flex;
     justify-self: start;
-    padding: $paddingComponent;
+    padding: var(--paddingComponent);
   }
 
   &-ChatsContainer {
@@ -42,7 +40,7 @@
     transition: .5s;
     gap: rem(25);
     margin-top: rem(15);
-    padding-left: $paddingComponent;
+    padding-left: var(--paddingComponent);
   }
 
   &-ToggleOpenChats {

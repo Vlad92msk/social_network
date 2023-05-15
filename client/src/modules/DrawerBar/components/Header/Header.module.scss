@@ -1,12 +1,10 @@
 @import "public/styles";
-@import "shared/styles";
-
 
 
 .Header {
   @include flex($align-items: center);
   width: 100%;
-  padding: $paddingComponent;
+  padding: var(--paddingComponent);
 
   border-radius: rem(10);
   gap: rem(10);

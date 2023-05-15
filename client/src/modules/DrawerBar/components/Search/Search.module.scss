@@ -1,10 +1,9 @@
 @import "public/styles";
-@import "shared/styles";
 
 
 .Search {
   overflow: hidden;
-  margin: 0 $paddingComponent;
+  margin: 0 var(--paddingComponent);
   border-radius: rem(55);
   background: var(--Color-Bckground--dark);
 

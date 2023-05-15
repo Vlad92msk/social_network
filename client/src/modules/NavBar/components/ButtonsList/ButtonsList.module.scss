@@ -1,5 +1,4 @@
 @import "public/styles";
-@import "shared/styles";
 
 
 .ButtonsList {
@@ -14,7 +13,7 @@
     gap: rem(20);
     color: var(--Color-Text--primary);
     fill: var(--Color-Icon--light);
-    border-radius: $border-radius-element;
+    border-radius: var(--border-radius-element);
     transition: .5s;
 
     &--active {

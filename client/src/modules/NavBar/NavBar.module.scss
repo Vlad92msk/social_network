@@ -1,10 +1,9 @@
 @import "public/styles";
-@import "shared/styles";
 
 
 .NavBar {
   @include flex($direction: column);
-  width: $nav-bar--width;
-  padding: $paddingComponent;
+  width: var(--nav-bar--width);
+  padding: var(--paddingComponent);
   position: relative;
 }

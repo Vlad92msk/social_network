@@ -1,6 +1,4 @@
 @import "public/styles";
-@import "shared/styles";
-@import "../../../App/App.module";
 
 
 .MediaItem {
@@ -19,7 +17,7 @@
     opacity: 0;
     background: var(--Color-Background-App);
     color: var(--Color-Text-Sub-2);
-    border-radius: $border-radius-small;
+    border-radius: var(--border-radius-small);
     gap: rem(10);
     padding: rem(15);
     transition: .3s;

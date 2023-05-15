@@ -1,6 +1,5 @@
-@import "public/styles";
-@import "shared/styles";
-
+@import "@public/styles";
+@import "src/styles";
 
 .FriendItem {
   $this: &;
@@ -24,7 +23,7 @@
   &:hover {
     transition: .3s;
     background: var(--Color-Background--light);
-    border-radius: $border-radius-small;
+    border-radius: var(--border-radius-small);
 
     #{$this}-FriendFastActions {
       opacity: 1;
@@ -64,7 +63,7 @@
   }
 
   &-FriendName {
-    @extend %textEllipsis;
+    @include text-ellipsis;
     width: 100%;
     max-width: 100%;
     text-align: left;

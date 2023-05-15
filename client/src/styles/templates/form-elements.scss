@@ -1,7 +1,7 @@
-@import "public/styles";
+@import "@public/styles";
 @import "../variables";
 
-%area-input {
+@mixin area-input {
   width: 100%;
   max-height: rem(130);
   border: none;

@@ -1,9 +1,9 @@
 @use 'sass:list' as list;
-@import "public/styles";
+@import "@public/styles";
 @import "../variables";
 
 
-%textEllipsis {
+@mixin text-ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

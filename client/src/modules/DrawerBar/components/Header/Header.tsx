@@ -1,7 +1,7 @@
-import { Icon } from 'public/components/Icon'
+import { makeCn } from '@public/utils'
 import { Image } from '@shared/components/Image'
+import { Icon } from 'public/components/Icon'
 import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
 import styles from './Header.module.scss'
 
 const cn = makeCn('Header', styles)
