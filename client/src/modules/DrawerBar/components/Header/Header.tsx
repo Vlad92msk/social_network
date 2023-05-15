@@ -14,7 +14,7 @@ export const Header = () => (
       }}
       />
     </div>
-    <Text color="title" adaptive={{m992: '12'}}>Firsov Vlad</Text>
+    <Text color="title">Firsov Vlad</Text>
     <Icon className={cn('AlertIcon')} icon="bell" />
   </div>
 )

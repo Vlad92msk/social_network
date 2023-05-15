@@ -3,6 +3,7 @@ import Apollo from '@services/apollo/Apollo'
 import { getRequestStorage } from '@services/apollo/localStorage'
 import { ThemeService } from '@services/theme'
 import '../src/styles/base.scss'
+import '../src/styles/app.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode}) {
   return (

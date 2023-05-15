@@ -22,8 +22,8 @@ export const Text = <E extends AS = typeof DEFAULT_TEXT>(props: BoxProps<E, Text
       style={{
         ...style,
         letterSpacing: `${space}em`,
-        textTransform: uppercase ?? 'uppercase',
-        whiteSpace: nowrap ?? 'nowrap',
+        textTransform: uppercase && 'uppercase',
+        whiteSpace: nowrap && 'nowrap',
       }}
       {...rest}
     />
