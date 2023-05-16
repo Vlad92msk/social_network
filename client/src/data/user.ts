@@ -1,4 +1,4 @@
-import { UserStatus } from 'src/components'
+import { UserStatus } from '@common'
 
 export const USER: UserType = {
   id: 1,

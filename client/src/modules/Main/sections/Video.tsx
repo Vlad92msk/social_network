@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { makeCn } from '@public/utils'
-import { ALBUMS, VIDEOS } from './mockVideos'
+import { ALBUMS, VIDEOS } from '../../../data/mockVideos'
 import { Album, MediaItem, SectionContainer } from '../components'
 import styles from '../Main.module.scss'
 

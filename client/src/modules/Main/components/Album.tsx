@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import React, { useMemo } from 'react'
 import { MediaItem } from '@modules/Main/components/index'
-import { PHOTOS } from '@modules/Main/sections/mockPhotos'
+import { PHOTOS } from '../../../data/mockPhotos'
 import { AlbumType } from '@modules/Main/types/album'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
