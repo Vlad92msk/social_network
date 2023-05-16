@@ -1,7 +1,7 @@
-import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
-import { UserIMGPreview } from 'src/components'
-import styles from './AddNewMessageUsers.module.scss'
+import { makeCn } from '@public/utils'
+import { UserIMGPreview } from '../../../components'
+import { Text } from '../../../components/Text'
+import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('AddNewMessageUsers', styles)
 

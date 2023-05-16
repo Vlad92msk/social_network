@@ -1,9 +1,10 @@
 import { filter, orderBy } from 'lodash'
-import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
-import { makeCn } from 'public/utils'
-import { UserStatusEnum } from 'src/components'
-import styles from './FriendsList.module.scss'
-import { FriendItem } from '..'
+import React from 'react'
+import { makeCn } from '@public/utils'
+import { UserStatusEnum } from '../../../components'
+import { useDrawerBarSelect } from '../DrawerBar'
+import styles from '../DrawerBar.module.scss'
+import { FriendItem } from './index'
 
 const cn = makeCn('FriendsList', styles)
 
@@ -33,7 +34,7 @@ const friendsListItems: FriendsListItem[] = [
   { id: 15, name: 'Elvis', img: '1', status: UserStatusEnum.OFFLINE, messageCount: 1 },
 ]
 
-export const FriendsList = () => {
+export const FriendsList = React.memo(() => {
   const search = useDrawerBarSelect((state) => state.search)
   return (
     <div className={cn()}>
@@ -49,4 +50,4 @@ export const FriendsList = () => {
       ))}
     </div>
   )
-}
+})

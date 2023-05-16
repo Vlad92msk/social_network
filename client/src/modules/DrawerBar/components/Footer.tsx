@@ -1,9 +1,9 @@
-import { useToggle } from 'public/hooks'
-import { Icon } from 'public/components/Icon'
-import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
-import styles from './Footer.module.scss'
-import { ChatItem } from '..'
+import { Icon } from '@public/components/Icon'
+import { useToggle } from '@public/hooks'
+import { makeCn } from '@public/utils'
+import { Text } from '../../../components/Text'
+import styles from '../DrawerBar.module.scss'
+import { ChatItem } from './index'
 
 const cn = makeCn('Footer', styles)
 

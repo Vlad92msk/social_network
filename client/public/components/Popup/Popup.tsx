@@ -14,7 +14,7 @@ export const {
   useContextDispatch: usePopupUpdate,
 } = createStoreContext({
   name: 'Popup',
-  initialState: { ...initialState },
+  initialState,
 })
 
 

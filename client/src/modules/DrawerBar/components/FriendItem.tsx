@@ -1,15 +1,14 @@
 import { useCallback } from 'react'
 import { useToggle } from 'usehooks-ts'
-import { FriendsListItem } from '@modules/DrawerBar/components'
-import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
-import { Icon } from 'public/components/Icon'
-import { Text } from 'src/components/Text'
-import { ButtonBox } from 'public/components/ButtonBox'
-import { Modal } from 'public/components/Modal'
-import { makeCn } from 'public/utils'
-import { IMGPreview, UserStatus, UserStatusEnum } from 'src/components'
-import styles from './FriendItem.module.scss'
-import { MenuList } from '../../../../components/MenuList/MenuList'
+import { FriendsListItem } from '@modules/DrawerBar/components/index'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { Icon } from '@public/components/Icon'
+import { Modal } from '@public/components/Modal'
+import { makeCn } from '@public/utils'
+import { IMGPreview, UserStatus, UserStatusEnum } from '../../../components'
+import { MenuList } from '../../../components/MenuList/MenuList'
+import { Text } from '../../../components/Text'
+import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('FriendItem', styles)
 
@@ -27,14 +26,12 @@ export const FriendItem = (props: FriendItem) => {
       messageCount,
     },
   } = props
-  const isBarOpen = useDrawerBarSelect((state) => state.isOpen)
 
   const [open, setOpen] = useToggle(false)
 
   const handleClickFriend = useCallback(() => {
     console.log(`Кликнул по пользователю ${id}`)
   }, [id])
-
 
   return (
     <>
@@ -43,7 +40,6 @@ export const FriendItem = (props: FriendItem) => {
         onClick={handleClickFriend}
       >
         <IMGPreview moduleName="users" folder="photo" img={img} />
-        { isBarOpen && (
         <div className={cn('TextContainer')}>
           <Text className={cn('FriendName')}>{name}</Text>
           <div className={cn('Main')}>
@@ -57,11 +53,7 @@ export const FriendItem = (props: FriendItem) => {
                   setOpen()
                 }}
               >
-                <Icon
-                  icon="message-square"
-                  fill="bluePrimrose50"
-                  size="small"
-                />
+                <Icon icon="message-square" />
                 <Text className={cn('MessageCount', { visible: Boolean(messageCount) })} size="8">
                   {(messageCount || 0) > 9 ? '+9' : messageCount}
                 </Text>
@@ -75,7 +67,6 @@ export const FriendItem = (props: FriendItem) => {
             </div>
           </div>
         </div>
-        ) }
         <MenuList position="left">
           <Text className={cn('ListItem')} onClick={() => console.log('Удалить')}>Удалить</Text>
           <Text className={cn('ListItem')} onClick={() => console.log('Заблокировать')}>Заблокировать</Text>

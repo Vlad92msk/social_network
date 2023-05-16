@@ -1,12 +1,11 @@
 import { useCallback } from 'react'
-import { ButtonBox } from 'public/components/ButtonBox'
-import { Icon } from 'public/components/Icon'
-import { createStoreContext, makeCn } from 'public/utils'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { Icon } from '@public/components/Icon'
+import { createStoreContext } from '@public/utils'
+import { cn } from './cn'
 import { Footer, FriendsList, Header, Search } from './components'
 import { initialState } from './context/initialState'
-import styles from './DrawerBar.module.scss'
 
-const cn = makeCn('DrawerBar', styles)
 
 export const {
   contextWrapper,

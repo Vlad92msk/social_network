@@ -1,8 +1,8 @@
+import { Icon } from '@public/components/Icon'
 import { makeCn } from '@public/utils'
 import { Image } from '@shared/components/Image'
-import { Icon } from 'public/components/Icon'
-import { Text } from 'src/components/Text'
-import styles from './Header.module.scss'
+import { Text } from '../../../components/Text'
+import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('Header', styles)
 

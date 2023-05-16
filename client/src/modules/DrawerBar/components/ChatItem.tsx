@@ -1,12 +1,12 @@
-import { AddNewMessageUsers, ChatsItem } from '@modules/DrawerBar/components'
+import { AddNewMessageUsers, ChatsItem } from '@modules/DrawerBar/components/index'
 import { useDrawerBarSelect } from '@modules/DrawerBar/DrawerBar'
-import { ButtonBox } from 'public/components/ButtonBox'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { makeCn } from '@public/utils'
 import { Image } from '@shared/components/Image'
-import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
-import { UserOlineForOf } from 'src/components'
-import styles from './ChatItem.module.scss'
-import { MenuList } from '../../../../components/MenuList/MenuList'
+import { UserOlineForOf } from '../../../components'
+import { MenuList } from '../../../components/MenuList/MenuList'
+import { Text } from '../../../components/Text'
+import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('ChatItem', styles)
 

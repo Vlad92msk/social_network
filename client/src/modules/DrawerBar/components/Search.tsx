@@ -1,10 +1,10 @@
 import { useObservableCallback, useSubscription } from 'observable-hooks'
 import { useState } from 'react'
 import { distinctUntilChanged, map } from 'rxjs'
-import { useDrawerBarUpdate } from '@modules/DrawerBar/DrawerBar'
+import { makeCn } from '@public/utils'
 import { TextInput } from '@shared/components/TextInput'
-import { makeCn } from 'public/utils'
-import styles from './Search.module.scss'
+import { useDrawerBarUpdate } from '../DrawerBar'
+import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('Search', styles)
 

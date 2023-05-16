@@ -4,6 +4,7 @@ import React, { createContext, PropsWithChildren, useCallback, useContext, useRe
 
 import { log, LogColors } from '@public/utils/logColors'
 import { DeepPartial } from '@public/types/deepPartial'
+import { assign, merge } from "lodash";
 
 interface Options<Store> {
   initialState: Store
@@ -132,7 +133,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     const updateContext = useStoreDispatch()
 
     if (state !== undefined) {
-      updateContext((initial) => ({ ...initial, ...state }))
+      updateContext((initial) => state)
     }
 
     return <>{children}</>
