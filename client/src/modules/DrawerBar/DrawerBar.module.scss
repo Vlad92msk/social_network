@@ -171,6 +171,13 @@ $DrawerBar--active: #{$DrawerBar}--active;
     }
   }
 
+  &-MenuList {
+    display: none;
+    :has(.#{$DrawerBar--active}) & {
+      display: flex;
+    }
+  }
+
   &-MainContainer {
     @include flex($align-items: center);
     gap: rem(5);

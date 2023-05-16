@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
+import { Text } from '@common'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { Icon } from '@public/components/Icon'
 import { IconName } from '@public/types/icon.model'
-import { ButtonBox } from 'public/components/ButtonBox'
-import { Icon } from 'public/components/Icon'
-import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
-import styles from './ButtonsList.module.scss'
+import { makeCn } from '@public/utils'
+import styles from '../NavBar.module.scss'
 
 const cn = makeCn('ButtonsList', styles)
 

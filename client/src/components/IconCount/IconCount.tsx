@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from 'react'
+import { ButtonBox } from '@public/components/ButtonBox'
+import { Icon, IconProps } from '@public/components/Icon'
 import { IconName } from '@public/types/icon.model'
-import { ButtonBox } from 'public/components/ButtonBox'
-import { Icon, IconProps } from 'public/components/Icon'
-import { Text, TextProps } from 'src/components/Text'
-import { makeCn } from 'public/utils'
+import { makeCn } from '@public/utils'
 import styles from './IconCount.module.scss'
+import { Text, TextOwnProps } from '../Text'
 
 
 const cn = makeCn('IconCount', styles)
@@ -12,7 +12,7 @@ const cn = makeCn('IconCount', styles)
 interface IconCountProps {
   options?: {
     icon?: Omit<IconProps, 'icon' | 'onClick'>
-    text?: TextProps<React.ElementType>
+    text?: TextOwnProps
   }
   icon: IconName
   countBcg?: 'message' | 'other'
@@ -64,10 +64,6 @@ IconCount.defaultProps = {
   isButton: false,
   countBcg: 'message',
   options: {
-    icon: {
-      size: 'small',
-      fill: 'oldAsphalt40',
-    },
     text: {
       size: '12',
     },

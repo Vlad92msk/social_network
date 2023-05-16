@@ -1,7 +1,0 @@
-@import "src/styles";
-
-
-.Footer {
-  @include flex($justify: center, $align-items: center);
-  width: 100%;
-}

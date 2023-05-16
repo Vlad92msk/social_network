@@ -67,7 +67,7 @@ export const FriendItem = (props: FriendItem) => {
             </div>
           </div>
         </div>
-        <MenuList position="left">
+        <MenuList classNameButton={cn('MenuList')} position="left">
           <Text className={cn('ListItem')} onClick={() => console.log('Удалить')}>Удалить</Text>
           <Text className={cn('ListItem')} onClick={() => console.log('Заблокировать')}>Заблокировать</Text>
           <Text className={cn('ListItem')} onClick={() => console.log('Скрыться')}>Скрыться</Text>

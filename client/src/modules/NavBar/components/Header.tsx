@@ -1,7 +1,7 @@
+import { Text } from '@common'
+import { makeCn } from '@public/utils'
 import { Image } from '@shared/components/Image'
-import { Text } from 'src/components/Text'
-import { makeCn } from 'public/utils'
-import styles from './Header.module.scss'
+import styles from '../NavBar.module.scss'
 
 const cn = makeCn('Header', styles)
 

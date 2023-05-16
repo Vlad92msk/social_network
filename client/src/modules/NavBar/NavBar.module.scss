@@ -7,3 +7,79 @@
   padding: $padding-component;
   position: relative;
 }
+
+.ButtonsList {
+  @include flex($direction: column);
+  flex: 1 1;
+  margin-top: rem(50);
+
+  &-Button {
+    @include flex($align-items: center);
+    width: 100%;
+    padding: rem(20);
+    gap: rem(20);
+    color: var(--Color-Text--primary);
+    fill: var(--Color-Icon--light);
+    border-radius: $border-radius-element;
+    transition: .5s;
+
+    &--active {
+      background: var(--Color-Bckground--dark);
+      color: var(--Color-Text--red);
+      fill: var(--Color-Icon--red);
+    }
+
+    &:not(&--active):hover {
+      background: var(--Color-Background--light);
+      transition: .3s;
+    }
+  }
+
+  &-ButtonText {
+    margin-right: auto;
+  }
+}
+
+.Footer {
+  @include flex($justify: center, $align-items: center);
+  width: 100%;
+}
+
+.Header {
+  @include flex($align-items: center);
+  width: 100%;
+  background: var(--Color-Background--light);
+  padding: rem(10);
+  border-radius: rem(10);
+  gap: rem(10);
+
+  &-PhotoBox {
+    @include wh(rem(50), rem(50));
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+
+  }
+
+  &-Status {
+    margin-left: auto;
+    margin-right: rem(5);
+    @include wh(rem(5), rem(5));
+    border-radius: 50%;
+
+    &--status {
+      &_online {
+        background: var(--Color-Status--Online);
+      }
+
+      &_offline {
+        background: var(--Color-Status--Offline);
+      }
+
+      &_incognito {
+        background: var(--Color-Status--Incognito);
+      }
+    }
+  }
+}

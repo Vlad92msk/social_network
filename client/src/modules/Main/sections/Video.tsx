@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react'
-import { makeCn } from 'public/utils'
-import { ALBUMS, PHOTOS } from './mock'
-import styles from './Photo.module.scss'
-import { Album, MediaItem, SectionContainer } from '../../components'
+import { makeCn } from '@public/utils'
+import { ALBUMS, VIDEOS } from './mockVideos'
+import { Album, MediaItem, SectionContainer } from '../components'
+import styles from '../Main.module.scss'
 
-const cn = makeCn('Photo', styles)
+const cn = makeCn('Video', styles)
 
-export const Photo = () => {
+export const Video = () => {
   const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {
@@ -15,7 +15,7 @@ export const Photo = () => {
   return (
     <SectionContainer
       className={cn()}
-      title="Фото"
+      title="Видео"
       lastAdded={new Date()}
       changeVisibleType={changeVisibleType}
     >
@@ -28,7 +28,7 @@ export const Photo = () => {
           />
         ))
       ) : (
-        PHOTOS.map((photo) => (
+        VIDEOS.map((photo) => (
           <MediaItem key={photo.id} item={photo} />
         ))
       )}

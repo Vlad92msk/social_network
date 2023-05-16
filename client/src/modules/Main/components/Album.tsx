@@ -1,17 +1,17 @@
 import { classnames } from '@bem-react/classnames'
 import React, { useMemo } from 'react'
-import { MediaItem } from '@modules/Main/components'
-import { PHOTOS } from '@modules/Main/sections/photo/mock'
+import { MediaItem } from '@modules/Main/components/index'
+import { PHOTOS } from '@modules/Main/sections/mockPhotos'
 import { AlbumType } from '@modules/Main/types/album'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
 import { IconButton } from '@public/components/IconButton'
 import { useBooleanState, useGetAccentImageColor } from '@public/hooks'
 import { createString, makeCn } from '@public/utils'
-import { Flex } from 'public/components/Flex'
-import { Section } from 'src/components/Section'
-import { Text } from 'src/components/Text'
-import styles from './Album.module.scss'
+import { Flex } from '@public/components/Flex'
+import { Section } from '../../../components/Section'
+import { Text } from '../../../components/Text'
+import styles from '../Main.module.scss'
 
 
 const cn = makeCn('Album', styles)

@@ -1,2 +1,2 @@
-export * from './photo/Photo'
-export * from './video/Video'
+export * from './Photo'
+export * from './Video'

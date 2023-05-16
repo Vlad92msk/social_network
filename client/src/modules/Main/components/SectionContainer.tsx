@@ -1,10 +1,10 @@
 import { classnames } from '@bem-react/classnames'
 import React, { PropsWithChildren, ReactElement, useMemo } from 'react'
+import { Switch, SwitchOption } from '@common'
 import { Icon } from '@public/components/Icon'
-import { Text } from 'src/components/Text'
-import { createDateFormat, DateFormats, makeCn } from 'public/utils'
-import { Switch, SwitchOption } from 'src/components'
-import styles from './SectionContainer.module.scss'
+import { createDateFormat, DateFormats, makeCn } from '@public/utils'
+import { Text } from '../../../components/Text'
+import styles from '../Main.module.scss'
 
 const cn = makeCn('SectionContainer', styles)
 

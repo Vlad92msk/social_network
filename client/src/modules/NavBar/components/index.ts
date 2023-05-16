@@ -1,3 +1,3 @@
-export * from './Header/Header'
-export * from './Footer/Footer'
-export * from './ButtonsList/ButtonsList'
+export * from './Header'
+export * from './Footer'
+export * from './ButtonsList'

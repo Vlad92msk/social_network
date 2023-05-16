@@ -1,10 +1,9 @@
 import { classnames } from '@bem-react/classnames'
 import { PropsWithChildren, useCallback } from 'react'
-import { MediaItemType } from '@modules/Main/types/mediaItem'
-import { Section } from 'src/components/Section'
-import { makeCn } from 'public/utils'
-import { IconCount } from 'src/components'
-import styles from './MediaItem.module.scss'
+import { IconCount, Section } from '@common'
+import { makeCn } from '@public/utils'
+import styles from '../Main.module.scss'
+import { MediaItemType } from '../types/mediaItem'
 
 
 const cn = makeCn('MediaItem', styles)
