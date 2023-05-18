@@ -1,6 +1,6 @@
 import { classnames } from '@bem-react/classnames'
 import { motion } from 'framer-motion'
-import React, { forwardRef, PropsWithChildren } from 'react'
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react'
 import { Box } from 'react-polymorphic-box'
 
 import { AS, BoxProps } from '@public/types/boxType'
@@ -17,7 +17,7 @@ export interface ButtonBoxOwnProps extends PropsWithChildren {
 
 const DEFAULT_BUTTON_BOX: AS = 'button'
 
-export const ButtonBox = <E extends AS = typeof DEFAULT_BUTTON_BOX>(props: BoxProps<E, ButtonBoxOwnProps>) => {
+export const ButtonBox = <E extends AS = typeof DEFAULT_BUTTON_BOX>(props: BoxProps<E, ButtonBoxOwnProps & ButtonHTMLAttributes<E>>) => {
   const { className, children, ...rest } = props
 
   return (

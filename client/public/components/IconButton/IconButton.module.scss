@@ -6,6 +6,12 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
+  &[disabled]{
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
   &-Inner {
     margin: auto;

@@ -1,5 +1,4 @@
-@import "public/styles";
-
+@import "src/styles";
 
 
 .Field {
@@ -13,6 +12,7 @@
 
   &-InputContainer {
     display: flex;
+
 
     &--labelPosition {
 
@@ -68,6 +68,7 @@
     width: 100%;
     padding: rem(10) rem(16);
     margin-top: rem(8);
+
     color: var(--Color-RedRose--50);
     background-color: var(--Color-RedRose--20);
   }

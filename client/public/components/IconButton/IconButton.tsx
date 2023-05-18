@@ -1,6 +1,6 @@
 import { classnames } from '@bem-react/classnames'
-import { ButtonBox } from '@public/components/ButtonBox'
-import { IconProps } from '@public/components/Icon'
+import { ButtonHTMLAttributes } from 'react'
+import { Icon, IconProps } from '@public/components/Icon'
 import { makeCn, rem } from '@public/utils'
 import styles from './IconButton.module.scss'
 
@@ -11,14 +11,16 @@ export interface IconButtonProps extends IconProps {
     height?: string | number
 }
 
-export const IconButton = (props: IconButtonProps) => {
-  const { width, height, className } = props
+export const IconButton = (props: IconButtonProps & ButtonHTMLAttributes<HTMLOrSVGElement>) => {
+  const { width, height, className, ...rest } = props
 
   return (
-    <ButtonBox<'svg'>
-      as="svg"
+    <Icon
+      // @ts-ignore
+      type="button"
       className={classnames(cn(), className)}
       style={{ width: rem(width), height: rem(height) }}
+      {...rest}
     />
   )
 }

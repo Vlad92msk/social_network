@@ -1,0 +1,72 @@
+@import "src/styles";
+
+$close-btn-height: 30;
+$inner-container-margin-top: 10;
+$padding-main-elements: 10;
+
+.Chat {
+  width: 100%;
+  height: 100%;
+  padding: rem(10);
+  background: rgb(71, 73, 107);
+  display: flex;
+  flex-direction: column;
+  border-radius: $border-radius-element;
+  overflow: hidden;
+
+
+  &-ModalCloseBtn {
+    @include modal-close-btn();
+    margin-left: auto;
+  }
+
+  &-Inner {
+    width: 100%;
+    height: calc(100% - #{rem($close-btn-height + $inner-container-margin-top)});
+    border: rem(1) solid var(--Color-Border--grey);
+    border-radius: $border-radius-small;
+    margin-top: rem($inner-container-margin-top);
+    background: var(--Color-Background--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-Info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: rem($padding-main-elements);
+    border-bottom: rem(.5) solid var(--Color-Border--light-30--opacity-05);
+
+    &UserContainer {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: rem(30);
+      fill: var(--Color-Icon--light);
+    }
+    &MenuList {
+      //margin-left: auto;
+      fill: var(--Color-Icon--light);
+      cursor: pointer;
+    }
+  }
+
+  &-MessageContainer {
+    min-height: 50%;
+    width: 100%;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: rem($padding-main-elements);
+  }
+  &-PrintActions {
+    padding: rem($padding-main-elements);
+    width: 100%;
+    max-height: 45%;
+    align-self: end;
+    display: flex;
+    justify-content: space-between;
+  }
+
+}

@@ -240,6 +240,11 @@ $DrawerBar--active: #{$DrawerBar}--active;
       opacity: 1;
     }
   }
+
+  &-ChatModal {
+    @include modal();
+    background: transparent;
+  }
 }
 
 .Footer {

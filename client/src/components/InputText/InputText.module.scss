@@ -1,6 +1,4 @@
-@import "public/styles";
-
-
+@import "src/styles";
 
 $sizes: (
         small: rem(36),
@@ -9,13 +7,13 @@ $sizes: (
         inherit: inherit
 );
 
-.TextInput {
+.InputText {
   @include flex($align-items: center);
   border: rem(1) solid var(--Color-OldAsphalt--50);
   border-radius: rem(8);
   transition: .5s;
 
-  /* Если есть фокус на инпуте (вложенный элемент), то примени к TextInput */
+  /* Если есть фокус на инпуте (вложенный элемент), то примени к InputText */
   &:has(&-Input:focus) {
     border: rem(1) solid var(--Color-BluePrimrose--50);
     transition: .3s;
@@ -32,33 +30,8 @@ $sizes: (
     background: transparent;
   }
 
-  &-PrefixBox {
-    display: flex;
-    height: rem(20);
-    padding: inherit;
-    gap: rem(5);
 
-    &--iconPosition {
 
-      &_left {
-        margin-left: rem(16);
-      }
-
-      &_right {
-        margin-right: rem(16);
-      }
-    }
-  }
-
-  &-Icon {
-    @include wh(rem(20), rem(20));
-  }
-
-  &-Prefix {
-    @include flex($align-items: center);
-    height: 100%;
-    padding: inherit;
-  }
 
   &-Input {
     @include placeholderColor(var(--Color-Text--disabled));

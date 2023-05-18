@@ -1,10 +1,10 @@
 'use client'
 
+import { assign, merge } from 'lodash'
 import React, { createContext, PropsWithChildren, useCallback, useContext, useRef, useSyncExternalStore } from 'react'
 
-import { log, LogColors } from '@public/utils/logColors'
 import { DeepPartial } from '@public/types/deepPartial'
-import { assign, merge } from "lodash";
+import { log, LogColors } from '@public/utils/logColors'
 
 interface Options<Store> {
   initialState: Store
@@ -139,10 +139,11 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     return <>{children}</>
   }
 
-  const contextWrapper = (Module: React.FC<PropsWithChildren>): React.FC<Props> => (
+  const contextWrapper = <T, >(Module: React.FC<PropsWithChildren<T>>): React.FC<Props & T> => (
     ({ state, children, ...restProps }) => (
       <ContextProvider>
         <StartWith state={state}>
+          {/* @ts-ignore */}
           <Module {...restProps}>
             {children}
           </Module>

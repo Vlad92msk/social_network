@@ -8,8 +8,8 @@ import { MEDIA } from '../../data/media'
 
 const cn = makeCn('Text', styles)
 
-export type TextSize =
-    | '80'
+export type TextSize = (
+    '80'
     | '54'
     | '44'
     | '38'
@@ -24,7 +24,8 @@ export type TextSize =
     | '14'
     | '12'
     | '10'
-    | '8';
+    | '8'
+);
 
 
 export type TextAdaptive = {
