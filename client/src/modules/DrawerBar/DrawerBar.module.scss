@@ -88,17 +88,7 @@ $DrawerBar--active: #{$DrawerBar}--active;
   margin: 0 $padding-component;
   border-radius: rem(55);
   background: var(--Color-Bckground--dark);
-
-  &-Input {
-    width: 100%;
-    height: rem(50);
-    fill: var(--Color-Icon--light);
-
-    input {
-      border: 0;
-      color: var(--Color-Text--primary);
-    }
-  }
+  padding: rem(10);
 }
 
 .FriendsList {

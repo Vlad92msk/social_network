@@ -1,12 +1,9 @@
 import { classnames } from '@bem-react/classnames'
 import React, { ChangeEvent } from 'react'
 import { RefType } from '@public/types/refType'
-import { makeCn } from '@public/utils'
-import styles from './InputText.module.scss'
+import { cn } from './cn'
 import { Text, TextOwnProps } from '../Text'
 
-
-const cn = makeCn('TextInput', styles)
 
 // | 'button' /* Кнопка */
 // | 'checkbox' /* Флажки. Позволяют выбрать более одного варианта из предложенных. */
@@ -32,16 +29,15 @@ const cn = makeCn('TextInput', styles)
 // | 'month' /* Выбор месяца. */
 // | 'week' /* Выбор недели. */;
 
-export interface InputTextProps extends TextOwnProps {
+export interface InputTextProps extends TextOwnProps, Partial<Omit<HTMLInputElement, 'size'>> {
   error?: boolean | string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const InputText = React.forwardRef((props: InputTextProps & Partial<HTMLInputElement>, ref?: RefType<HTMLInputElement>) => {
+export const InputText = React.forwardRef((props: InputTextProps, ref?: RefType<HTMLInputElement>) => {
   const {
     className,
     type = 'text',
-    placeholder = '...',
     error,
     ...rest
   } = props
@@ -51,9 +47,8 @@ export const InputText = React.forwardRef((props: InputTextProps & Partial<HTMLI
     <Text<'input'>
       ref={ref}
       {...rest}
-      className={classnames(className, cn('Input', { error: Boolean(error) }))}
+      className={classnames(cn('Input', { error: Boolean(error) }), className)}
       type={type}
-      placeholder={placeholder}
       as="input"
     />
   )

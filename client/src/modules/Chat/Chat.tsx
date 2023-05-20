@@ -49,11 +49,12 @@ export const Chat = contextWrapper((props: ChatProps) => {
           <div className={cn('Ddddd')}>MessageContainer</div>
         </div>
         <Form
-          className={cn('PrintActions')}
+          className={cn('PrintActionsForm')}
           onSubmit={(r) => console.log(r)}
         >
           <IconButton icon="attachment" />
           <FormController
+            className={cn('PrintActionsAddMessageField')}
             name="message"
             rules={{
               required: {
@@ -62,7 +63,9 @@ export const Chat = contextWrapper((props: ChatProps) => {
               },
             }}
           >
-            <InputArea placeholder={''} />
+            <InputArea
+              className={cn('PrintActionsAddMessageInput')}
+            />
           </FormController>
           <input type="submit" />
         </Form>

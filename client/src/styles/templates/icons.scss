@@ -1,5 +1,5 @@
 @use 'sass:map';
-@import "public/styles";
+@import "@public/styles";
 @import "../variables";
 
 $icon-sizes: (
@@ -33,5 +33,6 @@ $icon-fills: (
 }
 
 @mixin icon-fill($color: 'light', $prop: 'fill') {
-  $prop: map.get($icon-fills, $color);
+  //fill: map.get($icon-fills, $color);
+  #{$prop}: map.get($icon-fills, $color);
 }

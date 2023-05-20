@@ -1,34 +1,47 @@
 import { classnames } from '@bem-react/classnames'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react'
 import { RefType } from '@public/types/refType'
-import { makeCn } from '@public/utils'
-import styles from './InputText.module.scss'
+import { rem } from '@public/utils'
+import { cn } from './cn'
 import { Text, TextOwnProps } from '../Text'
 
 
-const cn = makeCn('TextInput', styles)
+const useAutoSize = () => {
+  const [height, setHeight] = useState<string | number | undefined>(rem(35))
+  // const [width, setWidth] = useState('auto')
 
-export interface InputTextProps extends TextOwnProps {
+  const handleInput = useCallback((event: FormEvent<HTMLTextAreaElement>) => {
+    const target = event.target as HTMLTextAreaElement
+    setHeight(rem(target.scrollHeight) || 0)
+    // setWidth(`${event.target.scrollWidth}px`)
+  }, [])
+
+  return { height, handleInput }
+}
+
+export interface InputAreaProps extends TextOwnProps, Partial<Omit<HTMLTextAreaElement, 'size'>> {
   error?: boolean | string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const InputArea = React.forwardRef((props: InputTextProps & Partial<HTMLTextAreaElement>, ref?: RefType<HTMLTextAreaElement>) => {
+export const InputArea = React.forwardRef((props: InputAreaProps, ref?: RefType<HTMLTextAreaElement>) => {
   const {
     className,
-    placeholder = '...',
     error,
     ...rest
   } = props
+
+  const { height, handleInput } = useAutoSize()
 
   return (
     // @ts-ignore
     <Text<'textarea'>
       ref={ref}
       {...rest}
-      className={classnames(className, cn('Input', { error: Boolean(error) }))}
-      placeholder={placeholder}
+      style={{ height }}
+      className={classnames(className, cn('Area', { error: Boolean(error) }))}
       as="textarea"
+      onInput={handleInput}
     />
   )
 })

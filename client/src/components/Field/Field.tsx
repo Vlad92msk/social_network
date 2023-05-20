@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react'
 import { PolymorphicComponentProps } from 'react-polymorphic-box'
 import { Text } from '@common'
 import { Icon } from '@public/components/Icon'
+import { IconName } from '@public/types/icon.model'
 import { makeCn } from '@public/utils'
 import styles from './Field.module.scss'
 
@@ -10,13 +11,15 @@ const cn = makeCn('Field', styles)
 
 export interface FieldOwnProps {
   className?: string
+  classNameLabel?: string
+  classNameErrorMessage?: string
+  classNameRequired?: string
+  requiredIcon?: IconName
   style?: React.CSSProperties
   label?: string
   required?: boolean
   error?: string
   labelPosition?: 'top' | 'right' | 'left'
-  labelColor?: 'inherit' | 'body' | 'title' | 'note' | 'disabled'
-  labelSize?: 'regular' | 'small' | 'extraSmall'
   autoWidth?: boolean
   htmlFor?: string
 }
@@ -38,26 +41,38 @@ export const Field = React.forwardRef(<E extends React.ElementType = typeof DEFA
     labelPosition,
     autoWidth,
     htmlFor,
+    classNameErrorMessage,
+    classNameLabel,
+    classNameRequired,
+    requiredIcon,
     children,
   } = props
 
   return (
     <div className={classnames(cn({ autoWidth }), className)} style={style}>
       <label className={cn('InputContainer', { labelPosition })} htmlFor={htmlFor}>
-        <Text className={cn('Label', { labelPosition })}>
+        <Text className={classnames(cn('Label', { labelPosition }), classNameLabel)}>
           {label}
           {label && required && (
-            <Icon className={cn('RequiredIcon')} icon="required-field-marker" />
+            <Icon
+              className={classnames(cn('RequiredIcon'), classNameRequired)}
+              icon={requiredIcon!}
+            />
           )}
         </Text>
         {children}
       </label>
 
-      {error && <Text className={cn('Message')}>{error}</Text>}
+      {error && (
+      <Text className={classnames(cn('Message'), classNameErrorMessage)}>
+        {error}
+      </Text>
+      )}
     </div>
   )
 })
 
 Field.defaultProps = {
   labelPosition: 'top',
+  requiredIcon: 'required-field-marker',
 } as Partial<FieldOwnProps>

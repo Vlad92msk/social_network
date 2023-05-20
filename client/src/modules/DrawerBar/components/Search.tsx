@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useState } from 'react'
 import { makeCn } from '@public/utils'
-import { InputText } from '../../../components/InputText'
+import { InputText, InputTextMod } from '../../../components/InputText'
 import { useDrawerBarUpdate } from '../DrawerBar'
 import styles from '../DrawerBar.module.scss'
 
@@ -19,9 +19,8 @@ export const Search = () => {
 
   return (
     <div className={cn()}>
-      <InputText
-        className={cn('Input')}
-        // icon="search"
+      <InputTextMod
+        icon="search"
         value={search}
         onChange={onChange}
       />

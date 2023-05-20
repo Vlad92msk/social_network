@@ -61,12 +61,28 @@ $padding-main-elements: 10;
     padding: rem($padding-main-elements);
   }
   &-PrintActions {
-    padding: rem($padding-main-elements);
-    width: 100%;
-    max-height: 45%;
-    align-self: end;
-    display: flex;
-    justify-content: space-between;
+
+    &Form {
+      padding: rem($padding-main-elements);
+      width: 100%;
+      max-height: calc(45% - #{rem($padding-main-elements)});
+      align-self: end;
+      display: flex;
+      justify-content: space-between;
+      gap: rem(10);
+      align-items: flex-end;
+    }
+
+    &AddMessageField {
+      background: var(--Color-Bckground--dark);
+      flex: 1 1 auto;
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: rem(5);
+      padding: rem(10);
+    }
+    &AddMessageInput {
+    }
   }
 
 }

@@ -12,7 +12,7 @@
 
   &-InputContainer {
     display: flex;
-
+    overflow: hidden;
 
     &--labelPosition {
 
@@ -60,7 +60,7 @@
   &-RequiredIcon {
     width: rem(12);
     height: rem(12);
-    fill: var(--Color-RedRose--50);
+    fill: var(--Color-Icon--red);
   }
 
 
@@ -69,7 +69,7 @@
     padding: rem(10) rem(16);
     margin-top: rem(8);
 
-    color: var(--Color-RedRose--50);
-    background-color: var(--Color-RedRose--20);
+    color: var(--Color-Text--red);
+    background-color: var(--Color-Background--red);
   }
 }
