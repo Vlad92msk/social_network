@@ -1,12 +1,9 @@
-import { MenuList, Text } from '@common'
+import { Form, FormController, InputArea, MenuList, Text } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { IconButton } from '@public/components/IconButton'
 import { createStoreContext, makeCn } from '@public/utils'
 import styles from './Chat.module.scss'
 import { initialState } from './context/initialState'
-import { Form } from '../../components/Form/Form'
-import { FormController } from '../../components/Form/FormController'
-import { InputArea } from '../../components/InputText'
 
 export const cn = makeCn('Chat', styles)
 

@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useState } from 'react'
+import { InputTextMod } from '@common'
 import { makeCn } from '@public/utils'
-import { InputTextMod } from '../../../components/InputText'
 import { useDrawerBarUpdate } from '../DrawerBar'
 import styles from '../DrawerBar.module.scss'
 
