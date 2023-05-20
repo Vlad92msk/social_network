@@ -6,7 +6,7 @@ import styles from './Chat.module.scss'
 import { initialState } from './context/initialState'
 import { Form } from '../../components/Form/Form'
 import { FormController } from '../../components/Form/FormController'
-import { InputArea } from '../../components/InputText/InputArea'
+import { InputArea } from '../../components/InputText'
 
 export const cn = makeCn('Chat', styles)
 

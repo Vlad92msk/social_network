@@ -1,6 +1,7 @@
 @import "src/styles";
 
 .TextInput {
+  $This: &;
   &-Area {
     @include area-input;
   }
@@ -14,10 +15,24 @@
   }
 
   &-TextIconContainer {
+    position: relative;
     gap: rem(10);
+
+    &:hover #{$This}-IconClear {
+      opacity: 1;
+    }
+
   }
   &-Icon {
     @include icon-fill('grey');
     height: 100%;
+  }
+
+  &-IconClear {
+    @include icon-fill('grey');
+    position: absolute;
+    max-height: 70%;
+    right: 0;
+    opacity: 0;
   }
 }
