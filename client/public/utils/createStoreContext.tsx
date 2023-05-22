@@ -1,6 +1,6 @@
 'use client'
 
-import { assign, merge } from 'lodash'
+import { merge } from 'lodash'
 import React, { createContext, PropsWithChildren, useCallback, useContext, useRef, useSyncExternalStore } from 'react'
 
 import { DeepPartial } from '@public/types/deepPartial'
@@ -47,7 +47,8 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
       }
 
       // Объединяем текущее состояние с новым значением
-      const assigned = ({ ...store.current, ...value })
+      // const assigned = ({ ...store.current, ...value })
+      const assigned = merge(store.current, value)
 
       // Обновляем текущее состояние
       store.current = assigned

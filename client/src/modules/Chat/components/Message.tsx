@@ -2,11 +2,12 @@ import { format } from 'date-fns'
 import { Text } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Flex } from '@public/components/Flex'
-import { useScrollToElement } from '@public/hooks'
+import { useRect, useScrollToElement } from '@public/hooks'
 import { DateFormats, makeCn } from '@public/utils'
 import { Message as MessageType } from '../../../data/messages'
 import { USER } from '../../../data/user'
 import styles from '../Chat.module.scss'
+import { useRef } from "react";
 
 
 export const cn = makeCn('Message', styles)
@@ -39,6 +40,9 @@ export const Message = (props: MessageProps) => {
     containerRef,
   } = props
 
+  const mainTextRef = useRef<HTMLSpanElement>(null)
+  const rect = useRect(mainTextRef, ['width'])
+
   const handleElementClick = useScrollToElement({
     targetElementId: prevMessageUserId,
     containerRef,
@@ -52,7 +56,7 @@ export const Message = (props: MessageProps) => {
       direction="column"
       gap={10}
     >
-      <ButtonBox className={cn('PrevMessageInfo')} onClick={handleElementClick}>
+      <ButtonBox className={cn('PrevMessageInfo')} onClick={handleElementClick} style={{ width: rect?.width }}>
         <Text bold>{prevMessageAuthor}</Text>
         <Text>{prevMessageText}</Text>
       </ButtonBox>
@@ -60,7 +64,7 @@ export const Message = (props: MessageProps) => {
         <Flex wrap="wrap">
           {files?.map((file) => <span>{file}</span>)}
         </Flex>
-        <Text className={cn('TextMessage')}>{textMessage}</Text>
+        <Text className={cn('TextMessage')} ref={mainTextRef}>{textMessage}</Text>
       </Flex>
       <Flex width={100} justify="space-between">
         <div>

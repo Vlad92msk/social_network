@@ -1,5 +1,5 @@
-import React from 'react'
-import { Controller, ErrorOption, useFormContext } from 'react-hook-form'
+import React, { useEffect } from 'react'
+import { Controller, ErrorOption, FieldValues, useFormContext, UseFormSetValue } from 'react-hook-form'
 import { UseControllerProps } from 'react-hook-form/dist/types/controller'
 import { getErrorMessage } from './utils/getErrorMessage'
 import { Field, FieldOwnProps } from '../Field'
@@ -9,6 +9,7 @@ export interface FormControllerProps extends Omit<FieldOwnProps, 'error' | 'html
     name: string
     rules?: UseControllerProps['rules']
     children: React.ReactElement
+    // onExternalChange?: (setValue: UseFormSetValue<FieldValues>) => void
 }
 
 export const FormController = (props: FormControllerProps) => {

@@ -1,5 +1,6 @@
 import { classnames } from '@bem-react/classnames'
 import React, { HTMLAttributes } from 'react'
+import { RefType } from '@public/types/refType'
 import { makeCn, rem } from '@public/utils'
 import styles from './Flex.module.scss'
 
@@ -18,13 +19,14 @@ export interface FieldRowProps extends HTMLAttributes<HTMLDivElement> {
   width?: number
 }
 
-export const Flex = (props: FieldRowProps) => {
+export const Flex = React.forwardRef((props: FieldRowProps, ref?: RefType<HTMLDivElement>) => {
   const {
     children, className, align, content, justify, wrap, direction, style, gap, width, ...rest
   } = props
 
   return (
     <div
+      ref={ref}
       className={classnames(cn(), className)}
       style={{
         ...style,
@@ -41,4 +43,4 @@ export const Flex = (props: FieldRowProps) => {
       {children}
     </div>
   )
-}
+})

@@ -38,16 +38,17 @@ export interface TextOwnProps extends TextProps {
     ellipsis?: boolean
 }
 
-export const Text = <E extends AS = typeof DEFAULT_TEXT>(props: BoxProps<E, TextOwnProps>) => {
+export const Text = React.forwardRef(<E extends AS = typeof DEFAULT_TEXT, >(props: BoxProps<E, TextOwnProps>, ref?) => {
   const { className, size, adaptive, ellipsis, ...rest } = props
 
   return (
     <TextBase
       className={classnames(cn({ size, ellipsis, ...adaptive }), className)}
+      ref={ref}
       {...rest}
     />
   )
-}
+})
 
 
 Text.defaultProps = {

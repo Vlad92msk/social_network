@@ -4,7 +4,7 @@ import { AS } from '@public/types/boxType'
 import { JSXElementTypeMap } from '@public/types/JSXElementTypeMap'
 
 export const useRect = <T extends AS>(
-  ref: RefObject<JSXElementTypeMap[T]>,
+  ref: RefObject<JSXElementTypeMap[T] | HTMLSpanElement>,
   watchProps: Array<keyof DOMRect>, // Массив свойств DOMRect, которые необходимо отслеживать
 ): Partial<DOMRect> => {
   const [rect, setRect] = useState<Partial<DOMRect>>({})
