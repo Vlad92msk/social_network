@@ -20,9 +20,9 @@ export interface IconProps {
   icon: IconName
   name?: string
   style?: CSSProperties
-  onClick?: (e) => void
-  onMouseEnter?: (e: React.MouseEvent) => void
-  onMouseLeave?: (e: React.MouseEvent) => void
+  onClick?: (e: React.MouseEvent<HTMLOrSVGElement>) => void
+  onMouseEnter?: (e: React.MouseEvent<HTMLOrSVGElement>) => void
+  onMouseLeave?: (e: React.MouseEvent<HTMLOrSVGElement>) => void
   ref?: RefType<HTMLOrSVGElement>
 }
 

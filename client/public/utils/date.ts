@@ -22,6 +22,7 @@ export enum DateFormats {
    * ПН/ВТ/СР/ЧТ и т.д.
    */
   FORMAT_6 = 'EEEEEE',
+  FORMAT_7 = 'HH:mm',
 }
 
 

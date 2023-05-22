@@ -19,7 +19,8 @@
   }
 
   &-Icon {
-    position: absolute;
+    position: relative;
+    //position: absolute;
 
     &--iconPosition {
       &_left {

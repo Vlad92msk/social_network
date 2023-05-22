@@ -30,7 +30,7 @@
     }
 
     &:not(&--active):hover {
-      background: var(--Color-Background--light);
+      background: var(--Color-Background--light--90);
       transition: .3s;
     }
   }
@@ -48,7 +48,7 @@
 .Header {
   @include flex($align-items: center);
   width: 100%;
-  background: var(--Color-Background--light);
+  background: var(--Color-Background--light--90);
   padding: rem(10);
   border-radius: rem(10);
   gap: rem(10);

@@ -1,6 +1,5 @@
+import { Text, UserIMGPreview } from '@common'
 import { makeCn } from '@public/utils'
-import { UserIMGPreview } from '../../../components'
-import { Text } from '../../../components/Text'
 import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('AddNewMessageUsers', styles)

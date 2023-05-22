@@ -1,7 +1,7 @@
 import { filter, orderBy } from 'lodash'
 import React from 'react'
+import { UserStatusEnum } from '@common'
 import { makeCn } from '@public/utils'
-import { UserStatusEnum } from '../../../components'
 import { useDrawerBarSelect } from '../DrawerBar'
 import styles from '../DrawerBar.module.scss'
 import { FriendItem } from './index'

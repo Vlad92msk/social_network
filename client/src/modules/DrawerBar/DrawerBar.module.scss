@@ -14,7 +14,7 @@ $DrawerBar--active: #{$DrawerBar}--active;
   flex-direction: column;
   border-bottom-left-radius: rem(55);
   border-top-left-radius: rem(55);
-  background: var(--Color-Background--light);
+  background: var(--Color-Background--light--90);
   justify-content: center;
   transition: .5s;
 
@@ -42,7 +42,7 @@ $DrawerBar--active: #{$DrawerBar}--active;
     justify-content: center;
     position: absolute;
     left: rem(-20);
-    background: var(--Color-Background--light);
+    background: var(--Color-Background--light--90);
     border-bottom-left-radius: 50%;
     border-top-left-radius: rem(55);
     clip-path: polygon(0% calc(100% - 80%), 100% 0%, 100% 100%, 0% 80%);
@@ -122,7 +122,7 @@ $DrawerBar--active: #{$DrawerBar}--active;
 
   &:hover {
     transition: .3s;
-    background: var(--Color-Background--light);
+    background: var(--Color-Background--light--90);
     border-radius: $border-radius-small;
 
     #{$this}-FriendFastActions {
@@ -341,7 +341,7 @@ $img-width: $img-height + $img-height * 0.2;
     }
 
     & > *:last-child {
-      background: var(--Color-Background--light);
+      background: var(--Color-Background--light--90);
       position: absolute;
       right: rem(-10);
       top: rem(-10);
@@ -395,7 +395,7 @@ $img-width: $img-height + $img-height * 0.2;
     border: rem(3) solid var(--Color-Border--grey);
     border-radius: 50%;
     overflow: hidden;
-    background: var(--Color-Background--light);
+    background: var(--Color-Background--light--90);
     color: var(--Color-Text--primary);
   }
 }

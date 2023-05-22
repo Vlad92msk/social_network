@@ -1,11 +1,11 @@
 import { classnames } from '@bem-react/classnames'
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import { makeCn, rem } from '@public/utils'
 import styles from './Flex.module.scss'
 
 const cn = makeCn('Flex', styles)
 
-export interface FieldRowProps {
+export interface FieldRowProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode | React.ReactNode[]
   className?: string
   align?: 'flex-start' | 'flex-end' | 'center'
@@ -20,7 +20,7 @@ export interface FieldRowProps {
 
 export const Flex = (props: FieldRowProps) => {
   const {
-    children, className, align, content, justify, wrap, direction, style, gap, width,
+    children, className, align, content, justify, wrap, direction, style, gap, width, ...rest
   } = props
 
   return (
@@ -36,6 +36,7 @@ export const Flex = (props: FieldRowProps) => {
         gap: rem(gap),
         width: width && `${width}%`,
       }}
+      {...rest}
     >
       {children}
     </div>

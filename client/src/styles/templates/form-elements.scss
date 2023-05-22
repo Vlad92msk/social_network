@@ -8,7 +8,7 @@ $color-text-focus: var(--Color-Text--primary);
 
 
 @mixin area-input($mw: 100%, $mh: fit-content) {
-  @include scrollbar(transparent, var(--Color-Background--light));
+  @include scrollbar(transparent, var(--Color-Background--light--90));
   @include placeholderColor($color-placeholder);
   max-width: $mw;
   max-height: $mh;

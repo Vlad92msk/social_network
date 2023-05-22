@@ -1,14 +1,14 @@
 import { useCallback } from 'react'
 import { IMGPreview, MenuList, Text, UserStatus, UserStatusEnum } from '@common'
+import { Chat } from '@modules/Chat'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
-import { IconButton } from '@public/components/IconButton'
 import { Modal } from '@public/components/Modal'
 import { useToggle } from '@public/hooks'
 import { makeCn } from '@public/utils'
 import { FriendsListItem } from './FriendsList'
+import { MESSAGES } from '../../../data/messages'
 import styles from '../DrawerBar.module.scss'
-import { Chat } from "@modules/Chat";
 
 const cn = makeCn('FriendItem', styles)
 
@@ -74,7 +74,7 @@ export const FriendItem = (props: FriendItem) => {
         </MenuList>
       </ButtonBox>
       <Modal className={cn('ChatModal')} open={open}>
-        <Chat setOpen={setOpen} />
+        <Chat setOpen={setOpen} state={{ messages: MESSAGES }} />
       </Modal>
     </>
   )

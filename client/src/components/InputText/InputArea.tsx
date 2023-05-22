@@ -7,12 +7,12 @@ import { Text, TextOwnProps } from '../Text'
 
 
 const useAutoSize = () => {
-  const [height, setHeight] = useState<string | number | undefined>(rem(35))
+  const [height, setHeight] = useState<string | number | undefined>(rem(25))
   // const [width, setWidth] = useState('auto')
 
   const handleInput = useCallback((event: FormEvent<HTMLTextAreaElement>) => {
     const target = event.target as HTMLTextAreaElement
-    setHeight(rem(target.scrollHeight) || 0)
+    setHeight(target.value.length > 0 ? rem(target.scrollHeight) : rem(25))
     // setWidth(`${event.target.scrollWidth}px`)
   }, [])
 

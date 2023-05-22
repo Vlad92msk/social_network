@@ -8,13 +8,16 @@ export interface TextProps {
     className?: string
     nowrap?: boolean
     space?: number | string
+    bold?: boolean | number
 }
 
 
 export const DEFAULT_TEXT: AS = 'span'
 
 export const Text = <E extends AS = typeof DEFAULT_TEXT>(props: BoxProps<E, TextProps>) => {
-  const { className, uppercase, style, nowrap, space, ...rest } = props
+  const {
+    className, uppercase, style, nowrap, space, bold, ...rest
+  } = props
 
   return (
     <Box
@@ -24,6 +27,7 @@ export const Text = <E extends AS = typeof DEFAULT_TEXT>(props: BoxProps<E, Text
         letterSpacing: `${space}em`,
         textTransform: uppercase && 'uppercase',
         whiteSpace: nowrap && 'nowrap',
+        fontWeight: typeof bold === 'boolean' ? 'bold' : bold,
       }}
       {...rest}
     />
