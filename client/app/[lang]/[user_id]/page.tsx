@@ -1,6 +1,6 @@
-import { App } from '@modules/App'
-import { initializeApollo } from '@services/apollo/apolloClient'
-import { GetUserInfoDocument, useGetUserInfoQuery } from '@services/apollo/generate'
+import { DrawerBar } from '@modules/DrawerBar'
+import { Main } from '@modules/Main'
+import { NavBar } from '@modules/NavBar'
 
 
 // async function getProjects() {
@@ -10,5 +10,11 @@ import { GetUserInfoDocument, useGetUserInfoQuery } from '@services/apollo/gener
 export default async function User(props) {
   // const ferf = await getProjects()
 
-  return <App />
+  return (
+    <>
+      <NavBar />
+      <Main />
+      <DrawerBar />
+    </>
+  )
 }

@@ -1,15 +1,11 @@
-import { DrawerBar } from '@modules/DrawerBar'
-import { Main } from '@modules/Main'
-import { NavBar } from '@modules/NavBar'
+import { PropsWithChildren } from 'react'
 import { makeCn } from '@public/utils'
 import styles from './App.module.scss'
 
 const cn = makeCn('Application', styles)
 
-export const App = () => (
+export const App = (props: PropsWithChildren) => (
   <main className={cn()}>
-    <NavBar />
-    <Main />
-    <DrawerBar />
+    {props.children}
   </main>
 )

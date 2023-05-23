@@ -1,24 +1,15 @@
+'use client'
 import React from 'react'
-import { createStoreContext, makeCn } from '@public/utils'
-import { initialState } from './context/initialState'
+import { makeCn } from '@public/utils'
 import styles from './Main.module.scss'
 import { Photo, Video } from './sections'
 
 const cn = makeCn('Main', styles)
 
-export const {
-  contextWrapper,
-  useContextSelector: useMainSelect,
-  useContextDispatch: useMainUpdate,
-} = createStoreContext({
-  name: 'Main',
-  initialState,
-})
 
-
-export const Main = contextWrapper(() => (
+export const Main = () => (
   <div className={cn()}>
     <Photo />
     <Video />
   </div>
-))
+)

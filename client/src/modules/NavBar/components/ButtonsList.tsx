@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { Text } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'

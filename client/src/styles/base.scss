@@ -1,5 +1,5 @@
 @import "@public/styles/colors";
-@import "_index";
+@import "@public/styles/fonts";
 
 :root {
   --BaseFontSize: 16;
@@ -59,5 +59,6 @@ button {
 }
 
 svg {
-  @include icon-size;
+  width: 25px;
+  height: 25px;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
+import { App } from '@modules/App'
 import Apollo from '@services/apollo/Apollo'
 import { getRequestStorage } from '@services/apollo/localStorage'
 import { ThemeService } from '@services/theme'
 import '../src/styles/base.scss'
-import '../src/styles/app.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode}) {
   return (
@@ -12,7 +12,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <Apollo apolloState={JSON.stringify(getRequestStorage().apolloState ?? '{}')}>
           <ThemeService>
-            {children}
+            <App>
+              {children}
+            </App>
           </ThemeService>
         </Apollo>
       </body>

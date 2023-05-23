@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback } from 'react'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
