@@ -1,13 +1,18 @@
 'use client'
 
-import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '@services/apollo/apolloClient'
+import { ApolloProvider, NormalizedCacheObject } from '@apollo/client'
+import React from 'react'
+import { useApollo } from '@services/apollo/useApollo'
 
-const Apollo = ({ children, apolloState }: { children: React.ReactNode, apolloState?: string }) => (
-  <ApolloProvider client={useApollo(JSON.parse(apolloState ?? '{}'))}>
+interface ApolloProps {
+  children: React.ReactNode
+  apolloState?: NormalizedCacheObject
+}
+
+const Apollo = ({ children, apolloState }: ApolloProps) => (
+  <ApolloProvider client={useApollo(apolloState)}>
     {children}
   </ApolloProvider>
 )
-
 
 export default Apollo
