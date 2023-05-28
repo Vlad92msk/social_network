@@ -1,6 +1,6 @@
 import { classnames } from '@bem-react/classnames'
 import React from 'react'
-import { makeCn } from '@public/utils'
+import { makeCn, classNames } from '@public/utils'
 import { usePopupSelect } from './Popup'
 import styles from './Popup.module.scss'
 import { Portal, PortalProps } from '../Portal'
@@ -20,7 +20,7 @@ export const PopupComponent = (props: PopupComponentProps) => {
   return (
     <Portal
       open={Boolean(open)}
-      className={classnames(cn(), className)}
+      className={classNames(cn(), className)}
       targetEl={targetEl}
       style={style}
       onClick={(e) => e.stopPropagation()}

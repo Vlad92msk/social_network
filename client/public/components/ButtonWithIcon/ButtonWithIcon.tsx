@@ -25,7 +25,7 @@ export const ButtonWithIcon = (props: ButtonWithIconProps) => {
 
   return (
     <ButtonBox<'button'>
-      className={classnames(cn(), className)}
+      className={classNames(cn(), className)}
       style={{ width: rem(width), height: rem(height) }}
     >
       <Icon ref={iconRef} className={cn('Icon', { iconPosition })} {...iconProps} />

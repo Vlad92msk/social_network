@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconButton } from '@public/components/IconButton'
-import { Text, TextSize } from 'src/components/Text'
+import { Text, TextSize } from 'app/(components)/Text'
 import { createDateFormat, DateFormats } from 'public/utils'
 import { cn } from './cn'
 import { CalendarControls } from './hooks/useControlCalendar'

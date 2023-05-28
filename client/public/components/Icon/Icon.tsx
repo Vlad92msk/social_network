@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import React, { CSSProperties } from 'react'
 import { IconName } from '@public/types/icon.model'
 import { RefType } from '@public/types/refType'
-import { makeCn } from '@public/utils'
+import { makeCn, classNames } from '@public/utils'
 import styles from './Icon.module.scss'
 import { createIconPath, getIcon } from './utils/loadIcon'
 
@@ -30,7 +30,7 @@ export const Icon = React.forwardRef((props: IconProps, ref: RefType<HTMLOrSVGEl
   const { icon, className, basePath, ...rest } = props
 
   const DynamicIcon = getIcon(createIconPath(icon, basePath))
-  return <DynamicIcon ref={ref} icon={icon} className={classnames(cn(), className)} {...rest} />
+  return <DynamicIcon ref={ref} icon={icon} className={classNames(cn(), className)} {...rest} />
 })
 
 export const IconMotion = motion(Icon)

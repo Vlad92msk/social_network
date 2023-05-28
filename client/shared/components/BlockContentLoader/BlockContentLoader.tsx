@@ -18,7 +18,7 @@ export const BlockContentLoader: React.FC<BlockContentLoaderProps> = (props) => 
 
   return (
     isLoading && (
-      <div className={classnames(cn(), className)}>
+      <div className={classNames(cn(), className)}>
         <div className={cn('DotsContainer', { size })}>
           <div className={cn('Dot')} />
           <div className={cn('Dot')} />

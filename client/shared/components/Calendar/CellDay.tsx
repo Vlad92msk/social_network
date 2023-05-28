@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import { isEqual, isSameMonth, isToday, isWithinInterval, max, min } from 'date-fns'
 import React, { useCallback, useMemo } from 'react'
-import { Text, TextSize } from 'src/components/Text'
+import { Text, TextSize } from 'app/(components)/Text'
 import { cn } from './cn'
 
 

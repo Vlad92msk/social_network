@@ -35,7 +35,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
   }, [])
 
   return (
-    <ButtonBox className={classnames(cn(), className)} onClick={handleClick}>
+    <ButtonBox className={classNames(cn(), className)} onClick={handleClick}>
       <input className={cn('Input', { error: !!error })} ref={input} type="checkbox" disabled={disabled} checked={value} onChange={handleChange} />
       <Icon icon="checkmark" className={cn('Check')} />
     </ButtonBox>

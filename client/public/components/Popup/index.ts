@@ -1,3 +1,5 @@
+'use client'
+
 import { createComponentWithProps } from '@public/utils/createComponent'
 import { PopupWrapper as Container } from './Popup'
 import { PopupArrow } from './PopupArrow'

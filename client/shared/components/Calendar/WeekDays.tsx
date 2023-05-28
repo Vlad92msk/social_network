@@ -1,6 +1,6 @@
 import { isSunday } from 'date-fns'
 import React from 'react'
-import { Text, TextSize } from 'src/components/Text'
+import { Text, TextSize } from 'app/(components)/Text'
 import { createDateFormat, DateFormats } from 'public/utils'
 import { cn } from './cn'
 import { createThisWeek } from './utils'

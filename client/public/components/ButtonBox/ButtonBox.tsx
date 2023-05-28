@@ -5,7 +5,7 @@ import { Box } from 'react-polymorphic-box'
 
 import { AS, BoxProps } from '@public/types/boxType'
 import { RefType } from '@public/types/refType'
-import { makeCn } from '@public/utils'
+import { classNames, makeCn } from '@public/utils'
 
 import styles from './ButtonBox.module.scss'
 
@@ -21,7 +21,7 @@ export const ButtonBox = <E extends AS = typeof DEFAULT_BUTTON_BOX>(props: BoxPr
   const { className, children, ...rest } = props
 
   return (
-    <Box type="button" className={classnames(cn(), className)} {...rest}>
+    <Box type="button" className={classNames(cn(), className)} {...rest}>
       {children}
     </Box>
   )

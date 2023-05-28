@@ -1,0 +1,9 @@
+@import "@public/styles";
+@import "../variables/index";
+
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

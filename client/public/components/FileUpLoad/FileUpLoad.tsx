@@ -12,7 +12,7 @@ import {
   useMaterialsAttach,
 } from '@public/hooks'
 import { IconName } from '@public/types/icon.model'
-import { makeCn } from '@public/utils'
+import { makeCn, classNames } from '@public/utils'
 import { Icon } from 'public/components/Icon'
 import styles from './FileUpLoad.module.scss'
 
@@ -74,7 +74,7 @@ export const FileUpLoad: React.FC<FileUpLoadProps> = (props) => {
   // @ts-ignore
   return (
     <>
-      <div className={classnames(cn(), className)}>
+      <div className={classNames(cn(), className)}>
         <label className={cn('AddFile', { disabled })} htmlFor={inputId}>
           <Icon icon={icon!} />
           <input

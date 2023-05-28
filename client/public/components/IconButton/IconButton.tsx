@@ -2,7 +2,7 @@ import { classnames } from '@bem-react/classnames'
 import { ButtonHTMLAttributes } from 'react'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon, IconProps } from '@public/components/Icon'
-import { makeCn, rem } from '@public/utils'
+import { makeCn, rem, classNames } from '@public/utils'
 import styles from './IconButton.module.scss'
 
 const cn = makeCn('IconButton', styles)
@@ -19,7 +19,7 @@ export const IconButton = (props: IconButtonProps) => {
   } = props
 
   return (
-    <ButtonBox className={classnames(cn(), className)} type={type} disabled={disabled}>
+    <ButtonBox className={classNames(cn(), className)} type={type} disabled={disabled}>
       <Icon
         className={classnames(cn('Icon'), iconClassName)}
         style={{ width: rem(width), height: rem(height) }}

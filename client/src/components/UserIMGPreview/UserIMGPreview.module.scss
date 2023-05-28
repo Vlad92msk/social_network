@@ -1,9 +1,0 @@
-@import "src/styles";
-
-
-.UserIMGPreview {
-  @include wh(rem(30), rem(30));
-  border: rem(3) solid var(--Color-Background-App);
-  border-radius: 50%;
-  overflow: hidden;
-}

@@ -1,4 +1,5 @@
 import { ClassNameList, withNaming } from '@bem-react/classname'
+import { ClassValue, clsx } from "clsx";
 
 export declare interface IStyles {
   [className: string]: string;
@@ -7,6 +8,10 @@ export declare interface IStyles {
 declare type ElemMixType = ClassNameList;
 
 const makeClassNameMaker = withNaming({ e: '-', m: '--', v: '_' })
+
+export function classNames(...inputs: ClassValue[]) {
+  return clsx(inputs)
+}
 
 export const makeCn = (scopeName: string, styles: IStyles) => {
   const makeClassName = makeClassNameMaker(scopeName)

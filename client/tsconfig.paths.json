@@ -5,7 +5,7 @@
       "@shared/*": ["shared/*"],
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
-      "@common": ["src/components/index.ts"],
+      "@common": ["app/(components)/"],
       "@modules/*": ["src/modules/*"],
       "@services/*": ["src/services/*"],
       "@my-apollo/*": ["src/apollo/*"]

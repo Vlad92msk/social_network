@@ -1,0 +1,66 @@
+@use 'sass:list' as list;
+@import "../../(styles)";
+
+
+@mixin variants($br: false) {
+  @each $name, $sizes in $text-sizes-adaptive {
+    $min: list.nth($sizes, 1);
+    $size: list.nth($sizes, 2);
+    $lh: list.nth($sizes, 3);
+
+    &_#{$name} {
+      @if($br) {
+        @if($br == 1600) {
+          @include media-1600 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 1440) {
+          @include media-1440 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 1200) {
+          @include media-1200 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 992) {
+          @include media-992 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 768) {
+          @include media-768 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 576) {
+          @include media-576 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+        @else if($br == 320) {
+          @include media-320 {
+            @include create-fontsize($min, $size, $lh);
+          }
+        }
+      } @else {
+        @include create-fontsize($min, $size, $lh);
+      }
+    }
+  }
+}
+
+
+.Text {
+  margin: 0;
+
+  //базовый шрифт
+  &--size { @include variants(); }
+
+  // шрифты по брейк-поинтам
+  @each $name, $br in $media {
+    &--#{$name} { @include variants($br); }
+  }
+}

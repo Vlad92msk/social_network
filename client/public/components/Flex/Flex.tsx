@@ -1,7 +1,7 @@
 import { classnames } from '@bem-react/classnames'
 import React, { HTMLAttributes } from 'react'
 import { RefType } from '@public/types/refType'
-import { makeCn, rem } from '@public/utils'
+import { makeCn, rem, classNames } from '@public/utils'
 import styles from './Flex.module.scss'
 
 const cn = makeCn('Flex', styles)
@@ -27,7 +27,7 @@ export const Flex = React.forwardRef((props: FieldRowProps, ref?: RefType<HTMLDi
   return (
     <div
       ref={ref}
-      className={classnames(cn(), className)}
+      className={classNames(cn(), className)}
       style={{
         ...style,
         alignItems: align,
