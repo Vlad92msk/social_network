@@ -1,6 +1,6 @@
 import { ApolloError } from '@apollo/client'
 import React from 'react'
-import { Loader } from 'app/(components)/Loader'
+import { Loader } from '../../../app/_components/Loader'
 
 interface ResponseApiType {
   status: boolean[]

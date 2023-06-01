@@ -1,7 +1,7 @@
 import { closestTo } from 'date-fns'
 import React, { useState } from 'react'
 import { DisplayControls } from '@shared/components/Calendar/types/display'
-import { TextSize } from 'app/(components)/Text'
+import { TextSize } from '../../../app/_components/Text'
 
 import { CellDay } from './CellDay'
 import { cn } from './cn'

@@ -2,7 +2,7 @@ import { size } from 'lodash'
 import React, { useCallback, useMemo } from 'react'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { makeCn, classNames } from '@public/utils'
-import { Text } from 'app/(components)/Text'
+import { Text } from '../../../app/_components/Text'
 import styles from './ShowMore.module.scss'
 
 const cn = makeCn('ShowMore', styles)

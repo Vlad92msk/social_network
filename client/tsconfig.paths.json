@@ -5,9 +5,10 @@
       "@shared/*": ["shared/*"],
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
-      "@common": ["app/(components)/"],
-      "@modules": ["app/(modules)/"],
-      "@services/*": ["app/(services)/*"],
+      "@common": ["app/_components/"],
+      "@modules": ["app/_modules/"],
+      "@styles": ["app/_styles/"],
+      "@services/*": ["app/_services/*"],
       "@my-apollo/*": ["src/apollo/*"]
     }
   }

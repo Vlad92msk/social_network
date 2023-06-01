@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Switch, SwitchOption, SwitchType } from '../../app/(components)'
+import { Switch, SwitchOption, SwitchType } from '../../app/_components'
 
 
 interface UseSwitcher<T> {

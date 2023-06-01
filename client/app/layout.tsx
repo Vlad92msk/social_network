@@ -1,9 +1,9 @@
-import React from 'react'
 import { App } from '@modules'
-import Apollo from './(services)/apollo/Apollo'
 import { getRequestStorage } from '@services/apollo/apolloUtils'
 import { ThemeService } from '@services/theme'
-import './(styles)/base.scss'
+import React from 'react'
+import Apollo from './_services/apollo/Apollo'
+import './_styles/base.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode}) {
   return (

@@ -1,6 +1,6 @@
-import { AlbumType } from '../../app/(modules)/Main/types/album'
-import { MediaItemType } from '../../app/(modules)/Main/types/mediaItem'
-import { MediaType } from '../../app/(modules)/Main/types/mediaType'
+import { AlbumType } from '../../app/_modules/Main/types/album'
+import { MediaItemType } from '../../app/_modules/Main/types/mediaItem'
+import { MediaType } from '../../app/_modules/Main/types/mediaType'
 
 export const PHOTOS: MediaItemType[] = [
   {
