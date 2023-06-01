@@ -6,8 +6,8 @@
       "@public/*": ["public/*"],
       "@pages/*": ["pages/*"],
       "@common": ["app/(components)/"],
-      "@modules/*": ["src/modules/*"],
-      "@services/*": ["src/services/*"],
+      "@modules": ["app/(modules)/"],
+      "@services/*": ["app/(services)/*"],
       "@my-apollo/*": ["src/apollo/*"]
     }
   }

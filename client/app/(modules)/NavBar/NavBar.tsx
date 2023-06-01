@@ -1,8 +1,7 @@
-
-import { makeCn, classNames } from '@public/utils'
+import React from 'react'
+import { makeCn } from '@public/utils'
 import { ButtonsList, Footer, Header } from './components'
 import styles from './NavBar.module.scss'
-import React from "react";
 
 const cn = makeCn('NavBar', styles)
 

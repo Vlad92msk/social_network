@@ -1,10 +1,11 @@
 import { classnames } from '@bem-react/classnames'
 import React, { PropsWithChildren } from 'react'
 import { PolymorphicComponentProps } from 'react-polymorphic-box'
-import { Text } from '../index'
+import { Text } from '@common'
 import { Icon } from '@public/components/Icon'
 import { IconName } from '@public/types/icon.model'
-import { makeCn, classNames } from '@public/utils'
+import { RefType } from '@public/types/refType'
+import { makeCn } from '@public/utils'
 import styles from './Field.module.scss'
 
 const cn = makeCn('Field', styles)
@@ -31,7 +32,7 @@ export type FieldProps<E extends React.ElementType> = PolymorphicComponentProps<
 
 const DEFAULT_ELEMENT = 'input'
 
-export const Field = React.forwardRef(<E extends React.ElementType = typeof DEFAULT_ELEMENT>(props: FieldProps<E>) => {
+export const Field = React.forwardRef(<E extends React.ElementType = typeof DEFAULT_ELEMENT>(props: FieldProps<E>, ref?: RefType<E>) => {
   const {
     className,
     style,
@@ -60,7 +61,10 @@ export const Field = React.forwardRef(<E extends React.ElementType = typeof DEFA
             />
           )}
         </Text>
-        {children}
+        {
+          // @ts-ignore
+          React.cloneElement(children, { ref })
+        }
       </label>
 
       {error && (

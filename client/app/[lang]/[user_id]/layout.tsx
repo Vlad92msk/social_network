@@ -1,16 +1,24 @@
 import React from 'react'
-import { Main } from '../../(modules)'
+import { Main } from '@modules'
 
-const UserLayout = ({ children, video, drawerBar, navBar }: { navBar: React.ReactNode, drawerBar: React.ReactNode, video: React.ReactNode, children: React.ReactNode}) => (
-  <>
-    {navBar}
-    <Main>
-      {video}
-      {children}
-    </Main>
-    {drawerBar}
-  </>
-)
+interface UserLayoutProps {
+    navBar: React.ReactNode
+    drawerBar: React.ReactNode
+    children: React.ReactNode
+}
+
+const UserLayout = (props: UserLayoutProps) => {
+  const { children, drawerBar, navBar, ...rest } = props
+  return (
+    <>
+      {navBar}
+      <Main>
+        {children}
+      </Main>
+      {drawerBar}
+    </>
+  )
+}
 
 
 export default UserLayout

@@ -1,5 +1,6 @@
 'use client'
-import { DrawerBar as DrawerBarComponent } from '../../../(modules)'
+
+import { DrawerBar as DrawerBarComponent } from '@modules'
 
 const DrawerBar = (props) => (
   <DrawerBarComponent />

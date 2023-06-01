@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Text } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
+import { useSetSearchParams } from '@public/hooks'
 import { IconName } from '@public/types/icon.model'
-import { makeCn, classNames } from '@public/utils'
+import { makeCn } from '@public/utils'
 import styles from '../NavBar.module.scss'
 
 const cn = makeCn('ButtonsList', styles)
@@ -50,16 +51,28 @@ const buttons: ButtonListItem[] = [
 ]
 
 export const ButtonsList = () => {
-  const [active, setActive] = useState(1)
+  const searchParams = useSearchParams()
+  const createQueryString = useSetSearchParams()
 
   return (
     <div className={cn()}>
-      {buttons.map(({ id, title, icon }) => (
-        <ButtonBox key={id} className={cn('Button', { active: id === active })} onClick={() => setActive(id)}>
-          <Icon className={cn('ButtonIcon')} icon={icon} />
-          <Text className={cn('ButtonText')}>{title}</Text>
-        </ButtonBox>
-      ))}
+      {buttons.map(({ id, title, icon }) => {
+        const isActive = searchParams.get('folder') === icon
+
+        return (
+          <ButtonBox
+            key={id}
+            as="a"
+            className={cn('Button', { active: isActive })}
+            onClick={() => {
+              createQueryString('folder', icon)
+            }}
+          >
+            <Icon className={cn('ButtonIcon')} icon={icon} />
+            <Text className={cn('ButtonText')}>{title}</Text>
+          </ButtonBox>
+        )
+      })}
     </div>
   )
 }

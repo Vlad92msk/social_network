@@ -2,11 +2,23 @@
 //   return await initializeApollo().query({ query: GetUserInfoDocument, variables: { id: 1 } })
 // }
 
-export default async function User(props) {
-  // const ferf = await getProjects()
+
+interface UserProps {
+  searchParams: any
+  params: any
+}
+
+export default async function User(props: UserProps) {
+  const { folder } = props.searchParams
+
+  console.log(folder)
+  if (folder === 'video') {
+    return (
+      <div>video</div>
+    )
+  }
+
   return (
-    <>
-      <div>1</div>
-    </>
+    <div>main</div>
   )
 }

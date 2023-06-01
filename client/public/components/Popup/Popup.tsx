@@ -13,7 +13,7 @@ export const {
   useContextSelector: usePopupSelect,
   useContextDispatch: usePopupUpdate,
 } = createStoreContext({
-  name: 'Popup',
+  // name: 'Popup',
   initialState,
 })
 
