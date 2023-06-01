@@ -1,7 +1,6 @@
-import { classnames } from '@bem-react/classnames'
-import { PropsWithChildren, useCallback } from 'react'
 import { IconCount, Section } from '@common'
-import { makeCn, classNames } from '@public/utils'
+import { PropsWithChildren, useCallback } from 'react'
+import { classNames, makeCn } from '@public/utils'
 import styles from '../Main.module.scss'
 import { MediaItemType } from '../types/mediaItem'
 

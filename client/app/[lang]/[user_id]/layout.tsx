@@ -1,5 +1,4 @@
 import React from 'react'
-import { Main } from '@modules'
 
 interface UserLayoutProps {
     navBar: React.ReactNode
@@ -12,9 +11,7 @@ const UserLayout = (props: UserLayoutProps) => {
   return (
     <>
       {navBar}
-      <Main>
-        {children}
-      </Main>
+      {children}
       {drawerBar}
     </>
   )
