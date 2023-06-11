@@ -1,10 +1,8 @@
-'use client'
-
 import React, { PropsWithChildren, ReactElement, useMemo } from 'react'
 import { Switch, SwitchOption, Text } from '@common'
 import { Icon } from '@public/components/Icon'
 import { classNames, createDateFormat, DateFormats, makeCn } from '@public/utils'
-import styles from '../Main.module.scss'
+import styles from './Photo.module.scss'
 
 const cn = makeCn('SectionContainer', styles)
 

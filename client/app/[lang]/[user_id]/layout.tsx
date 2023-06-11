@@ -1,18 +1,20 @@
 import React from 'react'
+import { DrawerBar as DrawerBarComponent, NavBar as NavBarComponents } from '@modules'
 
 interface UserLayoutProps {
-    navBar: React.ReactNode
-    drawerBar: React.ReactNode
     children: React.ReactNode
+    params: { lang: 'ru', user_id: string }
 }
 
-const UserLayout = (props: UserLayoutProps) => {
-  const { children, drawerBar, navBar, ...rest } = props
+
+const UserLayout = async (props: UserLayoutProps) => {
+  const { children, params } = props
+
   return (
     <>
-      {navBar}
+      <NavBarComponents />
       {children}
-      {drawerBar}
+      <DrawerBarComponent />
     </>
   )
 }

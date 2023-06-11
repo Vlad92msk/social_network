@@ -1,2 +1,2 @@
 export * from './Photo'
-export * from './Video'
+// export * from './Photo'

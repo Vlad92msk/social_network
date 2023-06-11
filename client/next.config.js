@@ -16,11 +16,11 @@ module.exports = {
     PORT: process.env.API_PORT,
     HOST: process.env.API_HOST,
   },
-  reactStrictMode: true,
-  swcMinify: true,
-  experimental:{
-    appDir: true
-  },
+  // reactStrictMode: true,
+  // swcMinify: true,
+  // experimental:{
+  //   appDir: true
+  // },
   // async redirects() {
   //   return [
   //     {

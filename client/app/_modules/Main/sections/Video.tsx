@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useState } from 'react'
 import { makeCn } from '@public/utils'
 import { ALBUMS, VIDEOS } from '../../../../src/data/mockVideos'
@@ -6,7 +8,7 @@ import styles from '../Main.module.scss'
 
 const cn = makeCn('Video', styles)
 
-export const Video = () => {
+const Video = () => {
   const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {
@@ -35,3 +37,5 @@ export const Video = () => {
     </SectionContainer>
   )
 }
+
+export default Video

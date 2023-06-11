@@ -17,6 +17,8 @@ export interface UsePortalProps {
 
 export const usePortal = (props: UsePortalProps) => {
   const { targetEl, options, open, children } = props
+
+  if (typeof window === 'undefined') return null
   const target = targetEl?.current || document.body
 
   // eslint-disable-next-line consistent-return

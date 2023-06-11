@@ -4,7 +4,9 @@ import { setContext } from '@apollo/client/link/context'
 import { onError } from '@apollo/client/link/error'
 import merge from 'deepmerge'
 import { isEqual } from 'lodash'
-import { getCookies } from '@public/utils'
+import { CookieEnum } from '@public/types/cookie'
+import { LocalStorageEnum } from '@public/types/localStorage'
+import { getCookie, getCookies, storageRemove } from '@public/utils'
 
 
 export const createApolloClient = () => {
@@ -53,6 +55,7 @@ const useAsyncLocalStorage = true
 // это внутренний метод NExtjs и не предоставлялся для использования разработчиками
 // используем пока есть возможнотсь
 const asyncStorage = useAsyncLocalStorage && typeof window === 'undefined'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
   ? require('next/dist/client/components/request-async-storage').requestAsyncStorage
   : {}
 
@@ -91,6 +94,9 @@ export const initializeApollo = (initialState?: NormalizedCacheObject) => {
 
     return _apolloClient
   }
+
+  // Чистит localStorage если пользователь вышел/не авторизирован
+  if (!getCookie(CookieEnum.TOKEN)) storageRemove(LocalStorageEnum.CURRENT_USER)
 
   // Если ApolloClient ещё не был создан, сохраняем наш созданный экземпляр для дальнейшего использования
   if (!apolloClient) apolloClient = _apolloClient

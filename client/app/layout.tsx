@@ -1,11 +1,18 @@
+import React from 'react'
 import { App } from '@modules'
 import { getRequestStorage } from '@services/apollo/apolloUtils'
 import { ThemeService } from '@services/theme'
-import React from 'react'
 import Apollo from './_services/apollo/Apollo'
 import './_styles/base.scss'
+// eslint-disable-next-line import/order
+import { DefaultObject } from '@public/types/defaultObject.model'
 
-export default async function RootLayout({ children }: { children: React.ReactNode}) {
+interface RootLayoutProps {
+    children: React.ReactNode
+    params: DefaultObject
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ru">
       <head />

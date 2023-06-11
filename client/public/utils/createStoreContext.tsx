@@ -101,6 +101,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
     const state = useSyncExternalStore(
       store.subscribe,
       () => selector(store.get()),
+      () => selector(store.get()), // this is getServerSnapshot which mirrors getSnapshot for SSR
     )
 
     return [state, store.set]
@@ -114,6 +115,7 @@ export function createStoreContext<Store>({ name, initialState }: Options<Store>
 
     return useSyncExternalStore(
       store.subscribe,
+      () => selector(store.get()),
       () => selector(store.get()),
     )
   }
