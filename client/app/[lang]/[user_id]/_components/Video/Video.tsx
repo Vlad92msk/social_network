@@ -8,7 +8,7 @@ import { Album, MediaItem, SectionContainer } from '.'
 
 const cn = makeCn('Video', styles)
 
-export default function Video() {
+export const Video = () => {
   const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {

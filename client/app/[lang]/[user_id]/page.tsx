@@ -3,12 +3,13 @@
 // }
 
 import { transform } from 'lodash'
+import { AuthOptions, getServerSession } from 'next-auth'
 import { ReactNode } from 'react'
 import { Main } from '@modules'
-import { fetcher } from '@public/utils/fetcher'
-import Photo from './_components/Photo/Photo'
-import Video from './_components/Video/Video'
+import { Photo } from './_components/Photo/Photo'
+import { Video } from './_components/Video/Video'
 import { NAV_LIST, NavListItem } from '../../../src/data/navigation'
+import { authConfig } from '../../_configs/auth'
 import { UserType } from '../../api/user/[id]/userss'
 
 interface NavListWithComponent extends NavListItem {
@@ -42,13 +43,14 @@ export interface UserProps {
   }
 }
 
-const getUser = async (id: string, params?: string[]): Promise<UserType> => fetcher(`http://localhost:3000/api/user/${id}`)
-
 const User = async (props: UserProps) => {
   const { folder } = props.searchParams
+  const session = await getServerSession<AuthOptions, {user: UserType}>(authConfig)
+  // console.log('session____', session?.user.privatePolicy)
+
 
   // const resUser = await getUser(props.params.user_id, ['progress'])
-  console.log('User')
+  // console.log('User')
   return (
     <Main>
       {navListWithComponent[folder]?.component || <div>main info</div>}

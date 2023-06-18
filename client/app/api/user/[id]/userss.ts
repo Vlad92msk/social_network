@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { v4 as uuidv4 } from 'uuid'
 
 
@@ -12,8 +13,8 @@ export enum RoleEnum {
      participant = 'participant',
  }
 
- type Uuid = string
- type ChatUuid = string
+type Uuid = string
+type ChatUuid = string
 
 export interface SocialEntity {
      friends: Uuid[]
@@ -43,24 +44,30 @@ export interface PersonalEntity {
 
 export interface ProgressEntity {
      id: string
-    uuid: Uuid
+     uuid: Uuid
      hobbies: string
      placeOfStudy: string
      employment: string
      workingLanguages: string
  }
 
+export type PrivatePolicy = {
+    blocked: {
+        friends: string[]
+    }
+}
 
 export type UserType = {
     id?: string
     uuid: Uuid
-    img?: string
+    image?: string
     name?: string
     status?: UserStatusEnum
     connect?: ConnectEntity
     personal?: PersonalEntity
     social?: SocialEntity
     progress?: ProgressEntity
+    privatePolicy?: PrivatePolicy
 }
 
 export const users: UserType[] = [
@@ -68,9 +75,14 @@ export const users: UserType[] = [
   {
     id: '1',
     uuid: uuidv4(),
-    img: 'image1.jpg',
+    image: 'image1.jpg',
     name: 'Ваше Имя',
     status: UserStatusEnum.ONLINE,
+    privatePolicy: {
+      blocked: {
+        friends: [uuidv4()],
+      },
+    },
     connect: {
       id: '1',
       email: 'youremail@example.com',

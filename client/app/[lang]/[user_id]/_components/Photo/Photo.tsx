@@ -8,7 +8,7 @@ import { Album, MediaItem, SectionContainer } from '.'
 
 const cn = makeCn('Photo', styles)
 
-export default function Photo() {
+export const Photo = () => {
   const [visibleType, setVisibleType] = useState<string>()
 
   const changeVisibleType = useCallback((value: string | number) => {

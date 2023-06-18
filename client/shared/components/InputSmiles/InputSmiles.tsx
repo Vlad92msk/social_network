@@ -4,12 +4,12 @@ import Picker from '@emoji-mart/react'
 import { PickerProps } from 'emoji-mart/dist-es'
 import React, { useCallback, useRef, useState } from 'react'
 
+import { Icon } from '@public/components/Icon'
 import { IconButton } from '@public/components/IconButton'
 import { Popup } from '@public/components/Popup'
 import { IconName } from '@public/types/icon.model'
 import { makeCn } from 'public/utils'
 import styles from './InputSmiles.module.scss'
-import { Icon } from "@public/components/Icon";
 
 
 const cn = makeCn('InputSmiles', styles)
@@ -47,25 +47,23 @@ export const InputSmiles: React.FC<InputSmilesProps> = React.memo((props) => {
   }, [textAreaRef, setText])
 
   return (
-    <>
-      <Popup
-        state={{
-          open: isOpenSmiles,
-          onClose: () => setOpenSmiles(false),
-          behavior: 'fixed',
-        }}
-      >
-        <Popup.Button>
-          <IconButton
-              icon={icon!}
-              onClick={() => setOpenSmiles((prev) => !prev)}
-          />
-        </Popup.Button>
-        <Popup.Content>
-          <Picker {...smilePickerProps} data={data} onEmojiSelect={console.log} onClick={handleAddEmoji} />
-        </Popup.Content>
-      </Popup>
-    </>
+    <Popup
+      state={{
+        open: isOpenSmiles,
+        onClose: () => setOpenSmiles(false),
+        behavior: 'fixed',
+      }}
+    >
+      <Popup.Button>
+        <IconButton
+          icon={icon!}
+          onClick={() => setOpenSmiles((prev) => !prev)}
+        />
+      </Popup.Button>
+      <Popup.Content>
+        <Picker {...smilePickerProps} data={data} onEmojiSelect={console.log} onClick={handleAddEmoji} />
+      </Popup.Content>
+    </Popup>
   )
 })
 

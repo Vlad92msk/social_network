@@ -1,5 +1,5 @@
 import React from 'react'
-import { DrawerBar as DrawerBarComponent, NavBar as NavBarComponents } from '@modules'
+import { DrawerBar, NavBar } from '@modules'
 
 interface UserLayoutProps {
     children: React.ReactNode
@@ -9,12 +9,11 @@ interface UserLayoutProps {
 
 const UserLayout = async (props: UserLayoutProps) => {
   const { children, params } = props
-
   return (
     <>
-      <NavBarComponents />
+      <NavBar />
       {children}
-      <DrawerBarComponent />
+      <DrawerBar />
     </>
   )
 }

@@ -1,0 +1,80 @@
+import { addMonths } from 'date-fns'
+import { cookies } from 'next/headers'
+import type { AuthOptions } from 'next-auth'
+import GoogleProvider from 'next-auth/providers/google'
+import { fetcher } from '@public/utils/fetcher'
+// import AppleProvider from 'next-auth/providers/apple'
+// import EmailProvider from 'next-auth/providers/email'
+// import FacebookProvider from 'next-auth/providers/facebook'
+
+
+export const authConfig: AuthOptions = {
+  pages: {
+    signIn: '/signin',
+  },
+  // это асинхронные функции, которые не возвращают ответ, они полезны для ведения журнала аудита.
+  events: {
+    // async signIn(message) { console.log('зашел', message) },
+    async signOut(message) {
+      cookies().set({
+        name: 'locale',
+        value: '',
+      })
+    },
+    async createUser(message) { /* user created */ },
+    async updateUser(message) { /* user updated - e.g. their email was verified */ },
+    async linkAccount(message) { /* account (e.g. Twitter) linked to a user */ },
+    async session(message) { /* session is active */ },
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      const findUser = await fetcher('http://localhost:3000/api/user/1')
+      const locale = cookies().get('locale')
+      session.user = { ...findUser, ...session.user, locale: locale?.value }
+
+      return session
+    },
+    async signIn({ user, account, profile }) {
+      // console.log('signIn')
+      // Получение токена доступа
+      // console.log('user', user)
+      // console.log('profile', profile)
+      // const accessToken = account?.accessToken
+      // console.log('account:', account)
+      // console.log('Access Token:', accessToken)
+
+      // Здесь наверно будет метод сохранения авторизационных данных на бэке
+      // тоесть будет метод signIn
+      // но так как авторизация подтверждена сторонными сервисами - ее просто сохраняем в базе
+      // const findUser = await fetcher('http://localhost:3000/api/user/1')
+
+      // Возвращаем true для продолжения авторизации
+      cookies().set({
+        name: 'locale',
+        // @ts-ignore
+        value: profile.locale,
+        expires: addMonths(new Date(), 1),
+        path: '/',
+      })
+      return true
+    },
+  },
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID as string,
+      clientSecret: process.env.GOOGLE_SECRET as string,
+    }),
+    // AppleProvider({
+    //   clientId: process.env.APPLE_ID,
+    //   clientSecret: process.env.APPLE_SECRET,
+    // }),
+    // FacebookProvider({
+    //   clientId: process.env.FACEBOOK_ID,
+    //   clientSecret: process.env.FACEBOOK_SECRET,
+    // }),
+    // EmailProvider({
+    //   server: process.env.MAIL_SERVER,
+    //   from: 'NextAuth.js <no-reply@example.com>',
+    // }),
+  ],
+}

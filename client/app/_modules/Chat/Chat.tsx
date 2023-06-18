@@ -1,6 +1,6 @@
-import { Form, FormController, InputArea, MenuList, Text } from '@common'
 import React, { useCallback } from 'react'
 import { UseFormReset } from 'react-hook-form'
+import { Form, FormController, InputArea, MenuList, Text } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { IconButton } from '@public/components/IconButton'
 import { createStoreContext, makeCn } from '@public/utils'
@@ -62,7 +62,7 @@ export const Chat = contextWrapper((props: ChatProps) => {
     reset()
   }, [update])
 
-  console.log('rerender')
+  // console.log('rerender')
 
   return (
     <div className={cn()}>

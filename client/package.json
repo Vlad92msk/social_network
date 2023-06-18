@@ -22,7 +22,8 @@
     "fast-average-color": "^9.1.1",
     "framer-motion": "^10.12.16",
     "lodash": "^4.17.21",
-    "next": "^13.4.4",
+    "next": "^13.4.6",
+    "next-auth": "^4.22.1",
     "observable-hooks": "^4.2.1",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -31,9 +32,9 @@
     "react-polymorphic-box": "^3.0.3",
     "rxjs": "^7.8.0",
     "swiper": "^6.8.4",
+    "swr": "2.1.5",
     "usehooks-ts": "^2.9.1",
-    "yup": "^0.32.11",
-    "swr": "2.1.5"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@bem-react/classname": "^1.5.8",

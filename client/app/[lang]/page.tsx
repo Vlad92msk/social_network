@@ -1,14 +1,18 @@
 import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { AuthOptions, getServerSession } from 'next-auth'
+import { authConfig } from '../_configs/auth'
+import { UserType } from '../api/user/[id]/userss'
 // Next.js 13
 
 
-const Home = (props) => {
-  const authHeader = headers().values()
-  console.log('authHeader', authHeader)
-  // console.log('props', props)
+const Home = async (props) => {
+  const session = await getServerSession<AuthOptions, {user: UserType}>(authConfig)
+  const currentUser = session?.user.uuid
+  const cookieStore = cookies()
+  const locale = cookieStore.get('locale')?.value || 'ru'
 
-  return redirect('/ru/1')
+  return currentUser ? redirect(`/${locale}/${currentUser}`) : redirect('/signin')
 }
 
 export default Home
