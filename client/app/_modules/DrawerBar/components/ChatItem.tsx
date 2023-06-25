@@ -1,22 +1,23 @@
 import { MenuList, Text, UserOlineForOf } from '@common'
 import { ButtonBox } from '@public/components/ButtonBox'
-import { makeCn, classNames } from '@public/utils'
+import { makeCn } from '@public/utils'
 import { Image } from '@shared/components/Image'
+import { ChatList } from '../../../api/chatList/chatList'
 import { useDrawerBarSelect } from '../DrawerBar'
 import styles from '../DrawerBar.module.scss'
-import { AddNewMessageUsers, ChatsItem } from './index'
+import { AddNewMessageUsers } from './index'
 
 const cn = makeCn('ChatItem', styles)
 
 interface ChatItem {
-  chats: ChatsItem
+  chats: ChatList
   onClickFriendItem: (friendId: number) => void
 }
 
 export const ChatItem = (props: ChatItem) => {
   const {
     chats: {
-      id, name, img, lastMessage,
+      id, name, image, lastMessage,
     },
     onClickFriendItem,
   } = props
@@ -30,7 +31,7 @@ export const ChatItem = (props: ChatItem) => {
       <div className={cn('UsersForOf')}>
         <Image
           withContainer
-          path={{ moduleName: 'users', folder: 'photo', img }}
+          path={{ moduleName: 'users', folder: 'photo', img: '1' }}
         />
         <UserOlineForOf totalCount={500} />
       </div>

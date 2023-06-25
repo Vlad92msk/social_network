@@ -1,13 +1,13 @@
 import { NextApiRequest } from 'next'
 import { NextResponse } from 'next/server'
-import { users } from './userss'
+import { allUsers } from '../allUsers'
 
 
 export async function GET(
   _req: NextApiRequest,
   { params }: { params: { id: string } },
 ) {
-  const findUser = params?.id ? users?.find(({ id }) => id === params.id) : null
+  const findUser = params?.id ? allUsers?.find(({ uuid }) => uuid === params.id) : null
   // @ts-ignore
   return NextResponse.json(findUser)
 }

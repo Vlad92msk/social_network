@@ -61,31 +61,9 @@ $DrawerBar--active: #{$DrawerBar}--active;
   }
 }
 
-.Header {
-  @include flex($align-items: center);
-  width: 100%;
-  padding: $padding-component;
-
-  border-radius: rem(10);
-  gap: rem(10);
-
-  &-PhotoBox {
-    @include wh(rem(50), rem(50));
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  &-AlertIcon {
-    margin-left: auto;
-    fill: var(--Color-Icon--grey);
-    width: rem(25);
-  }
-}
-
 .Search {
   overflow: hidden;
-  margin: 0 $padding-component;
+  margin: $padding-component;
   border-radius: rem(55);
   background: var(--Color-Bckground--dark);
   padding: rem(10);

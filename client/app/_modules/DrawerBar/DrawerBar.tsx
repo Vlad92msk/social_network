@@ -4,7 +4,7 @@ import React, { useCallback } from 'react'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
 import { createStoreContext, makeCn } from '@public/utils'
-import { Footer, FriendsList, Header, Search } from './components'
+import { Footer, FriendsList, Search } from './components'
 import { initialState } from './context/initialState'
 import styles from './DrawerBar.module.scss'
 
@@ -15,7 +15,6 @@ export const {
   useContextSelector: useDrawerBarSelect,
   useContextDispatch: useDrawerBarUpdate,
 } = createStoreContext({
-  name: 'DrawerBar',
   initialState,
 })
 
@@ -32,7 +31,6 @@ export const DrawerBar = contextWrapper(() => {
       <ButtonBox className={cn('Change')} onClick={changeToggle}>
         <Icon icon="arrow-left-sharp" />
       </ButtonBox>
-      <Header />
       <Search />
       <FriendsList />
       <Footer />

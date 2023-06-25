@@ -1,19 +1,19 @@
 import { useCallback } from 'react'
 import { IMGPreview, MenuList, Text, UserStatus, UserStatusEnum } from '@common'
-import { Chat } from '../../Chat'
+import { Chat } from '@modules'
 import { ButtonBox } from '@public/components/ButtonBox'
 import { Icon } from '@public/components/Icon'
 import { Modal } from '@public/components/Modal'
 import { useToggle } from '@public/hooks'
-import { makeCn, classNames } from '@public/utils'
-import { FriendsListItem } from './FriendsList'
+import { makeCn } from '@public/utils'
 import { MESSAGES } from '../../../../src/data/messages'
+import { FriendList } from '../../../api/friendList/friendList'
 import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('FriendItem', styles)
 
 interface FriendItem {
-  friend: FriendsListItem
+  friend: FriendList
 }
 
 export const FriendItem = (props: FriendItem) => {
@@ -21,8 +21,8 @@ export const FriendItem = (props: FriendItem) => {
     friend: {
       id,
       name,
-      img,
-      status,
+      image,
+      uuid,
       messageCount,
     },
   } = props
@@ -39,11 +39,11 @@ export const FriendItem = (props: FriendItem) => {
         className={cn()}
         onClick={handleClickFriend}
       >
-        <IMGPreview moduleName="users" folder="photo" img={img} />
+        <IMGPreview moduleName="allUsers" folder="photo" img="dd" />
         <div className={cn('TextContainer')}>
           <Text className={cn('FriendName')}>{name}</Text>
           <div className={cn('Main')}>
-            <UserStatus status={status} />
+            <UserStatus status={UserStatusEnum.ONLINE} />
             <div className={cn('MainContainer')}>
               <ButtonBox
                 className={cn('Message', { visible: Boolean(messageCount) })}
@@ -59,7 +59,7 @@ export const FriendItem = (props: FriendItem) => {
                 </Text>
               </ButtonBox>
               <Text
-                className={cn('LastTime', { visible: status === UserStatusEnum.OFFLINE })}
+                className={cn('LastTime', { visible: true })}
                 size="8"
               >
                 13:42

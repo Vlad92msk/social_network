@@ -2,7 +2,7 @@ import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { AuthOptions, getServerSession } from 'next-auth'
 import { authConfig } from '../_configs/auth'
-import { UserType } from '../api/user/[id]/userss'
+import { UserType } from '../api/user/allUsers'
 // Next.js 13
 
 

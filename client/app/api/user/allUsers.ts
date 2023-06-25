@@ -18,9 +18,10 @@ type ChatUuid = string
 
 export interface SocialEntity {
      friends: Uuid[]
-     chats: ChatUuid[]
-     subscribers: Uuid[]
+     privateChat: ChatUuid[]
+     groupChat: ChatUuid[]
      subscription: Uuid[]
+     subscribers: Uuid[]
  }
 
 export interface ConnectEntity {
@@ -70,7 +71,7 @@ export type UserType = {
     privatePolicy?: PrivatePolicy
 }
 
-export const users: UserType[] = [
+export const allUsers: UserType[] = [
   // Ваш профиль
   {
     id: '1',
@@ -80,7 +81,7 @@ export const users: UserType[] = [
     status: UserStatusEnum.ONLINE,
     privatePolicy: {
       blocked: {
-        friends: [uuidv4()],
+        friends: [],
       },
     },
     connect: {
@@ -102,7 +103,8 @@ export const users: UserType[] = [
     },
     social: {
       friends: [],
-      chats: [],
+      privateChat: [],
+      groupChat: [],
       subscribers: [],
       subscription: [],
     },
@@ -124,6 +126,11 @@ export const users: UserType[] = [
     img: `image${i + 2}.jpg`,
     name: `User ${i + 2}`,
     status: i % 2 === 0 ? UserStatusEnum.ONLINE : UserStatusEnum.OFFLINE,
+    privatePolicy: {
+      blocked: {
+        friends: [],
+      },
+    },
     connect: {
       id: (i + 2).toString(),
       email: `user${i + 2}@example.com`,
@@ -143,7 +150,8 @@ export const users: UserType[] = [
     },
     social: {
       friends: [],
-      chats: [],
+      privateChat: [],
+      groupChat: [],
       subscribers: [],
       subscription: [],
     },
@@ -160,19 +168,31 @@ export const users: UserType[] = [
 
 // Добавляем друзей для первого пользователя
 for (let i = 1; i < 6; i++) {
-  users[0].social?.friends.push(users[i].uuid)
-  users[i].social?.friends.push(users[0].uuid)
+  allUsers[0].social?.friends.push(allUsers[i].uuid)
+  allUsers[i].social?.friends.push(allUsers[0].uuid)
 }
 
-// Добавляем чаты для первого пользователя
-for (let i = 1; i < 6; i++) {
+// Добавляем UUID для приватных чатов в профили пользователей
+for (let i = 1; i < 11; i++) {
   const chatUuid = uuidv4()
-  users[0].social?.chats.push(chatUuid)
-  users[i].social?.chats.push(chatUuid)
+  allUsers[0].social?.privateChat.push(chatUuid)
+  allUsers[i].social?.privateChat.push(chatUuid)
 }
 
 // Добавляем подписчиков и подписки для первого пользователя
 for (let i = 6; i < 11; i++) {
-  users[0].social?.subscribers.push(users[i].uuid)
-  users[0].social?.subscription.push(users[i].uuid)
+  allUsers[0].social?.subscribers.push(allUsers[i].uuid)
+  allUsers[0].social?.subscription.push(allUsers[i].uuid)
+}
+
+// Добавляем блокированных пользователей для первого пользователя
+for (let i = 11; i < 16; i++) {
+  allUsers[0].privatePolicy?.blocked.friends.push(allUsers[i].uuid)
+}
+
+// Создаем UUID для групповых чатов и добавляем их в профили пользователей
+for (let i = 1; i < 11; i++) {
+  const chatUuid = uuidv4()
+  allUsers[0].social?.groupChat.push(chatUuid)
+  allUsers[i].social?.groupChat.push(chatUuid)
 }

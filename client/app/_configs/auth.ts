@@ -3,6 +3,7 @@ import { cookies } from 'next/headers'
 import type { AuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import { fetcher } from '@public/utils/fetcher'
+import { allUsers } from '../api/user/allUsers'
 // import AppleProvider from 'next-auth/providers/apple'
 // import EmailProvider from 'next-auth/providers/email'
 // import FacebookProvider from 'next-auth/providers/facebook'
@@ -28,7 +29,12 @@ export const authConfig: AuthOptions = {
   },
   callbacks: {
     async session({ session, token, user }) {
-      const findUser = await fetcher('http://localhost:3000/api/user/1')
+      /**
+       * TODO: временно пока не будет реального метода
+       */
+      // @ts-ignore
+      const { uuid } = allUsers.find(({ id }) => id === '1')
+      const findUser = await fetcher(`http://localhost:3000/api/user/${uuid}`)
       const locale = cookies().get('locale')
       session.user = { ...findUser, ...session.user, locale: locale?.value }
 

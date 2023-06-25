@@ -1,5 +1,5 @@
 import { Text, UserIMGPreview } from '@common'
-import { makeCn, classNames } from '@public/utils'
+import { makeCn } from '@public/utils'
 import styles from '../DrawerBar.module.scss'
 
 const cn = makeCn('AddNewMessageUsers', styles)
@@ -17,8 +17,8 @@ export const AddNewMessageUsers = (props: AddNewMessageUsersProps) => {
       <span className={cn('UsersPlus')}>
         <Text size="10">{`${addCount > 99 ? '+99' : `+${addCount}`}`}</Text>
       </span>
-      <UserIMGPreview moduleName="users" folder="photo" img="1" />
-      <UserIMGPreview moduleName="users" folder="photo" img="1" />
+      <UserIMGPreview moduleName="allUsers" folder="photo" img="1" />
+      <UserIMGPreview moduleName="allUsers" folder="photo" img="1" />
     </div>
   )
 }

@@ -3,17 +3,21 @@
 // }
 
 import { transform } from 'lodash'
-import { AuthOptions, getServerSession } from 'next-auth'
 import { ReactNode } from 'react'
-import { Main } from '@modules'
+import { Main, NotAvailablePage } from '@modules'
 import { Photo } from './_components/Photo/Photo'
 import { Video } from './_components/Video/Video'
 import { NAV_LIST, NavListItem } from '../../../src/data/navigation'
-import { authConfig } from '../../_configs/auth'
-import { UserType } from '../../api/user/[id]/userss'
+import { authGuardServer } from '../../_utils/authGuardServer'
 
 interface NavListWithComponent extends NavListItem {
   component: ReactNode
+}
+
+export interface UserPageUrlParams {
+  lang: 'ru',
+  user_id: string
+  searchParams: Record<string, any>
 }
 
 
@@ -36,21 +40,14 @@ export interface UserProps {
   searchParams: {
     folder: keyof typeof NAV_LIST
   }
-  params: {
-    lang: 'ru',
-    user_id: string
-    searchParams: Record<string, any>
-  }
+  params: UserPageUrlParams
 }
 
 const User = async (props: UserProps) => {
   const { folder } = props.searchParams
-  const session = await getServerSession<AuthOptions, {user: UserType}>(authConfig)
-  // console.log('session____', session?.user.privatePolicy)
+  const available = await authGuardServer({ ...props.params })
 
-
-  // const resUser = await getUser(props.params.user_id, ['progress'])
-  // console.log('User')
+  if (!available) return <NotAvailablePage />
   return (
     <Main>
       {navListWithComponent[folder]?.component || <div>main info</div>}

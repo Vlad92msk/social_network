@@ -11,7 +11,7 @@ const cn = makeCn('Header', styles)
 export const Header = () => {
   const session = useSession()
 
-  // console.log('header session', session)
+  console.log('header session', session)
 
   if (session.status === 'loading') return <Loader />
 
