@@ -1,6 +1,6 @@
-import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { AuthOptions, getServerSession } from 'next-auth'
+import { useLocale } from 'next-intl'
 import { authConfig } from './_configs/auth'
 import { UserType } from './api/user/allUsers'
 // Next.js 13
@@ -9,8 +9,7 @@ import { UserType } from './api/user/allUsers'
 const Home = async (props) => {
   const session = await getServerSession<AuthOptions, {user: UserType}>(authConfig)
   const currentUser = session?.user.uuid
-  const cookieStore = cookies()
-  const locale = cookieStore.get('locale')?.value || 'ru'
+  const locale = useLocale()
 
   return currentUser ? redirect(`/${locale}/${currentUser}`) : redirect('/signin')
 }

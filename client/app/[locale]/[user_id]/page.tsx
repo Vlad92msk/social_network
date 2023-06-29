@@ -15,7 +15,7 @@ interface NavListWithComponent extends NavListItem {
 }
 
 export interface UserPageUrlParams {
-  lang: 'ru',
+  locale: 'ru',
   user_id: string
   searchParams: Record<string, any>
 }

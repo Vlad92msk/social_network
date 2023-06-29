@@ -1,5 +1,5 @@
 import { AuthOptions, getServerSession } from 'next-auth'
-import { UserPageUrlParams } from '../[lang]/[user_id]/page'
+import { UserPageUrlParams } from '../[locale]/[user_id]/page'
 import { authConfig } from '../_configs/auth'
 import { UserType } from '../api/user/allUsers'
 

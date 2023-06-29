@@ -6,8 +6,15 @@ const {
   PHASE_PRODUCTION_BUILD,
 } = require('next/constants')
 
+const withNextIntl = require('next-intl/plugin')(
+    // This is the default (also the `src` folder is supported out of the box)
+    './i18n.ts'
+);
+
+
+
 /** @type {import('next').NextConfig} */
-module.exports = (phase) => {
+module.exports = withNextIntl(((phase) => {
   // при запуске в режиме разработки `next dev` или `npm run dev` независимо от значения переменной среды STAGING
   const isDev = phase === PHASE_DEVELOPMENT_SERVER
   // когда используется «следующая сборка» или «npm run build
@@ -71,4 +78,4 @@ module.exports = (phase) => {
     //   ]
     // },
   }
-}
+})())

@@ -17,7 +17,7 @@ interface ChatItem {
 export const ChatItem = (props: ChatItem) => {
   const {
     chats: {
-      id, name, image, lastMessage,
+      id, name, image, lastMessage, users,
     },
     onClickFriendItem,
   } = props
@@ -33,7 +33,7 @@ export const ChatItem = (props: ChatItem) => {
           withContainer
           path={{ moduleName: 'users', folder: 'photo', img: '1' }}
         />
-        <UserOlineForOf totalCount={500} />
+        <UserOlineForOf totalCount={users.length} />
       </div>
       {active && (
       <div className={cn('TextContainerMain')}>

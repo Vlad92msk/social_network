@@ -8,15 +8,32 @@ import './_styles/base.scss'
 import { DefaultObject } from '@public/types/defaultObject.model'
 // eslint-disable-next-line import/order
 import { cookies } from 'next/headers'
+// eslint-disable-next-line import/order
+import { createTranslator, useLocale } from 'next-intl'
 
 interface RootLayoutProps {
     children: React.ReactNode
     params: DefaultObject
 }
 
-export default async function RootLayout({ children, params }: RootLayoutProps) {
+
+export async function generateMetadata() {
   const cookieStore = cookies()
   const locale = cookieStore.get('locale')?.value || 'ru'
+  const messages = (await import(`../translations/${locale}.json`))
+    .default
+
+  const t = createTranslator({ locale, messages })
+
+
+  return {
+    title: t('Metadata.title'),
+  }
+}
+
+
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const locale = useLocale()
 
   return (
     <html lang={locale}>

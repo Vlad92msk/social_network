@@ -155,7 +155,7 @@ export type IconName =
   | 'postgresql'
   | 'projects-button'
   | 'cosmo-button'
-  | 'sign-in'
+  // | 'sign-in'
   | 'settings-2'
   | 'info-2'
   | 'friends'

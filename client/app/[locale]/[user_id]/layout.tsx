@@ -31,7 +31,7 @@ const getPrivatChatList = async () => {
 
 interface UserLayoutProps {
     children: React.ReactNode
-    params: { lang: 'ru', user_id: string }
+    params: { locale: 'ru', user_id: string }
 }
 
 const UserLayout = async (props: UserLayoutProps) => {

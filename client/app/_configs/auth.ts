@@ -1,4 +1,3 @@
-import { addMonths } from 'date-fns'
 import { cookies } from 'next/headers'
 import type { AuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
@@ -16,16 +15,11 @@ export const authConfig: AuthOptions = {
   // это асинхронные функции, которые не возвращают ответ, они полезны для ведения журнала аудита.
   events: {
     // async signIn(message) { console.log('зашел', message) },
-    async signOut(message) {
-      cookies().set({
-        name: 'locale',
-        value: '',
-      })
-    },
-    async createUser(message) { /* user created */ },
-    async updateUser(message) { /* user updated - e.g. their email was verified */ },
-    async linkAccount(message) { /* account (e.g. Twitter) linked to a user */ },
-    async session(message) { /* session is active */ },
+    // async signOut(message) {},
+    // async createUser(message) { /* user created */ },
+    // async updateUser(message) { /* user updated - e.g. their email was verified */ },
+    // async linkAccount(message) { /* account (e.g. Twitter) linked to a user */ },
+    // async session(message) { /* session is active */ },
   },
   callbacks: {
     async session({ session, token, user }) {
@@ -33,10 +27,9 @@ export const authConfig: AuthOptions = {
        * TODO: временно пока не будет реального метода
        */
       // @ts-ignore
-      const { uuid } = allUsers.find(({ id }) => id === '1')
-      const findUser = await fetcher(`http://localhost:3000/api/user/${uuid}`)
-      const locale = cookies().get('locale')
-      session.user = { ...findUser, ...session.user, locale: locale?.value }
+      const findUser = allUsers.find(({ id }) => id === '1')
+      // const findUser = await fetcher(`http://localhost:3000/api/user/${uuid}`)
+      session.user = { ...findUser, ...session.user }
 
       return session
     },
@@ -55,13 +48,6 @@ export const authConfig: AuthOptions = {
       // const findUser = await fetcher('http://localhost:3000/api/user/1')
 
       // Возвращаем true для продолжения авторизации
-      cookies().set({
-        name: 'locale',
-        // @ts-ignore
-        value: profile.locale,
-        expires: addMonths(new Date(), 1),
-        path: '/',
-      })
       return true
     },
   },

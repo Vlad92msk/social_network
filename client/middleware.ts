@@ -1,24 +1,28 @@
+import { NextRequest } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
+import createIntlMiddleware from 'next-intl/middleware'
 
-export default withAuth(
-  // `withAuth` augments your `Request` with the user's token.
-  (req) => {
-    // console.log('req______', req.nextauth.token)
-    // console.log('withAuth cookies', req.cookies)
-    // console.log('withAuth nextauth', req.nextauth)
-    // return true
-  },
+export const locales = ['en', 'ru']
+
+
+const intlMiddleware = createIntlMiddleware({
+  locales,
+  defaultLocale: 'ru',
+})
+
+const authMiddleware = withAuth(
+  // (req) => {},
   {
     callbacks: {
-      authorized: (data) => {
-        const autorisation = data.token
-        // console.log('autorisation', autorisation)
-
-        return Boolean(data.token)
-      },
+      authorized: (data) => Boolean(data.token),
     },
   },
 )
+
+
+export default function middleware(req: NextRequest) {
+  return (authMiddleware as any)(req)
+}
 
 export const config = {
   matcher: '/:lang(ru|en)/:path*',
