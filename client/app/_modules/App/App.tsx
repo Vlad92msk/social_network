@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { makeCn, classNames } from '@public/utils'
+import { makeCn } from '@public/utils'
 import styles from './App.module.scss'
 
 const cn = makeCn('Application', styles)

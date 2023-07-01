@@ -7,9 +7,9 @@ import './_styles/base.scss'
 // eslint-disable-next-line import/order
 import { DefaultObject } from '@public/types/defaultObject.model'
 // eslint-disable-next-line import/order
-import { cookies } from 'next/headers'
-// eslint-disable-next-line import/order
-import { createTranslator, useLocale } from 'next-intl'
+import { getLocale } from './_utils/getLocale'
+import { getTranslate } from './_utils/getTranslate'
+import { Translation } from '@services/translation'
 
 interface RootLayoutProps {
     children: React.ReactNode
@@ -18,14 +18,7 @@ interface RootLayoutProps {
 
 
 export async function generateMetadata() {
-  const cookieStore = cookies()
-  const locale = cookieStore.get('locale')?.value || 'ru'
-  const messages = (await import(`../translations/${locale}.json`))
-    .default
-
-  const t = createTranslator({ locale, messages })
-
-
+  const t = await getTranslate()
   return {
     title: t('Metadata.title'),
   }
@@ -33,19 +26,21 @@ export async function generateMetadata() {
 
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
-  const locale = useLocale()
+  const locale = getLocale()
 
   return (
     <html lang={locale}>
       <head />
       <body>
-        <Apollo apolloState={getRequestStorage().apolloState}>
-          <ThemeService>
-            <App>
-              {children}
-            </App>
-          </ThemeService>
-        </Apollo>
+        <App>
+          <Apollo apolloState={getRequestStorage().apolloState}>
+            <ThemeService>
+              <Translation>
+                {children}
+              </Translation>
+            </ThemeService>
+          </Apollo>
+        </App>
       </body>
     </html>
   )

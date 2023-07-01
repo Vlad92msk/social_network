@@ -1,14 +1,9 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
-import createIntlMiddleware from 'next-intl/middleware'
 
 export const locales = ['en', 'ru']
+export const DEFAULT_LOCALE = 'ru'
 
-
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  defaultLocale: 'ru',
-})
 
 const authMiddleware = withAuth(
   // (req) => {},

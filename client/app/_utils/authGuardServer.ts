@@ -1,15 +1,13 @@
-import { AuthOptions, getServerSession } from 'next-auth'
+import { getUser } from './getUser'
 import { UserPageUrlParams } from '../[locale]/[user_id]/page'
-import { authConfig } from '../_configs/auth'
-import { UserType } from '../api/user/allUsers'
 
 type AuthGuardProps = UserPageUrlParams
 
 export const authGuardServer = async (props: AuthGuardProps) => {
   const { user_id } = props
-  const session = await getServerSession<AuthOptions, {user: UserType}>(authConfig)
+  const user = await getUser()
 
-  const blocked = session?.user.privatePolicy?.blocked
+  const blocked = user?.privatePolicy?.blocked
   const blockedFriends = blocked?.friends
   return !blockedFriends?.includes(user_id)
 }
